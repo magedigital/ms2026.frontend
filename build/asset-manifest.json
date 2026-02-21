@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.70e70c13.css",
+    "main.js": "/static/js/main.7a6b87f8.js",
+    "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.991468dd4e43f260e6a4.ttf",
+    "static/media/sok-image.png": "/static/media/sok-image.83453424a81d513b0f11.png",
+    "static/media/Regular.ttf": "/static/media/Regular.e0e4d3ce947620b00ed5.ttf",
+    "static/media/big-money.svg": "/static/media/big-money.5eb49c8d5762e66ba5c7.svg",
+    "static/media/ms-slogan-2.svg": "/static/media/ms-slogan-2.2a80119334d97d3a5ed530de7ed0be79.svg",
+    "static/media/zagl-back.svg": "/static/media/zagl-back.736232b6159659bddefc.svg",
+    "static/media/ms-slogan.svg": "/static/media/ms-slogan.c4f74927bf8a2eaf6908e3dc99ed4bbe.svg",
+    "static/media/zagl-back-mob.svg": "/static/media/zagl-back-mob.b0d5b9ed955118a30fc8.svg",
+    "static/media/date-frame.svg": "/static/media/date-frame.bb1236408ef43945435f.svg",
+    "static/media/logo-ms.svg": "/static/media/logo-ms.956f5dc9fa0d1753bfcb865097bb6fee.svg",
+    "static/media/counter-back.svg": "/static/media/counter-back.c7ac784b8f5bab74f902.svg",
+    "static/media/counter-back-mob.svg": "/static/media/counter-back-mob.790ef71ab712ab4a670e.svg",
+    "index.html": "/index.html",
+    "static/media/zagl-footer-mob.svg": "/static/media/zagl-footer-mob.0031ef9f24835e066c86.svg",
+    "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg",
+    "main.70e70c13.css.map": "/static/css/main.70e70c13.css.map",
+    "main.7a6b87f8.js.map": "/static/js/main.7a6b87f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70e70c13.css",
+    "static/js/main.7a6b87f8.js"
+  ]
+}
