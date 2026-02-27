@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.70e70c13.css",
-    "main.js": "/static/js/main.7a6b87f8.js",
+    "main.js": "/static/js/main.f95ed9cd.js",
     "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.991468dd4e43f260e6a4.ttf",
+    "static/media/rules.pdf": "/static/media/rules.f1ba36b94e200557cbcc.pdf",
     "static/media/sok-image.png": "/static/media/sok-image.83453424a81d513b0f11.png",
     "static/media/Regular.ttf": "/static/media/Regular.e0e4d3ce947620b00ed5.ttf",
     "static/media/big-money.svg": "/static/media/big-money.5eb49c8d5762e66ba5c7.svg",
@@ -18,10 +19,10 @@
     "static/media/zagl-footer-mob.svg": "/static/media/zagl-footer-mob.0031ef9f24835e066c86.svg",
     "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg",
     "main.70e70c13.css.map": "/static/css/main.70e70c13.css.map",
-    "main.7a6b87f8.js.map": "/static/js/main.7a6b87f8.js.map"
+    "main.f95ed9cd.js.map": "/static/js/main.f95ed9cd.js.map"
   },
   "entrypoints": [
     "static/css/main.70e70c13.css",
-    "static/js/main.7a6b87f8.js"
+    "static/js/main.f95ed9cd.js"
   ]
 }

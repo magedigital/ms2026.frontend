@@ -25,7 +25,14 @@ const renderContent: I['renderContent'] = function () {
                     А ЕЩЁ - ДЕНЬГИ НА ИПОТЕЧНЫЙ ПЛАТЕЖ КАЖДУЮ НЕДЕЛЮ<span>2</span>
                 </p>
             </div>
-            <div className="zagl__contentButton _CLICK _ROW _ROW_CENTER">правила акции</div>
+            <a
+                href={require('@media/rules.pdf')}
+                rel="noreferrer"
+                target="_blank"
+                className="zagl__contentButton _CLICK _ROW _ROW_CENTER"
+            >
+                правила акции
+            </a>
         </div>
     );
 };
