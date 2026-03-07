@@ -1,9 +1,9 @@
-import EditorI from '@components/editor/types';
+import PageI from '@components/page/types';
 
 type PropsT = {};
 
 type StateT = {};
 
-interface IndexI extends EditorI<PropsT, StateT> {}
+interface IndexI extends PageI<PropsT, StateT> {}
 
 export default IndexI;

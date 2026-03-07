@@ -1,6 +1,11 @@
 .input {
     position: relative;
 
+    &._formField {
+        background: #fff;
+        border-radius: 14rem;
+    }
+
     &__field,
     &__support {
         display: flex;
@@ -30,16 +35,35 @@
         pointer-events: visible;
     }
 
-    &._select &__icon {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        z-index: 2;
-        width: 12rem;
-        height: 12rem;
-        transform: translate(0, -50%);
-        opacity: 0.64;
+    &._subMode &__field,
+    &._subMode &__support {
+        padding: 10rem 10rem 10rem 42rem;
+        color: var(--sub-color);
+        font-weight: 600;
+        font-size: 16rem;
+        font-family: Onest;
 
-        @include icon(#fff);
+        @include mob {
+            padding: 10rem 16rem 10rem 52rem;
+            font-size: 18rem;
+        }
+    }
+
+    &._formField &__field,
+    &._formField &__support {
+        padding: 14rem 16rem;
+        color: var(--sub-color);
+        font-weight: 600;
+        font-size: 16rem;
+        font-family: Onest;
+
+        @include mob {
+            padding: 10rem 16rem 10rem 52rem;
+            font-size: 18rem;
+        }
+    }
+
+    &._formField &__support {
+        color: rgba(#5c0f8b, 0.6);
     }
 }

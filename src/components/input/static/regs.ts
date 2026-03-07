@@ -1,6 +1,6 @@
 import { ddChar } from '../../../services/date/types';
 
-const regs = {
+export const inputRegs = {
     any: {
         template: '',
         emptyChar: '_',
@@ -45,7 +45,5 @@ type RegsT = {
         chars: readonly string[];
     };
 };
-
-export default regs;
 
 export type { RegsT };

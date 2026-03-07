@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Default from '@components/default/Default.tsx';
-import { s } from '@functions/seo.ts';
 import { StoreT, WithStore } from '@store/store.tsx';
 
 import checkChange from './methods/checkChange.ts';
@@ -13,6 +12,7 @@ import setHref from './methods/setHref.ts';
 import LinkI from './types.ts';
 
 import { AppRouter } from '../../index.tsx';
+import { s } from '../../utils/seo.ts';
 
 class Link extends Default<LinkI['props'], LinkI['state']> implements LinkI {
     parent: LinkI['parent'];

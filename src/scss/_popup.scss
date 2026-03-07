@@ -1,0 +1,108 @@
+.popup {
+    &:not(._withIds) {
+        padding: 32rem;
+
+        @include mob {
+            padding: 24rem 16rem;
+        }
+    }
+
+    &__wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: inline-flex;
+        padding: 32rem;
+        overflow: hidden;
+        overflow-y: auto;
+
+        @include mob {
+            padding: 24rem 16rem;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        margin: auto;
+        background: #fff;
+        border-radius: 24rem;
+        transition: $trans;
+
+        @include mob {
+            width: 100%;
+            max-width: 400rem;
+        }
+
+        &Box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 32rem 40rem;
+            transition: $trans;
+
+            &._empty {
+                padding: 0 !important;
+            }
+
+            &._loading {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            @include mob {
+                padding: 20rem 16rem;
+            }
+        }
+    }
+
+    &._loading &__innerBox {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &._chequePopup &__inner {
+        width: 500rem;
+
+        // height: 200rem;
+        background: #8ec046;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        z-index: 2;
+        width: 48rem;
+        height: 48rem;
+        margin-left: 12rem;
+        padding: 15rem;
+        background: var(--back-color);
+        border-radius: 50%;
+
+        @include icon(#fff);
+        @include button(0.95);
+    }
+
+    &__blocks,
+    &__block {
+        width: 100%;
+    }
+
+    &__block {
+        top: 50%;
+        transform: translate(0, -50%);
+
+        &:not([data-show])[data-prev] {
+            transform: translate(-32rem, -50%);
+        }
+
+        &:not([data-show])[data-next] {
+            transform: translate(32rem, -50%);
+        }
+    }
+}

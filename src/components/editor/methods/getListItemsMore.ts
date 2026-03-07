@@ -1,6 +1,6 @@
-import setAsyncTimer from '@functions/setAsyncTimer.ts';
-
 import I from '../types.ts';
+
+import setAsyncTimer from '../../../utils/setAsyncTimer.ts';
 
 const getListItemsMore: I['getListItemsMore'] = async function () {
     if (!this.getListItems) {

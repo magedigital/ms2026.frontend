@@ -1,8 +1,7 @@
-import removeTransition from '@functions/removeTransition.ts';
-
 import I from '../types.ts';
 
 import { appStore } from '../../../store/store.tsx';
+import removeTransition from '../../../utils/removeTransition.ts';
 
 window.mediaM = 700;
 

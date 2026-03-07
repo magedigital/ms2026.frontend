@@ -4,7 +4,8 @@ import I from '../types.ts';
 
 const renderItem: I['renderItem'] = function ({ item }) {
     const id = item._id;
-    const { items, itemClass = '', allItems, currentItem, render } = this.props;
+    const { items: stateItems } = this.state;
+    const { items, itemClass = '', render, getItemClass } = this.props;
 
     const index = this.indexes[id];
     const isFirst = index === 0;
@@ -23,7 +24,7 @@ const renderItem: I['renderItem'] = function ({ item }) {
         isFirst,
         isLast,
         index,
-        items,
+        items: stateItems,
     };
     const renderInfo = render({ ...renderProps });
     const style = renderInfo.style;
@@ -35,22 +36,16 @@ const renderItem: I['renderItem'] = function ({ item }) {
         ...(isLast ? ['_last'] : []),
         ...(isShow ? ['_show'] : []),
         ...(propsClass ? [propsClass] : []),
+        ...(getItemClass ? [getItemClass({ item })] : []),
     ];
 
-    const itemIndex = allItems ? allItems.indexOf(id) : undefined;
-
-    if (allItems) {
-        if (itemIndex === this.currentIndex) {
-            const currentIndex = allItems.indexOf(currentItem!);
-            
-            classes.push(itemIndex! < currentIndex! ? '_prev' : '_next');
-        } else {
-            classes.push(itemIndex! < this.currentIndex! ? '_prev' : '_next');
-        }
-    }
-
     return (
-        <div className={`list__item ${classes.join(' ')}`} data-id={id} key={id} style={style}>
+        <div
+            className={this.getClass('list__item', ...classes)}
+            data-id={id}
+            key={id}
+            style={style}
+        >
             {renderInfo.item}
         </div>
     );

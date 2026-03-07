@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { s } from '@functions/seo.ts';
-
 import LoaderI from './types.ts';
 
+import { s } from '../../utils/seo.ts';
 import items from './static/items.ts';
 
 class Loader extends React.Component<LoaderI['props']> implements LoaderI {

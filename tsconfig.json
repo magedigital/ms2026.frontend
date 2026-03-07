@@ -39,8 +39,8 @@
             "@static/*": [
                 "./src/static/*"
             ],
-            "@functions/*": [
-                "./src/functions/*"
+            "@utils/*": [
+                "./src/utils/*"
             ],
             "@components/*": [
                 "./src/components/*"
@@ -59,6 +59,9 @@
             ],
             "@store/*": [
                 "./src/store/*"
+            ],
+            "@plugins/*": [
+                "./src/plugins/*"
             ]
         }
     }

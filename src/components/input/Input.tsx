@@ -18,8 +18,6 @@ import setCursorPositions from './methods/setCursorPositions.ts';
 
 import InputI from './types.ts';
 
-import regs from './static/regs.ts';
-
 class Input extends Default<InputI['props'], InputI['state']> implements InputI {
     parent: InputI['parent'];
     input: InputI['input'];
@@ -33,7 +31,6 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
         this.input = React.createRef();
     }
 
-    regs = regs;
     changingProps = ['reg' as const];
 
     changeHandler = changeHandler;

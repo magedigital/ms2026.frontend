@@ -6,6 +6,7 @@ import React from 'react';
 import UserT from '@global/models/User';
 
 import { PageNamesT } from '../services/router/static/pages';
+import { PopupsReducersT, PopupsT, createPopupsStore } from './popups';
 
 type StorePagesT = {
     isShow: boolean;
@@ -21,7 +22,9 @@ type StoreT = {
     user?: UserT;
     isRootInit: boolean;
     isWindowLoad: boolean;
-};
+    isCookiesShow: boolean;
+    currentPopup?: keyof PopupsT;
+} & PopupsT;
 
 type ReducersT = {
     setDevice: (device: StoreT['device']) => void;
@@ -30,7 +33,8 @@ type ReducersT = {
     setPagesIds: (pagesIds: StoreT['pagesIds']) => void;
     rootInit: () => void;
     windowLoad: () => void;
-};
+    setCookiesState: (s: boolean) => void;
+} & PopupsReducersT;
 
 const appStore = create<StoreT & ReducersT>((set) => ({
     device: 'desktop',
@@ -45,6 +49,15 @@ const appStore = create<StoreT & ReducersT>((set) => ({
     rootInit: () => set({ isRootInit: true }),
     isWindowLoad: false,
     windowLoad: () => set({ isWindowLoad: true }),
+    isCookiesShow: !localStorage.getItem('isCookiesShow'),
+    setCookiesState: (isCookiesShow) => {
+        set({ isCookiesShow });
+
+        if (isCookiesShow === false) {
+            localStorage.setItem('isCookiesShow', 'true');
+        }
+    },
+    ...createPopupsStore(set),
 }));
 
 const WithStore = function <

@@ -43,8 +43,21 @@ type PropsT = {
     isWindowLoad: StoreT['isWindowLoad'];
     resizeWidth?: boolean;
     resizeHeight?: boolean;
-    allItems?: readonly string[];
+    allItems?: string[];
+    allItemProp?: string;
     currentItem?: string;
+    currentNumber?: number;
+    minWidth?: number;
+    maxWidth?: number;
+    minHeight?: number;
+    maxHeight?: number;
+    emptyWidth?: number;
+    emptyHeight?: number;
+    getItemClass?: (data: { item: any }) => string;
+    sizeParentNode?: HTMLElement | null;
+    getWrapperParent?: () => HTMLElement | null;
+    notEmptySize?: boolean;
+    name?: string;
 };
 
 type StateT = {
@@ -52,7 +65,7 @@ type StateT = {
     isEmpty?: boolean;
 };
 
-type ItemT = { _id: string } & Record<any, unknown>;
+type ItemT = { _id: string; indexNumber?: number } & Record<any, unknown>;
 
 interface ListI extends DefaultI<PropsT, StateT> {
     id: string;
@@ -69,6 +82,7 @@ interface ListI extends DefaultI<PropsT, StateT> {
     forceRenderKey?: PropsT['forceRenderKey'];
     initEmptySize?: boolean;
     currentIndex?: number;
+    currentNumber?: number;
 
     timers: Record<string, ReturnType<typeof setTimeout>>;
 
@@ -79,6 +93,7 @@ interface ListI extends DefaultI<PropsT, StateT> {
         this: ListI,
         data: { deletesIds: string[]; addesIds: string[]; wasEmpty: boolean },
     ): Promise<void>;
+    drawDirectionItems(this: ListI): Promise<void>;
 
     renderItem(this: ListI, data: { item: ItemT }): React.ReactElement;
 }

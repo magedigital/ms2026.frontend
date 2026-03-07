@@ -1,4 +1,4 @@
-import setAsyncTimer from '@functions/setAsyncTimer.ts';
+import setAsyncTimer from '@utils/setAsyncTimer.ts';
 
 import I, { ItemT } from '../types.ts';
 
@@ -113,6 +113,8 @@ const updateItems: I['updateItems'] = async function ({ isRender, isUpdate }) {
     const isEmpty = addesIds.length === 0 && resultItems.length === deletesIds.length;
 
     await this.asyncSetState.call(this, { items: resultItems, isEmpty });
+
+    await this.drawDirectionItems();
 
     await setAsyncTimer(10);
 

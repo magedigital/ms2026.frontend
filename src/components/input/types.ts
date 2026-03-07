@@ -2,18 +2,20 @@ import { ChangeEvent } from 'react';
 
 import DefaultI from '@components/default/types';
 
-import regs, { RegsT } from './static/regs';
+import { RegsT, inputRegs } from './static/regs';
 
 type PropsT = {
     value: string;
     onChange: (data: { value: string }) => Promise<void>;
-    regName?: keyof typeof regs;
-    reg?: string;
-    datePast?: boolean;
-    dateFuture?: boolean;
-    support?: string;
-    disabled?: boolean;
-};
+} & Partial<{
+    regName: keyof typeof inputRegs;
+    reg: string;
+    regExp: RegExp;
+    datePast: boolean;
+    dateFuture: boolean;
+    support: string;
+    disabled: boolean;
+}>;
 
 type StateT = {
     isFocus?: boolean;
@@ -26,7 +28,6 @@ interface InputI extends DefaultI<PropsT, StateT> {
     parent: React.RefObject<HTMLDivElement | null>;
     input: React.RefObject<HTMLInputElement | null>;
 
-    regs: typeof regs;
     savedValue?: string;
     startPos?: number;
     endPos?: number;

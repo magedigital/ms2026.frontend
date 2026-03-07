@@ -1,6 +1,6 @@
-import setAsyncTimer from '@functions/setAsyncTimer.ts';
-
 import LazyPageI from '../types.ts';
+
+import setAsyncTimer from '../../../utils/setAsyncTimer.ts';
 
 const loadPage: LazyPageI['loadPage'] = async function (name) {
     const Component = await this.loadComponent(name);

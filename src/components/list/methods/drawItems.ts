@@ -1,6 +1,6 @@
-import getRealParams, { RealParamsItemT } from '@functions/getRealParams.ts';
-import removeTransition from '@functions/removeTransition.ts';
-import setAsyncTimer from '@functions/setAsyncTimer.ts';
+import getRealParams, { RealParamsElemT, RealParamsItemT } from '@utils/getRealParams.ts';
+import removeTransition from '@utils/removeTransition.ts';
+import setAsyncTimer from '@utils/setAsyncTimer.ts';
 
 import I, { ItemT } from '../types.ts';
 
@@ -19,12 +19,25 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
         currentItem,
         itemClass,
         itemWidthOffset,
+        currentNumber,
+        minWidth,
+        maxWidth,
+        minHeight,
+        maxHeight,
+        emptyWidth,
+        emptyHeight,
+        sizeParentNode,
+        getWrapperParent,
+        notEmptySize,
     } = this.props;
     const parent = this.parent.current!;
 
     if (!parent) {
         return;
     }
+
+    const sizeParent = sizeParentNode || this.parent.current!;
+    const wrapperParent = getWrapperParent ? getWrapperParent() : null;
 
     const needItems: ItemT[] = [];
     const removeTransAddesItems: string[] = [];
@@ -53,7 +66,7 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
         if (this.states[item._id] === 0) {
             itemNode.removeAttribute('data-show');
 
-            if (this.state.items.length > 1) {
+            if (this.state.items.length > 1 || startShowSmooth) {
                 itemNode.setAttribute('data-hide', '');
             }
 
@@ -73,9 +86,9 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
             !startShowSmooth &&
             addesIds.includes(item._id) &&
             (!changeAnimate || this.state.items.length <= 1) &&
-            (!allItems || wasEmpty)
+            ((!allItems && typeof currentNumber !== 'number') || wasEmpty)
         ) {
-            removeTransAddesItems.push(`.list__item[data-id="${item._id}"]`);
+            removeTransAddesItems.push(`.${this.id}[data-id="${item._id}"]`);
         }
 
         if (!relative) {
@@ -90,20 +103,25 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
     const cbData: ObjT = {};
 
     if (!relative && (itemStyleProps.length || parentStyleProps.length)) {
-        const elems: { className: string; id: string }[] = needItems.map((item) => ({
+        const elems: RealParamsElemT[] = needItems.map((item) => ({
             className: `.list__item[data-id="${item._id}"]`,
             id: item._id,
+            style: {
+                ...(itemStyleProps.includes('height') ? { height: '' } : {}),
+                ...(itemStyleProps.includes('width') ? { width: '' } : {}),
+            },
         }));
 
         const params = getRealParams({
             parent,
+            wrapperParent,
             elems,
             classNames: ['_static'],
             isClearStyleParent: true,
             clearStyleElems: [],
             isNotRemove: testMode,
-            ...(parentRealStyleProps.includes('width') ? { width: parent.offsetWidth } : {}),
-            ...(parentRealStyleProps.includes('height') ? { height: parent.offsetHeight } : {}),
+            ...(parentRealStyleProps.includes('width') ? { width: sizeParent.offsetWidth } : {}),
+            ...(parentRealStyleProps.includes('height') ? { height: sizeParent.offsetHeight } : {}),
         });
 
         needItems.forEach((item) => {
@@ -145,13 +163,51 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
         });
 
         if (parentStyleProps.includes('width')) {
-            parent.style.height = `${params.parent.height}px`;
-            cbData.parentHeight = params.parent.height;
+            let resultHeight = params.parent.height;
+
+            if (minHeight && resultHeight < minHeight) {
+                resultHeight = minHeight;
+            }
+
+            if (emptyHeight && this.state.items.length === 0) {
+                resultHeight = emptyHeight;
+            }
+
+            if (typeof maxHeight === 'number' && resultHeight > maxHeight) {
+                resultHeight = maxHeight;
+            }
+
+            const waitNode = notEmptySize
+                ? this.parent.current!.querySelector(`[data-waitList="true"]`)
+                : null;
+
+            if (!notEmptySize || !waitNode) {
+                parent.style.height = `${resultHeight}px`;
+            }
+
+            cbData.parentHeight = resultHeight;
         }
 
         if (parentStyleProps.includes('height')) {
-            parent.style.width = `${params.parent.width}px`;
-            cbData.parentWidth = params.parent.width;
+            let resultWidth = params.parent.width;
+
+            if (minWidth && resultWidth < minWidth) {
+                resultWidth = minWidth;
+            }
+
+            if (emptyWidth && this.state.items.length === 0) {
+                resultWidth = emptyWidth;
+            }
+
+            if (typeof maxWidth === 'number' && resultWidth > maxWidth) {
+                resultWidth = maxWidth;
+            }
+
+            if (!notEmptySize || resultWidth) {
+                parent.style.width = `${resultWidth}px`;
+            }
+
+            cbData.parentWidth = resultWidth;
         }
     }
 
@@ -169,6 +225,7 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
     }
 
     this.currentIndex = allItems ? allItems.indexOf(currentItem!) : undefined;
+    this.currentNumber = typeof currentNumber === 'number' ? currentNumber : undefined;
 
     await setAsyncTimer(300);
 

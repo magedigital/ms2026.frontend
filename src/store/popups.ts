@@ -1,0 +1,90 @@
+import { StoreT, appStore } from './store';
+
+type PopupT<T = {}> = {
+    isShow: boolean;
+} & Partial<T>;
+
+type InfoPopupT<T = {}> = PopupT<
+    {
+        callback: () => Promise<void>;
+    } & T
+>;
+
+type PopupsT = {
+    chequePopup: PopupT<{}>;
+};
+
+type PopupsReducersT = {
+    setPopup: <T extends keyof PopupsT>(data: {
+        name: T;
+        data?: Omit<PopupsT[T], 'isShow'>;
+        pushHistory?: boolean;
+    }) => void;
+    closePopup: <T extends keyof PopupsT>(data: { name: T; pushHistory?: boolean }) => void;
+};
+
+const popups = {
+    chequePopup: {},
+} as const;
+
+const getPopupSearch = (name: string, data: ObjT | undefined): string => {
+    const resultData: { key: string; value: any }[] = [];
+    const check = (v: unknown) =>
+        typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean';
+
+    if (data) {
+        Object.keys(data).forEach((key) => {
+            const v = data[key];
+
+            if (Array.isArray(v)) {
+                v.forEach((thisValue) => {
+                    if (check(thisValue)) {
+                        resultData.push({ key, value: thisValue });
+                    }
+                });
+            } else if (check(v)) {
+                resultData.push({ key, value: v });
+            }
+        });
+    }
+
+    return `?` + [`popup=${name}`, ...resultData.map((v) => v.key + '=' + v.value)].join('&');
+};
+
+const defaultPopupsStore: PopupsT = {} as PopupsT;
+
+(Object.keys(popups) as (keyof PopupsT)[]).forEach((n) => {
+    defaultPopupsStore[n] = { isShow: false };
+});
+
+const createPopupsStore = (set: (data: Partial<StoreT>) => void): PopupsT & PopupsReducersT => ({
+    ...defaultPopupsStore,
+    setPopup: ({ name, data, pushHistory = true }) => {
+        const newUrl = window.location.pathname + getPopupSearch(name, data);
+
+        const currentPopup = appStore.getState().currentPopup;
+
+        set({
+            ...(currentPopup ? { [currentPopup]: { isShow: false } } : {}),
+            [name]: { isShow: true, ...data },
+            currentPopup: name,
+        });
+
+        if (pushHistory) {
+            window.history.pushState(null, '', newUrl);
+        }
+    },
+    closePopup: ({ name, pushHistory = true }) => {
+        setTimeout(() => {
+            set({ [name]: { isShow: false }, currentPopup: undefined });
+
+            if (pushHistory) {
+                window.history.pushState(null, '', window.location.pathname);
+            }
+        }, 10);
+    },
+});
+
+export { popups, createPopupsStore };
+
+export type { PopupsT, PopupT, InfoPopupT, PopupsReducersT };

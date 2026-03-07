@@ -3,9 +3,10 @@ import React from 'react';
 import Default from '@components/default/Default.tsx';
 import Fade from '@components/fade/Fade.tsx';
 import Loader from '@components/loader/Loader.tsx';
-import { s } from '@functions/seo.ts';
 
 import LoaderBlockI from './types.ts';
+
+import { s } from '../../utils/seo.ts';
 
 class LoaderBlock extends Default<LoaderBlockI['props']> implements LoaderBlockI {
     constructor(props: LoaderBlockI['props']) {

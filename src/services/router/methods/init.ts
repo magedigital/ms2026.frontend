@@ -1,6 +1,6 @@
-import { s } from '@functions/seo.ts';
-
 import I from '../types.ts';
+
+import { s } from '../../../utils/seo.ts';
 
 const init: I['init'] = function () {
     (Object.keys(this.pages) as (keyof typeof this.pages)[]).forEach((name) => {

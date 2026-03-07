@@ -1,3 +1,5 @@
+import { v4 } from 'uuid';
+
 import removeTransition from './removeTransition.ts';
 
 interface ReturnedParams {
@@ -31,13 +33,14 @@ const getParams = (elem: HTMLElement): ReturnedParams => ({
     scrollTop: elem.scrollTop,
 });
 
-type Elem = { className: string; id: string; params?: string[]; style?: { [s: string]: string } };
+type ElemT = { className: string; id: string; params?: string[]; style?: { [s: string]: string } };
 type ClearStyleElem = string | { className: string; params: string[] };
 
 interface PropsT {
     parent: HTMLElement;
+    wrapperParent?: HTMLElement | null;
     elem?: string;
-    elems?: Elem[];
+    elems?: ElemT[];
     width?: number | string;
     height?: number | string;
     isClearStyleParent?: boolean;
@@ -64,6 +67,7 @@ type ReturnedType = { [t: string]: ReturnedParams | number } & {
 
 export default function getRealParams({
     parent,
+    wrapperParent,
     elem,
     elems,
     width,
@@ -79,7 +83,7 @@ export default function getRealParams({
 }: PropsT): ReturnedType {
     const newParent: HTMLElement = parent.cloneNode(true) as HTMLElement;
     const newElem: HTMLElement = newParent?.querySelector(elem as string) || newParent;
-    const id = new Date().getTime();
+    const id = v4();
 
     if (isClearStyles) {
         newParent.removeAttribute('style');
@@ -189,6 +193,12 @@ export default function getRealParams({
 
     wrapper.classList.add('_parentCalc');
 
+    if (wrapperParent) {
+        wrapperParent.classList.forEach((className) => {
+            wrapper.classList.add(className);
+        });
+    }
+
     wrapper.style.display = 'flex';
     wrapper.style.flexDirection = 'column';
 
@@ -265,4 +275,4 @@ export default function getRealParams({
     return params;
 }
 
-export type { ReturnedParams as RealParamsItemT };
+export type { ReturnedParams as RealParamsItemT, ElemT as RealParamsElemT };

@@ -8,6 +8,10 @@ const init: I['init'] = async function () {
     window.addEventListener('resize', () => {
         this.resizeHandler();
     });
+
+    this.popupsHandler(true);
+
+    (document.addEventListener as CustomListenerT)('changePage', this.changePageListener);
 };
 
 export default init;

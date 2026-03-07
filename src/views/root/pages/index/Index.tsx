@@ -1,12 +1,15 @@
 import React from 'react';
 
-import Editor from '@components/editor/Editor.tsx';
+import Page from '@components/page/Page.tsx';
+
+import Footer from '../../components/footer/Footer.tsx';
+import Game from './components/game/Game.tsx';
+import Header from './components/header/Header.tsx';
+import MainPrize from './components/mainPrize/MainPrize.tsx';
 
 import IndexI from './types.ts';
 
-import { AppRouter } from '../../../../index.tsx';
-
-class Index extends Editor<IndexI['props'], IndexI['state']> implements IndexI {
+class Index extends Page<IndexI['props'], IndexI['state']> implements IndexI {
     parent: IndexI['parent'];
 
     constructor(props: IndexI['props']) {
@@ -16,28 +19,19 @@ class Index extends Editor<IndexI['props'], IndexI['state']> implements IndexI {
         this.parent = React.createRef();
     }
 
-    componentDidMount(): void {
-        this.initTarget({
-            data: {
-                title: '',
-            },
-            targetName: 'test',
-        });
-    }
+    pageName = 'index';
 
     render() {
-        return (
-            <div ref={this.parent} className="index">
-                Index
-                <button
-                    onClick={() => {
-                        AppRouter.changePage({ pageName: 'auth' });
-                    }}
-                >
-                    To inner
-                </button>
-            </div>
-        );
+        return this.renderPage({
+            render: () => (
+                <>
+                    <Header />
+                    <MainPrize />
+                    <Game />
+                    <Footer />
+                </>
+            ),
+        });
     }
 }
 

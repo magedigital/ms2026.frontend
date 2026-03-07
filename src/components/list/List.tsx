@@ -6,6 +6,7 @@ import Default from '@components/default/Default.tsx';
 
 import checkChange from './methods/checkChange.ts';
 import checkSizes from './methods/checkSizes.ts';
+import drawDirectionItems from './methods/drawDirectionItems.ts';
 import drawItems from './methods/drawItems.ts';
 import updateItems from './methods/updateItems.ts';
 
@@ -17,7 +18,6 @@ import renderItem from './renders/renderItem.tsx';
 class List extends Default<ListI['props'], ListI['state']> implements ListI {
     parent: ListI['parent'];
     resizeThrottle: ListI['resizeThrottle'];
-    id: ListI['id'];
 
     constructor(props: ListI['props']) {
         super(props);
@@ -27,8 +27,6 @@ class List extends Default<ListI['props'], ListI['state']> implements ListI {
         };
 
         this.checkSizes = this.checkSizes.bind(this);
-
-        this.id = `${+(Math.random() * 1_000_000).toFixed(0)}-${new Date().getTime()}`;
 
         this.parent = React.createRef();
     }
@@ -42,6 +40,7 @@ class List extends Default<ListI['props'], ListI['state']> implements ListI {
 
     updateItems = updateItems;
     drawItems = drawItems;
+    drawDirectionItems = drawDirectionItems;
     checkSizes = checkSizes;
 
     checkChange = checkChange;
@@ -53,21 +52,20 @@ class List extends Default<ListI['props'], ListI['state']> implements ListI {
 
         if (this.props.resizeWidth) {
             document.addEventListener('changeWidthWindow', this.resizeThrottle!);
-
-            this.unmountHandlers.resizeWidth = () =>
-                document.removeEventListener('changeWidthWindow', this.resizeThrottle!);
         }
 
         if (this.props.resizeHeight) {
             document.addEventListener('changeHeightWindow', this.resizeThrottle!);
-
-            this.unmountHandlers.resizeHeight = () =>
-                document.removeEventListener('changeHeightWindow', this.resizeThrottle!);
         }
     }
 
     componentDidUpdate(): void {
         this.checkChange();
+    }
+
+    componentWillUnmount(): void {
+        document.removeEventListener('changeWidthWindow', this.resizeThrottle!);
+        document.removeEventListener('changeHeightWindow', this.resizeThrottle!);
     }
 
     render() {

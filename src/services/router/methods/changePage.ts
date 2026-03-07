@@ -1,8 +1,7 @@
-import removeTransition from '@functions/removeTransition.ts';
-
 import I from '../types.ts';
 
 import { StoreT, appStore } from '../../../store/store.tsx';
+import removeTransition from '../../../utils/removeTransition.ts';
 import { PageNamesT } from '../static/pages.ts';
 
 const changePage: I['changePage'] = async function ({

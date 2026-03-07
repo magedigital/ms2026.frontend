@@ -57,6 +57,16 @@
     width: 100%;
 }
 
+._INNER {
+    display: flex;
+    flex-direction: column;
+    width: 1150rem;
+
+    @include mob {
+        width: 384rem;
+    }
+}
+
 ._CLICK {
     @include mediaMin($mediaM + 1px) {
         cursor: pointer;

@@ -10,10 +10,10 @@ type StateT = {
     listRenderKey?: string;
     listUpdateKey?: string;
     isListLoading?: boolean;
-    error?: {
+    error?: Partial<{
         name: string;
         text: string;
-    };
+    }>;
 };
 
 type ItemT = { _id: string } & ObjT;

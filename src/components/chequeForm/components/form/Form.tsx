@@ -1,0 +1,51 @@
+import React from 'react';
+
+import Editor from '@components/editor/Editor.tsx';
+
+import deleteFile from './methods/deleteFile.ts';
+import init from './methods/init.ts';
+import sendForm from './methods/sendForm.ts';
+import uploadFile from './methods/uploadFIle.ts';
+
+import FormI from './types.ts';
+
+import renderFields from './renders/renderFields.tsx';
+import renderFoot from './renders/renderFoot.tsx';
+import renderUploadField from './renders/renderUploadField.tsx';
+
+class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
+    parent: FormI['parent'];
+
+    constructor(props: FormI['props']) {
+        super(props);
+        this.state = {
+            files: [],
+        };
+
+        this.parent = React.createRef();
+    }
+
+    formData = new FormData();
+
+    init = init;
+
+    uploadFile = uploadFile;
+    deleteFile = deleteFile;
+    sendForm = sendForm;
+
+    renderFields = renderFields;
+    renderUploadField = renderUploadField;
+    renderFoot = renderFoot;
+
+    render() {
+        return (
+            <>
+                {this.renderFields()}
+                {this.renderUploadField()}
+                {this.renderFoot()}
+            </>
+        );
+    }
+}
+
+export default Form;

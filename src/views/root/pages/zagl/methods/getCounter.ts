@@ -1,6 +1,6 @@
-import request from '@functions/request.ts';
-
 import I from '../types.ts';
+
+import request from '../../../../../utils/request.ts';
 
 const getCounter: I['getCounter'] = async function () {
     const response = await request<{
