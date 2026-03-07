@@ -12,6 +12,8 @@ type InfoPopupT<T = {}> = PopupT<
 
 type PopupsT = {
     chequePopup: PopupT<{}>;
+    loginPopup: PopupT<{}>;
+    regPopup: PopupT<{}>;
 };
 
 type PopupsReducersT = {
@@ -25,6 +27,8 @@ type PopupsReducersT = {
 
 const popups = {
     chequePopup: {},
+    loginPopup: {},
+    regPopup: {},
 } as const;
 
 const getPopupSearch = (name: string, data: ObjT | undefined): string => {
@@ -47,6 +51,8 @@ const getPopupSearch = (name: string, data: ObjT | undefined): string => {
             }
         });
     }
+
+    name = name.replace('Popup', '');
 
     return `?` + [`popup=${name}`, ...resultData.map((v) => v.key + '=' + v.value)].join('&');
 };

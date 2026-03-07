@@ -25,6 +25,10 @@ const checkResponse = (d: any) => {
     }
 };
 
+type RequestErrorT = {
+    errorText?: string;
+};
+
 export default async function request<T extends any>({
     method,
     url,
@@ -59,4 +63,4 @@ export default async function request<T extends any>({
     }
 }
 
-export type { RequestParamsT };
+export type { RequestParamsT, RequestErrorT };

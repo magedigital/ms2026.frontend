@@ -10,23 +10,21 @@ const renderSteps: I['renderSteps'] = function () {
     const { currentStep, updateListRenderKey } = this.state;
 
     return (
-        <>
-            <List
-                renderKey={[currentStep, updateListRenderKey].join('')}
-                items={[{ _id: currentStep }]}
-                parentClass="chequeForm__steps"
-                itemClass="chequeForm__stepsItem"
-                itemStyleProps={[]}
-                parentStyleProps={['width']}
-                parentRealStyleProps={['width']}
-                render={({ item }) => ({
-                    item: this.renderStep(item._id),
-                })}
-                allItems={Object.keys(chequeFormSteps)}
-                currentItem={currentStep}
-                resizeWidth={true}
-            />
-        </>
+        <List
+            renderKey={[currentStep, updateListRenderKey].join('')}
+            items={[{ _id: currentStep }]}
+            parentClass="chequeForm__steps"
+            itemClass="chequeForm__stepsItem"
+            itemStyleProps={[]}
+            parentStyleProps={['width']}
+            parentRealStyleProps={['width']}
+            render={({ item }) => ({
+                item: this.renderStep(item._id),
+            })}
+            allItems={Object.keys(chequeFormSteps)}
+            currentItem={currentStep}
+            resizeWidth={true}
+        />
     );
 };
 

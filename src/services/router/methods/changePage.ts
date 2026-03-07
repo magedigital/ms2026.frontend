@@ -1,10 +1,11 @@
+import removeTransition from '@utils/removeTransition.ts';
+
 import I from '../types.ts';
 
 import { StoreT, appStore } from '../../../store/store.tsx';
-import removeTransition from '../../../utils/removeTransition.ts';
 import { PageNamesT } from '../static/pages.ts';
 
-const changePage: I['changePage'] = async function ({
+const changePage: I['changePage'] = function ({
     href,
     pageName,
     isPopstate = false,
@@ -13,17 +14,30 @@ const changePage: I['changePage'] = async function ({
     start,
     pageData,
     forceChangePage,
+    ids,
+    search,
 }) {
+    // if (escapeGoBack) {
+    //     window.escapeGoBack = true;
+    // } else {
+    //     delete window.escapeGoBack;
+    // }
+
     if (pageName) {
-        href = this.getPageLink({ name: pageName, storePages });
+        href = this.getPageLink({ name: pageName, storePages, ids });
     }
 
     if (href === '/') {
         href = '';
     }
 
+    if (!isPopstate && !start) {
+        // appStore.getState().setPrevPageUrl(window.location.pathname);
+    }
+
     let levels = (href as string).split('/');
     const [firstLevel] = levels;
+    const storeShowPages: StoreT['showPages'] = [];
 
     let thisPageName =
         (Object.keys(this.pages) as (keyof typeof this.pages)[]).find(
@@ -120,6 +134,9 @@ const changePage: I['changePage'] = async function ({
 
     hidePagesNames.forEach((nameHidePage) => {
         resultStorePages[nameHidePage].isShow = false;
+
+        delete resultStorePages[nameHidePage].id;
+        delete resultStorePages[nameHidePage].data;
     });
 
     let findInnerRedirect: PageNamesT | undefined;
@@ -185,10 +202,9 @@ const changePage: I['changePage'] = async function ({
 
     showPages.forEach(({ name, id }) => {
         resultStorePages[name].isShow = true;
+        resultStorePages[name].id = id || undefined;
 
-        if (id) {
-            resultStorePages[name].id = id;
-        }
+        storeShowPages.push(name);
 
         if (name === pageName && pageData) {
             resultStorePages[name].data = pageData;
@@ -204,18 +220,8 @@ const changePage: I['changePage'] = async function ({
             window.history.pushState(null, '', `/${replaceUrl}`);
         }
 
-        return { storePages: resultStorePages, levels, pagesIds };
+        return { storePages: resultStorePages, levels, pagesIds, showPages: storeShowPages };
     }
-
-    document.dispatchEvent(
-        new CustomEvent('changePage', {
-            detail: {
-                showPages: showPages.map(({ name: showPageName }) => this.pages[showPageName]),
-                hidePages: resultHidePagesNames.map((hidePageName) => this.pages[hidePageName]),
-                changeIsHard,
-            },
-        }),
-    );
 
     if (forceChangePage) {
         removeTransition({ item: forceChangePage });
@@ -230,12 +236,28 @@ const changePage: I['changePage'] = async function ({
             historyHref = historyHref.slice(1);
         }
 
+        if (search) {
+            historyHref += `?${search.map((i) => [i.name, i.value].join('=')).join('&')}`;
+        }
+
         window.history.pushState(null, '', historyHref);
     }
 
     appStore.getState().setLevels(levels);
     appStore.getState().setPagesIds(pagesIds);
     appStore.getState().setPages(resultStorePages);
+    appStore.getState().setShowPages(storeShowPages);
+
+    document.dispatchEvent(
+        new CustomEvent('changePage', {
+            detail: {
+                showPages: showPages.map(({ name: showPageName }) => this.pages[showPageName]),
+                hidePages: resultHidePagesNames.map((hidePageName) => this.pages[hidePageName]),
+                changeIsHard,
+                isPopstate,
+            },
+        }),
+    );
 
     return {};
 };

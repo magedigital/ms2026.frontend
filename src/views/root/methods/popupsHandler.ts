@@ -23,7 +23,7 @@ const popupsHandler: I['popupsHandler'] = function (set) {
     }
 
     if (location.search.popup && set) {
-        const popupName = location.search.popup as keyof PopupsT;
+        const popupName = [location.search.popup, 'Popup'].join('') as keyof PopupsT;
 
         if (popups[popupName]) {
             appStore.getState().setPopup({

@@ -7,6 +7,7 @@ declare global {
         mediaM: number;
         widthPrevValue: number;
         heightPrevValue: number;
+        socAuthUrls: Record<string, string>;
     }
 
     namespace NodeJS {

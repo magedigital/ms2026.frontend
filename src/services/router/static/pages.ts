@@ -7,6 +7,9 @@ const pages = {
     auth: {
         links: ['auth'],
     },
+    profile: {
+        links: ['profile'],
+    },
 };
 
 type PageT = {

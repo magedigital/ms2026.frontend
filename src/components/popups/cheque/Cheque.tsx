@@ -25,8 +25,6 @@ class ChequePopup
     renderContent = renderContent;
 
     render() {
-        // const { chequePopup } = this.props;
-
         return this.renderPopup({
             render: this.renderContent.bind(this),
         });

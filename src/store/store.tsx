@@ -17,6 +17,8 @@ type StorePagesT = {
 type StoreT = {
     device: 'mobile' | 'desktop';
     pages: Record<PageNamesT, StorePagesT>;
+    showPages: PageNamesT[];
+    prevPageUrl?: string;
     levels: string[];
     pagesIds: Record<string, number>;
     user?: UserT;
@@ -31,6 +33,8 @@ type ReducersT = {
     setPages: (pages: StoreT['pages']) => void;
     setLevels: (levels: StoreT['levels']) => void;
     setPagesIds: (pagesIds: StoreT['pagesIds']) => void;
+    setShowPages: (pages: StoreT['showPages']) => void;
+    setPrevPageUrl: (url: string) => void;
     rootInit: () => void;
     windowLoad: () => void;
     setCookiesState: (s: boolean) => void;
@@ -45,6 +49,16 @@ const appStore = create<StoreT & ReducersT>((set) => ({
     setLevels: (levels) => set({ levels }),
     pagesIds: {},
     setPagesIds: (pagesIds) => set({ pagesIds }),
+    prevPageUrl: undefined,
+    setPrevPageUrl: (url) =>
+        set({
+            prevPageUrl: url
+                .split('/')
+                .filter((p) => p)
+                .join('/'),
+        }),
+    showPages: [],
+    setShowPages: (showPages) => set({ showPages }),
     isRootInit: false,
     rootInit: () => set({ isRootInit: true }),
     isWindowLoad: false,

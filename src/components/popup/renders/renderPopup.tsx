@@ -11,8 +11,6 @@ const renderPopupContent = function (
 ) {
     const isInit = this.props.isInit ?? this.state.isInit;
 
-    console.log(isInit);
-
     return (
         <div className="popup__inner _COL">
             {(data.canClose ?? true) && this.renderClose()}

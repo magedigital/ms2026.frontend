@@ -1,8 +1,6 @@
-import request from '@utils/request.ts';
-
 import I from '../types.ts';
 
-import { API } from '../../../../../api/api.ts';
+import { chequeRequests } from '../../../../../api/requests/cheque.ts';
 
 // const sendCRAGoal = () => {
 // const user = store.getState().user;
@@ -75,28 +73,19 @@ const sendForm: I['sendForm'] = async function () {
     await this.asyncSetState({ error: undefined, loadingKey: 'send' });
 
     try {
-        const response = await request<{ isFirstCheck?: boolean }>({
-            method: 'POST',
-            url: API.CHEQUE.SEND_FORM,
-            data: this.formData,
-        });
-        const { result } = response;
+        await chequeRequests.regCheque({ data: this.formData });
 
-        if (result === 'OK') {
-            setStep('final');
+        setStep('final');
 
-            document.dispatchEvent(new CustomEvent('getProfileContent'));
+        document.dispatchEvent(new CustomEvent('getProfileContent'));
 
-            // sendGoal('regCheckSuccess', true);
+        // sendGoal('regCheckSuccess', true);
 
-            // if (response.data?.isFirstCheck) {
-            //     sendGoal('regFirstCheck', true);
-            // }
+        // if (response.data?.isFirstCheck) {
+        //     sendGoal('regFirstCheck', true);
+        // }
 
-            // sendCRAGoal(response.data?.isFirstCheck ? 'new' : 'old');
-
-            return;
-        }
+        // sendCRAGoal(response.data?.isFirstCheck ? 'new' : 'old');
     } catch (e) {
         const error = e as { errorText?: string };
 

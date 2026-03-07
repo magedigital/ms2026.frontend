@@ -26,11 +26,11 @@ const clickHandler: LinkI['clickHandler'] = function (e) {
 
         prevPromise().then(
             () => {
-                AppRouter.changePage({ href, forceChangePage }).then(() => {
-                    if (typeof callback === 'function') {
-                        callback();
-                    }
-                });
+                AppRouter.changePage({ href, forceChangePage });
+
+                if (typeof callback === 'function') {
+                    callback();
+                }
             },
             () => null,
         );

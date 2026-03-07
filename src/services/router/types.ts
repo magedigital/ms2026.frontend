@@ -39,21 +39,30 @@ interface RouterI {
     ): { showPages: { name: PageNamesT; id?: string }[]; popup?: PageNamesT };
     changePage(
         this: RouterI,
-        data: {
-            href?: string;
-            pageName?: PageNamesT;
-            isPopstate?: boolean;
-            storePages?: StoreT['pages'];
-            changeIsHard?: boolean;
-            start?: boolean;
-            pageData?: ObjT;
-            forceChangePage?: string;
-        },
-    ): Promise<{
-        storePages?: StoreT['pages'];
-        levels?: string[];
-        pagesIds?: StoreT['pagesIds'];
+        data: Partial<{
+            href: string;
+            pageName: PageNamesT;
+            isPopstate: boolean;
+            storePages: StoreT['pages'];
+            changeIsHard: boolean;
+            start: boolean;
+            pageData: ObjT;
+            forceChangePage: string;
+            ids: Record<number, string>;
+            search: { name: string; value: string }[];
+            escapeGoBack: boolean;
+        }>,
+    ): Partial<{
+        storePages: StoreT['pages'];
+        levels: string[];
+        pagesIds: StoreT['pagesIds'];
+        showPages: StoreT['showPages'];
     }>;
+    getPrevPageData(
+        this: RouterI,
+        url?: string,
+        pageName?: PageNamesT,
+    ): { href?: string; pageName?: PageNamesT };
 
     init(this: RouterI): void;
 }

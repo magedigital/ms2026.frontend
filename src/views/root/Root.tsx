@@ -27,6 +27,8 @@ class Root extends React.Component<RootI['props'], RootI['state']> implements Ro
         super(props);
         this.state = {};
 
+        this.changePageListener = this.changePageListener.bind(this);
+
         this.parent = React.createRef();
     }
 

@@ -16,7 +16,14 @@ const renderActions: I['renderActions'] = function () {
             >
                 Регистрируй код
             </div>
-            <div className="topBar__action _profile _CLICK">ЛИЧНЫЙ КАБИНЕТ</div>
+            <div
+                className="topBar__action _profile _CLICK"
+                onClick={() => {
+                    appStore.getState().setPopup({ name: 'loginPopup' });
+                }}
+            >
+                ЛИЧНЫЙ КАБИНЕТ
+            </div>
         </div>
     );
 };

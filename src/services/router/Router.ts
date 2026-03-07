@@ -4,6 +4,7 @@ import getNotPopupPage from './methods/getNotPopupPage';
 import getPageInfo from './methods/getPageInfo';
 import getPageLevel from './methods/getPageLevel';
 import getPageLink from './methods/getPageLink';
+import getPrevPageData from './methods/getPrevPageData';
 import getShowPages from './methods/getShowPages';
 import getStartUrl from './methods/getStartUrl';
 import init from './methods/init';
@@ -33,6 +34,7 @@ export default class Router implements RouterI {
     getStartUrl = getStartUrl;
     getShowPages = getShowPages;
     changePage = changePage;
+    getPrevPageData = getPrevPageData;
 
     init = init;
 }
