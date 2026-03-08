@@ -5,6 +5,8 @@ import { appStore } from '@store/store.tsx';
 import I from '../types.ts';
 
 const renderActions: I['renderActions'] = function () {
+    const { mobMenuHandler } = this.props;
+
     return (
         <div className="topBar__actions">
             <div className="topBar__action _calc _CLICK">Калькулятор ипотеки</div>
@@ -12,6 +14,7 @@ const renderActions: I['renderActions'] = function () {
                 className="topBar__action _reg _CLICK"
                 onClick={() => {
                     appStore.getState().setPopup({ name: 'chequePopup' });
+                    mobMenuHandler(false);
                 }}
             >
                 Регистрируй код
@@ -20,6 +23,7 @@ const renderActions: I['renderActions'] = function () {
                 className="topBar__action _profile _CLICK"
                 onClick={() => {
                     appStore.getState().setPopup({ name: 'loginPopup' });
+                    mobMenuHandler(false);
                 }}
             >
                 ЛИЧНЫЙ КАБИНЕТ

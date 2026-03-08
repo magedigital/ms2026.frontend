@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Default from '@components/default/Default.tsx';
+import LoaderBlock from '@components/loaderBlock/LoaderBlock.tsx';
 
 import ButtonI from './types.ts';
 
@@ -15,7 +16,7 @@ class Button extends Default<ButtonI['props'], ButtonI['state']> implements Butt
     }
 
     render() {
-        const { children, className, onClick, isLabel } = this.props;
+        const { children, className, onClick, isLabel, loading } = this.props;
         const Tag = isLabel ? 'label' : 'div';
 
         return (
@@ -23,6 +24,7 @@ class Button extends Default<ButtonI['props'], ButtonI['state']> implements Butt
                 className={this.getClass('button _CLICK', this.getClass(className))}
                 onClick={onClick}
             >
+                <LoaderBlock isShow={loading === true} className="button__loader" />
                 {children}
             </Tag>
         );

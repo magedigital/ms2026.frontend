@@ -5,6 +5,7 @@ import Icon from '@components/icon/Icon.tsx';
 import Media from '@components/media/Media.tsx';
 
 import getNav from './methods/getNav.ts';
+import navItemHandler from './methods/navItemHandler.ts';
 
 import TopBarI from './types.ts';
 
@@ -23,6 +24,7 @@ class TopBar extends Default<TopBarI['props'], TopBarI['state']> implements TopB
     }
 
     getNav = getNav;
+    navItemHandler = navItemHandler;
 
     renderLogo = renderLogo;
     renderNav = renderNav;

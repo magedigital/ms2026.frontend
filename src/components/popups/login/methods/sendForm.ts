@@ -1,10 +1,10 @@
+import { authRequests } from '@api/requests/auth.ts';
 import { enums } from '@global/enums.ts';
+import checkAuth from '@utils/checkAuth.ts';
 import { getCookie } from '@utils/cookies.ts';
 import { RequestErrorT } from '@utils/request.ts';
 
 import I from '../types.ts';
-
-import { authRequests } from '../../../../api/requests/auth.ts';
 
 const sendForm: I['sendForm'] = async function () {
     const { form } = this.state;
@@ -24,6 +24,7 @@ const sendForm: I['sendForm'] = async function () {
             login: form.login,
             password: form.password,
         });
+        await checkAuth({ redirect: true });
     } catch (e) {
         const error = e as RequestErrorT;
 

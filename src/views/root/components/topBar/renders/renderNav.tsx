@@ -3,7 +3,6 @@ import React from 'react';
 import I from '../types.ts';
 
 const renderNav: I['renderNav'] = function () {
-    const { mobMenuHandler } = this.props;
     const nav = this.getNav();
 
     return (
@@ -12,9 +11,7 @@ const renderNav: I['renderNav'] = function () {
                 <div
                     className="topBar__navItem _CLICK"
                     key={i.name}
-                    onClick={() => {
-                        mobMenuHandler(false);
-                    }}
+                    onClick={this.navItemHandler.bind(this, i)}
                 >
                     {i.text}
                 </div>

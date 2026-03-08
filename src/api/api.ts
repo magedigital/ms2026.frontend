@@ -4,5 +4,8 @@ export const API = {
     },
     AUTH: {
         LOGIN: '/Login',
+        LOGOUT: '/Logout',
+        REGISTRATION: '/Registration',
+        GET_USER: '/GetParticipantInfo',
     },
 };

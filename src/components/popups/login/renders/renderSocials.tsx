@@ -8,7 +8,7 @@ const renderSocials: I['renderSocials'] = function () {
     const socAuthUrls = window.socAuthUrls;
 
     return (
-        <div className="popup__socials _COL _COL_H_CENTER">
+        <div className="popup__socials">
             <p className="popup__socialsTitle">Авторизоваться через</p>
             <div className="popup__socialsItems _ROW">
                 {(Object.keys(loginSocials) as (keyof typeof loginSocials)[]).map((name) => {

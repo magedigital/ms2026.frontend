@@ -1,5 +1,3 @@
-import UserT from './models/User';
-
 declare global {
     interface Window {
         widthValue: number;
@@ -8,6 +6,7 @@ declare global {
         widthPrevValue: number;
         heightPrevValue: number;
         socAuthUrls: Record<string, string>;
+        userAuthorized?: boolean;
     }
 
     namespace NodeJS {
@@ -21,7 +20,6 @@ declare global {
 
     type ResponseT<T = {}> = {
         accessToken?: string;
-        updatedAuthUser?: UserT;
     } & T;
 
     type ResponseErrorT = {

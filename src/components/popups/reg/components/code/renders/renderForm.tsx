@@ -6,8 +6,8 @@ import I from '../types.ts';
 
 const renderForm: I['renderForm'] = function () {
     const { loadingKey } = this.state;
-    const { login, isConfirm, mailService } = this.props;
-    const LinkTag = mailService ? 'a' : 'div';
+    const { login = 'vovka-sobakin@mail.ru', isConfirm, mailService } = this.props;
+    const LinkTag = mailService ? 'a' : 'span';
     const linkProps = mailService ? { href: mailService, target: '_blank' } : {};
 
     return (
@@ -25,8 +25,7 @@ const renderForm: I['renderForm'] = function () {
                     length={6}
                     loading={loadingKey === 'send'}
                     callback={async (code) => {
-                        await this.asyncSetState({ code });
-                        // await this.sendForm();
+                        await this.sendForm(code);
                     }}
                 />
             </div>

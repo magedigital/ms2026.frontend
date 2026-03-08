@@ -13,9 +13,9 @@ const renderFoot: I['renderFoot'] = function () {
         <div className="popup__foot _FULL_W _COL _COL_H_CENTER">
             <Error className="popup__error" error={error?.text} />
             <div className="popup__buttons _FULL_W _ROW _ROW_H_CENTER">
-                <div className="popup__button">
+                <div className="popup__button _fix">
                     <Button
-                        className="_backColor"
+                        className="_subEmptyColor"
                         onClick={() => {
                             appStore.getState().setPopup({ name: 'regPopup' });
                         }}
@@ -23,9 +23,9 @@ const renderFoot: I['renderFoot'] = function () {
                         Регистрация
                     </Button>
                 </div>
-                <div className="popup__button">
+                <div className="popup__button _fix">
                     <Button
-                        className="_backColor"
+                        className="_subColor"
                         onClick={this.sendForm.bind(this)}
                         loading={loadingKey === 'send'}
                     >

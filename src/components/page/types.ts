@@ -16,6 +16,8 @@ interface PageI<P = {}, S = {}> extends DefaultI<PropsT & P, StateT & S> {
     checkScroll(this: PageI, e: UIEvent): Promise<void>;
     setMobMenu(this: PageI, s?: boolean): Promise<void>;
 
+    pageInit?: () => Promise<void>;
+
     renderPage(this: PageI, data: { render: () => React.ReactNode }): React.ReactNode;
 }
 

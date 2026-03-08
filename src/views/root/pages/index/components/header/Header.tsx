@@ -22,7 +22,7 @@ class Header extends Default<HeaderI['props'], HeaderI['state']> implements Head
 
     render() {
         return (
-            <div ref={this.parent} className="indexHeader _SECTION">
+            <div ref={this.parent} className="indexHeader _SECTION" data-ancor="index">
                 <div className="indexHeader__inner _INNER">
                     {this.renderContent()}
                     {this.renderSteps()}

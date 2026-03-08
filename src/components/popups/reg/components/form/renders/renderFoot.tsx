@@ -15,9 +15,9 @@ const renderFoot: I['renderFoot'] = function () {
             <Error className="popup__error" error={error?.text} callback={updateListRender} />
             <div className="popup__buttons _FULL_W _ROW _ROW_H_CENTER">
                 {!isConfirm && (
-                    <div className="popup__button">
+                    <div className="popup__button _fix">
                         <Button
-                            className="_backColor"
+                            className="_subEmptyColor"
                             onClick={() => {
                                 appStore.getState().setPopup({ name: 'loginPopup' });
                             }}
@@ -27,10 +27,10 @@ const renderFoot: I['renderFoot'] = function () {
                     </div>
                 )}
 
-                <div className="popup__button">
+                <div className="popup__button _fix">
                     <Button
-                        className="_backColor"
-                        // onClick={this.sendForm.bind(this)}
+                        className="_subColor"
+                        onClick={this.sendForm.bind(this)}
                         loading={loadingKey === 'send'}
                     >
                         {isConfirm ? 'Получить код' : 'Получить пароль'}

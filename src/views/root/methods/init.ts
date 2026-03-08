@@ -1,3 +1,5 @@
+import checkAuth from '@utils/checkAuth.ts';
+
 import I from '../types.ts';
 
 const init: I['init'] = async function () {
@@ -12,6 +14,8 @@ const init: I['init'] = async function () {
     this.popupsHandler(true);
 
     (document.addEventListener as CustomListenerT)('changePage', this.changePageListener);
+
+    checkAuth({});
 };
 
 export default init;

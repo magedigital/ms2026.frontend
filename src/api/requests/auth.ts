@@ -1,12 +1,13 @@
+import { API } from '@api/api';
+import UserT from '@api/entities/User';
 import request from '@utils/request';
-
-import { API } from '../api';
 
 async function login({
     ...data
 }: {
     login: string | undefined;
     password: string | undefined;
+    isCode?: boolean;
 }): Promise<void> {
     await request<{ isFirstCheck?: boolean }>({
         method: 'POST',
@@ -15,6 +16,45 @@ async function login({
     });
 }
 
+async function logout(): Promise<void> {
+    await request<{ isFirstCheck?: boolean }>({
+        method: 'POST',
+        url: API.AUTH.LOGOUT,
+    });
+}
+
+async function registration({
+    ...data
+}: {
+    login: string | undefined;
+    mode?: string;
+    confirmEmail?: boolean;
+}): Promise<{ mailService?: string }> {
+    const r = await request<{ mailService?: string }>({
+        method: 'POST',
+        url: API.AUTH.REGISTRATION,
+        data,
+    });
+
+    return {
+        mailService: r.data.mailService,
+    };
+}
+
+async function getUser(): Promise<{ user: UserT }> {
+    const r = await request<UserT>({
+        method: 'GET',
+        url: API.AUTH.GET_USER,
+    });
+
+    return {
+        user: r.data,
+    };
+}
+
 export const authRequests = {
     login,
+    logout,
+    registration,
+    getUser,
 };

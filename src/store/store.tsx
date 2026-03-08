@@ -3,7 +3,7 @@ import { useShallow } from 'zustand/shallow';
 
 import React from 'react';
 
-import UserT from '@global/models/User';
+import UserT from '@api/entities/User';
 
 import { PageNamesT } from '../services/router/static/pages';
 import { PopupsReducersT, PopupsT, createPopupsStore } from './popups';
@@ -21,11 +21,12 @@ type StoreT = {
     prevPageUrl?: string;
     levels: string[];
     pagesIds: Record<string, number>;
-    user?: UserT;
+    authUser?: UserT;
     isRootInit: boolean;
     isWindowLoad: boolean;
     isCookiesShow: boolean;
     currentPopup?: keyof PopupsT;
+    isAuthProcess?: boolean;
 } & PopupsT;
 
 type ReducersT = {
@@ -38,6 +39,8 @@ type ReducersT = {
     rootInit: () => void;
     windowLoad: () => void;
     setCookiesState: (s: boolean) => void;
+    setAuthProcess: (s: boolean) => void;
+    setAuthUser: (u: UserT | undefined) => void;
 } & PopupsReducersT;
 
 const appStore = create<StoreT & ReducersT>((set) => ({
@@ -71,6 +74,8 @@ const appStore = create<StoreT & ReducersT>((set) => ({
             localStorage.setItem('isCookiesShow', 'true');
         }
     },
+    setAuthProcess: (isAuthProcess) => set({ isAuthProcess }),
+    setAuthUser: (authUser) => set({ authUser }),
     ...createPopupsStore(set),
 }));
 

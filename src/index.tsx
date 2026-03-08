@@ -17,7 +17,7 @@ const path = AppRouter.getStartUrl(window.location.pathname.slice(1));
 });
 
 (async () => {
-    const { storePages, levels, pagesIds } = await AppRouter.changePage({
+    const { storePages, levels, pagesIds, showPages } = AppRouter.changePage({
         href: path,
         storePages: resultPages,
         start: true,
@@ -30,6 +30,7 @@ const path = AppRouter.getStartUrl(window.location.pathname.slice(1));
     appStore.getState().setLevels(levels!);
     appStore.getState().setPages(storePages!);
     appStore.getState().setPagesIds(pagesIds!);
+    appStore.getState().setShowPages(showPages!);
     appStore.getState().rootInit();
 })();
 

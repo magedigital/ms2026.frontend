@@ -3,6 +3,7 @@ import React from 'react';
 import Editor from '@components/editor/Editor.tsx';
 
 import init from './methods/init.ts';
+import sendForm from './methods/sendForm.ts';
 
 import FormI from './types.ts';
 
@@ -21,6 +22,8 @@ class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
     }
 
     init = init;
+
+    sendForm = sendForm;
 
     renderHead = renderHead;
     renderForm = renderForm;

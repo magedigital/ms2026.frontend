@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Field from '@components/field/Field.tsx';
+import { appStore } from '@store/store.tsx';
 
 import I from '../types.ts';
 
@@ -41,7 +42,14 @@ const renderFields: I['renderFields'] = function () {
                         }}
                     />
                 </div>
-                <div className="popup__formFieldLink _CLICK">Забыли пароль?</div>
+                <div
+                    className="popup__formFieldLink _CLICK"
+                    onClick={() => {
+                        appStore.getState().setPopup({ name: 'regPopup' });
+                    }}
+                >
+                    Забыли пароль?
+                </div>
             </div>
         </div>
     );

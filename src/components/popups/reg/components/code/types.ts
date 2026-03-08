@@ -9,11 +9,12 @@ type PropsT = {
     updateListRender: () => Promise<void>;
 };
 
-type StateT = {
-    code?: string;
-};
+type StateT = {};
 
 interface FormI extends EditorI<PropsT, StateT> {
+    sendAgainReg(this: FormI): Promise<void>;
+    sendForm(this: FormI, code: string): Promise<void>;
+
     renderHead(this: FormI): React.ReactNode;
     renderForm(this: FormI): React.ReactNode;
     renderFoot(this: FormI): React.ReactNode;

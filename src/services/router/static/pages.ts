@@ -10,6 +10,9 @@ const pages = {
     profile: {
         links: ['profile'],
     },
+    faq: {
+        links: ['faq'],
+    },
 };
 
 type PageT = {

@@ -7,7 +7,7 @@ type PropsT = Partial<{
     id: string;
     children: React.ReactNode;
     getParent?: () => HTMLElement | undefined | null;
-    authUser?: StoreT['user'];
+    authUser?: StoreT['authUser'];
     onClick?: (e: MouseEvent) => void;
 }>;
 

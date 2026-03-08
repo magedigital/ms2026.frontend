@@ -12,6 +12,7 @@ const renderStep: I['renderStep'] = function (s) {
         return (
             <Form
                 device={device}
+                setStep={this.setStep.bind(this)}
                 updateListRender={async () => {
                     await this.asyncSetState({ updateListRenderKey: new Date().getTime() });
                 }}
@@ -23,6 +24,7 @@ const renderStep: I['renderStep'] = function (s) {
         return (
             <Code
                 login={this.login!}
+                mailService={this.mailService}
                 device={device}
                 updateListRender={async () => {
                     await this.asyncSetState({ updateListRenderKey: new Date().getTime() });

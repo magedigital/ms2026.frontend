@@ -1,3 +1,5 @@
+import removeTransition from '@utils/removeTransition.ts';
+
 import I from '../types.ts';
 
 const init: I['init'] = async function (this: I) {
@@ -17,6 +19,12 @@ const init: I['init'] = async function (this: I) {
             }
         }
     }
+
+    if (this.pageInit) {
+        this.pageInit();
+    }
+
+    removeTransition({ item: '.page__topBar' });
 };
 
 export default init;

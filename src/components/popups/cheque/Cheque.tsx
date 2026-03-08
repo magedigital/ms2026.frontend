@@ -3,9 +3,14 @@ import React from 'react';
 import Popup from '@components/popup/Popup.tsx';
 import { StoreT, WithStore } from '@store/store.tsx';
 
+import setQRCode from './methods/setQRCode.ts';
+import setStep from './methods/setStep.ts';
+import uploadQRCode from './methods/uploadQRCode.ts';
+
 import ChequePopupI from './types.ts';
 
 import renderContent from './renders/renderContent.tsx';
+import renderStep from './renders/renderStep.tsx';
 
 class ChequePopup
     extends Popup<ChequePopupI['props'], ChequePopupI['state']>
@@ -15,13 +20,20 @@ class ChequePopup
 
     constructor(props: ChequePopupI['props']) {
         super(props);
-        this.state = {};
+        this.state = {
+            currentStep: 'start',
+        };
 
         this.parent = React.createRef();
     }
 
     name = 'chequePopup' as const;
 
+    setStep = setStep;
+    uploadQRCode = uploadQRCode;
+    setQRCode = setQRCode;
+
+    renderStep = renderStep;
     renderContent = renderContent;
 
     render() {

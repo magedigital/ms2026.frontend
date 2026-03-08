@@ -15,7 +15,7 @@ const renderWinners: I['renderWinners'] = function () {
     const { searchWeek, searchPhone } = this.state;
 
     return (
-        <div className="indexGame__winners _COL">
+        <div className="indexGame__winners _COL" data-ancor="winners">
             <div className="indexGame__winnersHead _COL">
                 <h3 className="indexGame__winnersHeadTitle">ПОБЕДИТЕЛИ РОЗЫГРЫШЕЙ</h3>
                 <p className="indexGame__winnersHeadInfo">

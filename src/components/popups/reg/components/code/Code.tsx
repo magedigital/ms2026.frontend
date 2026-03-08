@@ -3,6 +3,8 @@ import React from 'react';
 import Editor from '@components/editor/Editor.tsx';
 
 import init from './methods/init.ts';
+import sendAgainReg from './methods/sendAgainReg.ts';
+import sendForm from './methods/sendForm.ts';
 
 import CodeI from './types.ts';
 
@@ -21,6 +23,8 @@ class Code extends Editor<CodeI['props'], CodeI['state']> implements CodeI {
     }
 
     init = init;
+    sendAgainReg = sendAgainReg;
+    sendForm = sendForm;
 
     renderHead = renderHead;
     renderForm = renderForm;

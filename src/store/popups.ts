@@ -22,7 +22,10 @@ type PopupsReducersT = {
         data?: Omit<PopupsT[T], 'isShow'>;
         pushHistory?: boolean;
     }) => void;
-    closePopup: <T extends keyof PopupsT>(data: { name: T; pushHistory?: boolean }) => void;
+    closePopup: <T extends keyof PopupsT>(data: {
+        name: T | undefined;
+        pushHistory?: boolean;
+    }) => void;
 };
 
 const popups = {
@@ -82,7 +85,15 @@ const createPopupsStore = (set: (data: Partial<StoreT>) => void): PopupsT & Popu
     },
     closePopup: ({ name, pushHistory = true }) => {
         setTimeout(() => {
-            set({ [name]: { isShow: false }, currentPopup: undefined });
+            const currentPopup = appStore.getState().currentPopup;
+
+            if (!name && currentPopup) {
+                name = currentPopup as never;
+            }
+
+            if (name) {
+                set({ [name]: { isShow: false }, currentPopup: undefined });
+            }
 
             if (pushHistory) {
                 window.history.pushState(null, '', window.location.pathname);

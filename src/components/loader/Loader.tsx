@@ -24,7 +24,7 @@ class Loader extends React.Component<LoaderI['props']> implements LoaderI {
             <div className={`loader ${className || ''}`}>
                 {this.items.map((key) => (
                     <div className={`loader__item _COL _${key}`} key={key}>
-                        <div className="loader__itemInner"></div>
+                        <div className="loader__itemInner _LL"></div>
                     </div>
                 ))}
             </div>

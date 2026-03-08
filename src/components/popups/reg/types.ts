@@ -15,8 +15,9 @@ type StateT = {
 
 interface RegPopupI extends PopupI<PropsT, StateT> {
     login?: string;
+    mailService?: string;
 
-    setStep(this: RegPopupI, s: keyof typeof regSteps): Promise<void>;
+    setStep(s: keyof typeof regSteps, data?: { login: string; mailService?: string }): Promise<void>;
 
     renderStep(this: RegPopupI, s: keyof typeof regSteps): React.ReactNode;
 }

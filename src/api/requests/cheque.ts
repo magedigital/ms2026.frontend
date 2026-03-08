@@ -1,6 +1,5 @@
+import { API } from '@api/api';
 import request from '@utils/request';
-
-import { API } from '../api';
 
 async function regCheque({ data }: { data: FormData }): Promise<{ isFirstCheck?: boolean }> {
     const response = await request<{ isFirstCheck?: boolean }>({

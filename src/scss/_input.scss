@@ -3,7 +3,11 @@
 
     &._formField {
         background: #fff;
-        border-radius: 14rem;
+        border-radius: 16rem;
+
+        @include mob {
+            border-radius: 18rem;
+        }
     }
 
     &__field,
@@ -54,7 +58,7 @@
         padding: 14rem 16rem;
         color: var(--sub-color);
         font-weight: 600;
-        font-size: 16rem;
+        font-size: 18rem;
         font-family: Onest;
 
         @include mob {
