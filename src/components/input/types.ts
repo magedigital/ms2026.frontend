@@ -15,6 +15,7 @@ type PropsT = {
     dateFuture: boolean;
     support: string;
     disabled: boolean;
+    isArea: boolean;
 }>;
 
 type StateT = {
@@ -26,13 +27,16 @@ interface InputI extends DefaultI<PropsT, StateT> {
     state: StateT;
 
     parent: React.RefObject<HTMLDivElement | null>;
-    input: React.RefObject<HTMLInputElement | null>;
+    input: React.RefObject<(HTMLInputElement & HTMLTextAreaElement) | null>;
 
     savedValue?: string;
     startPos?: number;
     endPos?: number;
 
-    changeHandler(this: InputI, e: ChangeEvent<HTMLInputElement>): Promise<void>;
+    changeHandler(
+        this: InputI,
+        e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
+    ): Promise<void>;
 
     getReg(this: InputI): RegsT;
     regsHandler(this: InputI, data: { value: string }): { value: string; curPos: number };

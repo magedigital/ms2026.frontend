@@ -62,8 +62,12 @@
     flex-direction: column;
     width: 1150rem;
 
+    &._inner {
+        width: 1094rem;
+    }
+
     @include mob {
-        width: 384rem;
+        width: 384rem !important;
     }
 }
 
@@ -204,5 +208,15 @@
 ._MOBILE {
     @include mediaMin($mediaM + 1px) {
         display: none;
+    }
+}
+
+._TITLE {
+    color: #fff;
+    font-size: 60rem;
+    line-height: 1.2;
+
+    &._mediumSize {
+        font-size: 36rem;
     }
 }

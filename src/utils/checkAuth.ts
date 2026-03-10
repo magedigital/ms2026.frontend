@@ -9,7 +9,8 @@ import { deleteCookie, getCookie } from './cookies';
 export const logoutHandler = async function (): Promise<void> {
     window.userAuthorized = false;
     appStore.getState().setAuthProcess(true);
-    AppRouter.changePage({ pageName: 'auth' });
+    AppRouter.changePage({ pageName: 'index' });
+    appStore.getState().setPopup({ name: 'loginPopup' });
     deleteCookie(enums.ACCESS_TOKEN);
     localStorage.removeItem(enums.USER);
 

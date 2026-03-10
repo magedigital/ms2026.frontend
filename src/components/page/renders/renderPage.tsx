@@ -7,11 +7,11 @@ import TopBar from '../../../views/root/components/topBar/TopBar.tsx';
 
 import I from '../types.ts';
 
-const renderPage: I['renderPage'] = function ({ render }) {
+const renderPage: I['renderPage'] = function ({ render, className }) {
     const { isFixBarShow, isMobMenuShow } = this.state;
 
     return (
-        <div ref={this.parent} className={this.getClass('page')}>
+        <div ref={this.parent} className={this.getClass('page', className)}>
             <div className={this.getClass('page__topBar _fix', isFixBarShow ? '_show' : '')}>
                 <TopBar mobMenuHandler={this.setMobMenu.bind(this)} className="_fix" />
             </div>

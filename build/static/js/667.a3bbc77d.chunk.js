@@ -1,0 +1,2 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[667],{8667:(l,s,a)=>{a.r(s),a.d(s,{default:()=>e});a(5043);var i=a(579);const e=(0,i.jsx)("svg",{viewBox:"0 0 17 11",fill:"none",children:(0,i.jsx)("path",{d:"M16.2422 2.12109L8.12109 10.2422L0 2.12109L2.12109 0L8.12109 6L14.1211 0L16.2422 2.12109Z",fill:"#C10230",className:"icon__fill"})})}}]);
+//# sourceMappingURL=667.a3bbc77d.chunk.js.map

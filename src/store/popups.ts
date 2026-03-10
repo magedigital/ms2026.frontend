@@ -1,3 +1,6 @@
+import { PageNamesT } from '@services/router/static/pages';
+
+import { AppRouter } from '..';
 import { StoreT, appStore } from './store';
 
 type PopupT<T = {}> = {
@@ -30,9 +33,20 @@ type PopupsReducersT = {
 
 const popups = {
     chequePopup: {},
-    loginPopup: {},
-    regPopup: {},
+    loginPopup: {
+        check: (s: StoreT) => !s.authUser || s.isAuthProcess,
+        redirectPageName: 'profile',
+    },
+    regPopup: {
+        check: (s: StoreT) => !s.authUser || s.isAuthProcess,
+        redirectPageName: 'profile',
+    },
 } as const;
+
+type PopupDataT = Partial<{
+    check: (s: StoreT) => boolean;
+    redirectPageName: PageNamesT;
+}>;
 
 const getPopupSearch = (name: string, data: ObjT | undefined): string => {
     const resultData: { key: string; value: any }[] = [];
@@ -69,8 +83,17 @@ const defaultPopupsStore: PopupsT = {} as PopupsT;
 const createPopupsStore = (set: (data: Partial<StoreT>) => void): PopupsT & PopupsReducersT => ({
     ...defaultPopupsStore,
     setPopup: ({ name, data, pushHistory = true }) => {
-        const newUrl = window.location.pathname + getPopupSearch(name, data);
+        const popupData = popups[name] as PopupDataT;
 
+        if (popupData.check && !popupData.check(appStore.getState())) {
+            if (popupData.redirectPageName) {
+                AppRouter.changePage({ pageName: popupData.redirectPageName });
+            }
+
+            return;
+        }
+
+        const newUrl = window.location.pathname + getPopupSearch(name, data);
         const currentPopup = appStore.getState().currentPopup;
 
         set({

@@ -62,13 +62,13 @@ const changePage: I['changePage'] = function ({
 
     let findNotPopupPage;
     let replaceUrl;
+    let redirectCallback: (() => void) | undefined;
 
-    if (page && typeof page.getCond === 'function') {
-        const { condition } = page.getCond(appStore.getState());
+    if (page && typeof page.check === 'function') {
+        const r = page.check(appStore.getState());
 
-        if (!condition) {
-            const redirectName = (page.getRedirect?.(appStore.getState()).name ||
-                'index') as PageNamesT;
+        if (r) {
+            const redirectName = r.pageName;
 
             href = this.getPageLink({ name: redirectName });
 
@@ -78,6 +78,8 @@ const changePage: I['changePage'] = function ({
             levels = href.split('/');
 
             replaceUrl = href;
+
+            redirectCallback = r.callback;
         }
     }
 
@@ -145,12 +147,11 @@ const changePage: I['changePage'] = function ({
         if (!findInnerRedirect) {
             const showPage = this.pages[nameShowPage];
 
-            if (typeof showPage.getCond === 'function') {
-                const { condition } = showPage.getCond(appStore.getState());
+            if (typeof showPage.check === 'function') {
+                const r = showPage.check(appStore.getState());
 
-                if (!condition) {
-                    const redirectName = (showPage.getRedirect?.(appStore.getState()).name ||
-                        'index') as PageNamesT;
+                if (r) {
+                    const redirectName = r.pageName;
 
                     findInnerRedirect = redirectName;
 
@@ -159,6 +160,8 @@ const changePage: I['changePage'] = function ({
                     levels = href.split('/');
 
                     replaceUrl = href;
+
+                    redirectCallback = r.callback;
                 }
             }
         }
@@ -220,6 +223,10 @@ const changePage: I['changePage'] = function ({
             window.history.pushState(null, '', `/${replaceUrl}`);
         }
 
+        if (redirectCallback) {
+            redirectCallback();
+        }
+
         return { storePages: resultStorePages, levels, pagesIds, showPages: storeShowPages };
     }
 
@@ -258,6 +265,10 @@ const changePage: I['changePage'] = function ({
             },
         }),
     );
+
+    if (redirectCallback) {
+        redirectCallback();
+    }
 
     return {};
 };

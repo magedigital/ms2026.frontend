@@ -1,0 +1,98 @@
+.profileHeader {
+    width: 100%;
+
+    &__title {
+        margin-bottom: 48rem;
+        text-align: center;
+    }
+
+    &__info {
+        width: 100%;
+        margin-bottom: 84rem;
+        padding: 24rem 32rem;
+        background: #fff;
+        border-radius: 20rem;
+
+        &Inner {
+            position: relative;
+            width: 100%;
+        }
+
+        &Name {
+            margin-bottom: 14rem;
+            color: #5d279e;
+            font-size: 30rem;
+        }
+
+        &Content {
+            display: flex;
+            align-items: center;
+        }
+
+        &Id {
+            margin-right: 16rem;
+            padding: 9rem 20rem;
+            color: #5d279e;
+            font-weight: 600;
+            font-size: 18rem;
+            font-family: Onest;
+            line-height: 1.4;
+            background: #ffcd03;
+            border-radius: 360rem;
+        }
+
+        &Edit {
+            display: inline-block;
+            color: #c10230;
+            font-weight: 600;
+            font-size: 16rem;
+            font-family: Onest;
+            line-height: 0.9;
+            border-bottom: 1rem solid rgba(#c10230, 0.72);
+        }
+
+        &Button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+    }
+
+    &__game {
+        position: relative;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 280rem;
+        padding: 36rem 36rem 44rem;
+        overflow: hidden;
+        border-radius: 20rem;
+
+        @include bg("/media/inner/game-back.jpg", cover, center top);
+
+        &Title {
+            margin-bottom: 18rem;
+            color: #fff;
+            font-size: 48rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        &Info {
+            margin-bottom: 28rem;
+            padding: 4rem 8rem;
+            color: #5d279e;
+            font-weight: 600;
+            font-size: 16rem;
+            font-family: Onest;
+            background: #ffcd03;
+            border-radius: 360rem;
+        }
+
+        &Button {
+            width: 200rem;
+        }
+    }
+}

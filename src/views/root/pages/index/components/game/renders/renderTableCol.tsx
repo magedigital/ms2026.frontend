@@ -4,7 +4,7 @@ import I from '../types.ts';
 
 const renderTableCol: I['renderTableCol'] = function ({ row, name }) {
     if (name === 'date') {
-        return <>{row.date}</>;
+        return <>{row.publish}</>;
     }
 
     if (name === 'phone') {

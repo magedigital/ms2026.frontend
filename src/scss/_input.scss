@@ -18,6 +18,11 @@
         height: 100%;
     }
 
+    &._area &__field,
+    &._area &__support {
+        align-items: flex-start;
+    }
+
     &__support {
         position: absolute;
         top: 0;

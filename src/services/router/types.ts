@@ -1,6 +1,13 @@
 import { StoreT } from '../../store/store';
 import { PageNamesT, PageT } from './static/pages';
 
+type ChangePageResultT = Partial<{
+    storePages: StoreT['pages'];
+    levels: string[];
+    pagesIds: StoreT['pagesIds'];
+    showPages: StoreT['showPages'];
+}>;
+
 interface RouterI {
     pages: Record<PageNamesT, PageT>;
     pagesIndexes: {
@@ -52,12 +59,7 @@ interface RouterI {
             search: { name: string; value: string }[];
             escapeGoBack: boolean;
         }>,
-    ): Partial<{
-        storePages: StoreT['pages'];
-        levels: string[];
-        pagesIds: StoreT['pagesIds'];
-        showPages: StoreT['showPages'];
-    }>;
+    ): ChangePageResultT;
     getPrevPageData(
         this: RouterI,
         url?: string,
@@ -68,3 +70,4 @@ interface RouterI {
 }
 
 export default RouterI;
+export type { ChangePageResultT };

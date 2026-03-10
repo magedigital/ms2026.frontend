@@ -12,7 +12,10 @@ import I from '../types.ts';
 import { winnerTableCols } from '../static/table.ts';
 
 const renderWinners: I['renderWinners'] = function () {
-    const { searchWeek, searchPhone } = this.state;
+    const { searchWeek, searchPhone, winnersData, limit } = this.state;
+    const allWinners = this.getWinnersList();
+    const hasMore = allWinners.length > limit;
+    const winners = allWinners.filter((w, i) => i < limit);
 
     return (
         <div className="indexGame__winners _COL" data-ancor="winners">
@@ -20,7 +23,7 @@ const renderWinners: I['renderWinners'] = function () {
                 <h3 className="indexGame__winnersHeadTitle">ПОБЕДИТЕЛИ РОЗЫГРЫШЕЙ</h3>
                 <p className="indexGame__winnersHeadInfo">
                     Подробную информацию см. в{' '}
-                    <Link className="indexGame__winnersHeadInfoLink" pageName="auth">
+                    <Link className="indexGame__winnersHeadInfoLink" pageName="profile">
                         личном кабинете
                     </Link>
                 </p>
@@ -31,10 +34,10 @@ const renderWinners: I['renderWinners'] = function () {
                         <div className="indexGame__winnersBarBlockField">
                             <Select
                                 className="_subMode"
-                                list={[
-                                    { id: '1', title: '01.04-08.04' },
-                                    { id: '2', title: '01.04-08.04' },
-                                ]}
+                                list={(winnersData?.raffles || []).map((item) => ({
+                                    id: item.id,
+                                    title: [item.from.slice(0, 5), item.to.slice(0, 5)].join(' - '),
+                                }))}
                                 value={searchWeek}
                                 onChange={async ({ value }) => {
                                     await this.setWeek(value);
@@ -69,28 +72,24 @@ const renderWinners: I['renderWinners'] = function () {
                 <div className="indexGame__winnersTable">
                     <Table
                         name="winners"
-                        rows={[
-                            {
-                                id: '1',
-                                date: '11.04.2026',
-                                phone: '+7 (***) ***-78-90',
-                                prize: 'Ипотечный платёж',
-                            },
-                            {
-                                id: '2',
-                                date: '11.04.2026',
-                                phone: '+7 (***) ***-78-90',
-                                prize: 'Ипотечный платёж',
-                            },
-                        ]}
+                        rows={winners}
                         cols={winnerTableCols}
                         render={this.renderTableCol.bind(this)}
                         isMobRows={true}
                     />
                 </div>
-                <div className="indexGame__winnersButton">
-                    <Button className="_whiteEmptyColor _mediumSize">показать ещё</Button>
-                </div>
+                {hasMore && (
+                    <div className="indexGame__winnersButton">
+                        <Button
+                            className="_whiteEmptyColor _bigSize"
+                            onClick={() => {
+                                this.setState({ limit: limit + this.step });
+                            }}
+                        >
+                            показать ещё
+                        </Button>
+                    </div>
+                )}
             </div>
         </div>
     );

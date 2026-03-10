@@ -15,6 +15,10 @@
         }
     }
 
+    &._whiteColor &__support {
+        color: #fff;
+    }
+
     &__box {
         width: 100%;
         height: 54rem;
@@ -24,7 +28,15 @@
         }
     }
 
-    &._textarea &__box {
-        height: 120rem;
+    &._area &__box {
+        height: 160rem;
+    }
+
+    &._checkbox &__box {
+        height: auto;
+
+        @include mob {
+            height: auto;
+        }
     }
 }

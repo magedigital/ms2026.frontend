@@ -6,6 +6,8 @@ const icons = [
     'cookies-close',
     'popup-close',
     'scan',
+    'faq-drop',
+    'check',
 ] as const;
 
 export default icons;

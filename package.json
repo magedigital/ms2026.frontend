@@ -2,7 +2,7 @@
     "name": "",
     "version": "0.0.1",
     "private": true,
-    "proxy": "https://dev.2025-summer.dobrycola-promo.srv08.ru",
+    "proxy": "https://dev.ms2026.srv08.ru",
     "dependencies": {
         "@types/crypto-js": "^4.2.2",
         "axios": "^0.21.1",

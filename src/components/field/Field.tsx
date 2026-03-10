@@ -19,11 +19,20 @@ class Field extends Default<FieldI['props'], FieldI['state']> implements FieldI 
     renderField = renderField;
 
     render() {
-        const { className, support } = this.props;
+        const { className, support, input, type } = this.props;
 
         return (
-            <div ref={this.parent} className={this.getClass('field', className)}>
-                <p className="field__support">{support}</p>
+            <div
+                ref={this.parent}
+                className={this.getClass(
+                    'field',
+                    className,
+                    input?.isArea && '_area',
+                    this.setClass(type),
+                )}
+            >
+                {type !== 'checkbox' && <p className="field__support">{support}</p>}
+
                 <div className="field__box">{this.renderField()}</div>
             </div>
         );

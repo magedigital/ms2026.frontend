@@ -1,3 +1,4 @@
+import { WinnerT, WinnersDataT } from '@api/requests/winners';
 import DefaultI from '@components/default/types';
 import { TableRenderRowT } from '@components/table/types';
 
@@ -8,19 +9,23 @@ type PropsT = {};
 type StateT = {
     searchWeek?: string;
     searchPhone?: string;
+    winnersData?: WinnersDataT;
+    limit: number;
 };
 
 interface GameI extends DefaultI<PropsT, StateT> {
+    step: number;
+
     setWeek(this: GameI, id: string): Promise<void>;
     setPhone(this: GameI, id: string): Promise<void>;
+
+    getWinners(this: GameI): Promise<void>;
+    getWinnersList(this: GameI): WinnerT[];
 
     renderGames(this: GameI): React.ReactNode;
     renderWinners(this: GameI): React.ReactNode;
 
-    renderTableCol: TableRenderRowT<
-        { date: string; phone: string; prize: string },
-        keyof typeof winnerTableCols
-    >;
+    renderTableCol: TableRenderRowT<WinnerT, keyof typeof winnerTableCols>;
 }
 
 export default GameI;

@@ -1,0 +1,43 @@
+.faqForm {
+    width: 100%;
+    padding: 100rem 0 150rem;
+
+    &__inner {
+        align-items: center;
+        width: 780rem;
+    }
+
+    &__title {
+        position: relative;
+        z-index: 2;
+        width: 85%;
+        margin-bottom: -90rem;
+        padding: 32rem 0 43rem;
+        color: #fff;
+        font-size: 40rem;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: uppercase;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            content: "";
+
+            @include bg("/media/inner/faq-form-title-back.svg", contain, center);
+        }
+    }
+
+    &__form {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding: 108rem 100rem 88rem;
+
+        @include bg("/media/inner/faq-form-back.svg", 100% auto, center top);
+    }
+}

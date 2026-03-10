@@ -1,9 +1,22 @@
 import PageI from '@components/page/types';
 
+import { QuestionT } from './components/question/types';
+
 type PropsT = {};
 
-type StateT = {};
+type StateT = {
+    content?: FaqContentT;
+};
 
-interface IndexI extends PageI<PropsT, StateT> {}
+type FaqContentT = {
+    components: {
+        faq: QuestionT[];
+    };
+};
+
+interface IndexI extends PageI<PropsT, StateT> {
+    getContent(this: IndexI): Promise<void>;
+}
 
 export default IndexI;
+export type { FaqContentT };

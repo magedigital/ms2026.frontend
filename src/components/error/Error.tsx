@@ -23,7 +23,7 @@ class Error extends Default<ErrorI['props'], ErrorI['state']> implements ErrorI 
             <div className={this.getClass(className, '_ERROR', error ? '' : '_empty')}>
                 <List
                     renderKey={error}
-                    items={error ? [{ _id: error }] : []}
+                    items={error ? [{ _id: encodeURIComponent(error), error }] : []}
                     parentClass={this.getClass('error', errorClassName)}
                     itemClass="error__item"
                     itemStyleProps={['top']}
@@ -34,7 +34,7 @@ class Error extends Default<ErrorI['props'], ErrorI['state']> implements ErrorI 
                             <div
                                 className="error__text"
                                 dangerouslySetInnerHTML={{
-                                    __html: new StringService().setSpaces(item._id),
+                                    __html: new StringService().setSpaces(item.error),
                                 }}
                             ></div>
                         ),

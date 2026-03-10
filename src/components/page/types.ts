@@ -18,7 +18,10 @@ interface PageI<P = {}, S = {}> extends DefaultI<PropsT & P, StateT & S> {
 
     pageInit?: () => Promise<void>;
 
-    renderPage(this: PageI, data: { render: () => React.ReactNode }): React.ReactNode;
+    renderPage(
+        this: PageI,
+        data: { render: () => React.ReactNode; className?: string },
+    ): React.ReactNode;
 }
 
 export default PageI;

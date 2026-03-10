@@ -53,6 +53,11 @@
         }
     }
 
+    &._whiteColor {
+        color: #5d279e;
+        background: #fff;
+    }
+
     &._subEmptyColor &__loader ._LL {
         background: #5d279e;
     }
@@ -61,12 +66,21 @@
         background: #fff;
     }
 
+    &._bigSize {
+        padding: 20rem 32rem;
+    }
+
     &._mediumSize {
         padding: 12rem 24rem;
 
         @include mob {
             padding: 13rem 26rem;
         }
+    }
+
+    &._minSize {
+        padding: 10rem 16rem;
+        font-size: 18rem;
     }
 
     &__loader {

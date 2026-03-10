@@ -17,7 +17,7 @@ async function login({
 }
 
 async function logout(): Promise<void> {
-    await request<{ isFirstCheck?: boolean }>({
+    await request({
         method: 'POST',
         url: API.AUTH.LOGOUT,
     });

@@ -58,7 +58,8 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
 
     render() {
         const { isFocus } = this.state;
-        const { value, className, support, disabled } = this.props;
+        const { value, className, support, disabled, isArea } = this.props;
+        const Tag = isArea ? 'textarea' : 'input';
 
         return (
             <div
@@ -68,6 +69,7 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
                     '_FULL',
                     className,
                     isFocus || value ? '_fill' : '',
+                    isArea && '_area',
                 )}
             >
                 {support && (
@@ -76,7 +78,7 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
                     </label>
                 )}
 
-                <input
+                <Tag
                     ref={this.input}
                     type="text"
                     className="input__field"

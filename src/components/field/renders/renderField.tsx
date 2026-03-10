@@ -1,14 +1,13 @@
 import React from 'react';
 
+import Checkbox from '@components/checkbox/Checkbox.tsx';
 import Input from '@components/input/Input.tsx';
 import Select from '@components/select/Select.tsx';
 
 import I from '../types.ts';
 
 const renderField: I['renderField'] = function () {
-    const { type, name, value, setValue, input, select } = this.props;
-
-    console.log(value);
+    const { type, name, value, setValue, input, select, checkbox } = this.props;
 
     if (type === 'input') {
         return (
@@ -21,6 +20,7 @@ const renderField: I['renderField'] = function () {
                 regExp={input?.regExp}
                 regName={input?.reg}
                 support={input?.support}
+                isArea={input?.isArea}
             />
         );
     }
@@ -35,6 +35,19 @@ const renderField: I['renderField'] = function () {
                     await setValue({ name, value: p.value });
                 }}
             />
+        );
+    }
+
+    if (type === 'checkbox') {
+        return (
+            <Checkbox
+                value={!!value}
+                onChange={async (p) => {
+                    await setValue({ name, value: p.value });
+                }}
+            >
+                {checkbox?.content}
+            </Checkbox>
         );
     }
 };

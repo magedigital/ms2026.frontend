@@ -1,3 +1,7 @@
+const routes = {
+    CONTENT: '/content',
+};
+
 export const API = {
     CHEQUE: {
         SEND_FORM: '/CheckRegistration',
@@ -7,5 +11,14 @@ export const API = {
         LOGOUT: '/Logout',
         REGISTRATION: '/Registration',
         GET_USER: '/GetParticipantInfo',
+    },
+    CONTENT: {
+        FAQ: routes.CONTENT + '/faq/',
+    },
+    FAQ: {
+        SEND_FORM: '/SendQuestion',
+    },
+    WINNERS: {
+        GET_LIST: '/GetWinnerList',
     },
 };

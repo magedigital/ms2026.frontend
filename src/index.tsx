@@ -1,27 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import initPages from '@services/router/utils/initPages.ts';
+
 import Router from './services/router/Router.ts';
-import { StoreT, appStore } from './store/store.tsx';
+import { appStore } from './store/store.tsx';
 import Root from './views/root/Root.tsx';
 
-const resultPages = {} as StoreT['pages'];
+const resultPages = initPages();
 
 const AppRouter = new Router();
 const path = AppRouter.getStartUrl(window.location.pathname.slice(1));
-
-(Object.keys(AppRouter.pages) as (keyof typeof AppRouter.pages)[]).forEach((name) => {
-    resultPages[name] = {
-        isShow: false,
-    };
-});
 
 (async () => {
     const { storePages, levels, pagesIds, showPages } = AppRouter.changePage({
         href: path,
         storePages: resultPages,
         start: true,
-    });
+    })!;
 
     if (levels?.[0]) {
         (document.querySelector('body') as HTMLElement).classList.add(`_${levels[0]}`);

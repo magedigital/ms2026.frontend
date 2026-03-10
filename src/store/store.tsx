@@ -4,6 +4,7 @@ import { useShallow } from 'zustand/shallow';
 import React from 'react';
 
 import UserT from '@api/entities/User';
+import { enums } from '@global/enums';
 
 import { PageNamesT } from '../services/router/static/pages';
 import { PopupsReducersT, PopupsT, createPopupsStore } from './popups';
@@ -75,6 +76,13 @@ const appStore = create<StoreT & ReducersT>((set) => ({
         }
     },
     setAuthProcess: (isAuthProcess) => set({ isAuthProcess }),
+    authUser: (() => {
+        const localUser = localStorage.getItem(enums.USER);
+
+        if (localUser) {
+            return JSON.parse(localUser) as UserT;
+        }
+    })(),
     setAuthUser: (authUser) => set({ authUser }),
     ...createPopupsStore(set),
 }));
