@@ -9,6 +9,7 @@ import navItemHandler from './methods/navItemHandler.ts';
 
 import TopBarI from './types.ts';
 
+import { AppRouter } from '../../../../index.tsx';
 import renderActions from './renders/renderActions.tsx';
 import renderLogo from './renders/renderLogo.tsx';
 import renderNav from './renders/renderNav.tsx';
@@ -58,6 +59,9 @@ class TopBar extends Default<TopBarI['props'], TopBarI['state']> implements TopB
                             src={require('@media/user-profile.svg').default}
                             alt=""
                             className="topBar__profile"
+                            onClick={() => {
+                                AppRouter.changePage({ pageName: 'profile' });
+                            }}
                         />
                     </Media>
                 </div>
