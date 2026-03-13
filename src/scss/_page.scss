@@ -51,9 +51,17 @@
 
     &._inner &__scrollInner {
         @include bg("/media/inner/inner-back.jpg", 100% auto, center top);
+
+        @include mob {
+            @include bg("/media/inner/inner-back-mob.jpg", 100% auto, center top);
+        }
     }
 
     &._inner &__scrollContent {
         padding-top: 170rem;
+
+        @include mob {
+            padding-top: 88rem;
+        }
     }
 }

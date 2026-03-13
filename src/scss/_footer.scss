@@ -7,6 +7,18 @@
 
     @include bg("/media/main-back-4.svg", 100% auto, center top);
 
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: calc(100% - 200rem);
+        background: #8fc045;
+        content: "";
+        pointer-events: none;
+    }
+
     @include mob {
         margin-top: -30rem;
         padding: 56rem 0 70rem;

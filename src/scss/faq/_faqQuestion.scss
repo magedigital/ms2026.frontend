@@ -16,7 +16,7 @@
         padding: 15rem 32rem;
 
         @include mob {
-            padding: 5rem 12rem;
+            padding: 10rem 12rem;
         }
 
         &Inner {
@@ -27,7 +27,7 @@
                 display: flex;
                 align-items: center;
                 min-height: 44rem;
-                padding: 0 32rem 0 46rem;
+                padding: 0 32rem 0 53rem;
             }
         }
 
@@ -44,13 +44,13 @@
             border-radius: 50%;
 
             @include mob {
-                top: 2rem;
-                left: -4rem;
-                width: 42rem;
-                height: 42rem;
+                top: 50%;
+                left: 2rem;
+                width: 38rem;
+                height: 38rem;
                 font-weight: 600;
-                font-size: 18rem;
-                border-radius: 16rem;
+                font-size: 22rem;
+                transform: translate(0, -50%);
             }
         }
 
@@ -64,7 +64,7 @@
 
             @include mob {
                 padding: 3rem 0;
-                font-size: 18rem;
+                font-size: 21rem;
                 line-height: 1.15;
             }
         }
@@ -81,10 +81,10 @@
             @include icon(#c20f2f);
 
             @include mob {
-                top: 15rem;
+                top: 18rem;
                 right: 2rem;
-                width: 18rem;
-                height: 18rem;
+                width: 20rem;
+                height: 20rem;
             }
         }
     }

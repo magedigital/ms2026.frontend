@@ -6,6 +6,7 @@ import changeHandler from './methods/changeHandler.ts';
 import changePropsCb from './methods/changePropsCb.ts';
 import focusHandler from './methods/focusHandler.ts';
 import getReg from './methods/getReg.ts';
+import init from './methods/init.ts';
 import regsAddHandler from './methods/regsAddHandler.ts';
 import regsDateAndTimeValidate from './methods/regsDateAndTimeValidate.ts';
 import regsDateValidate from './methods/regsDateValidate.ts';
@@ -33,6 +34,8 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
 
     changingProps = ['reg' as const];
 
+    init = init;
+
     changeHandler = changeHandler;
 
     getReg = getReg;
@@ -50,15 +53,9 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
 
     changePropsCb = changePropsCb;
 
-    componentDidMount(): void {
-        this.savedValue = this.props.value;
-
-        super.componentDidMount();
-    }
-
     render() {
         const { isFocus } = this.state;
-        const { value, className, support, disabled, isArea } = this.props;
+        const { value, className, support, disabled, isArea, isPassword } = this.props;
         const Tag = isArea ? 'textarea' : 'input';
 
         return (
@@ -80,7 +77,7 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
 
                 <Tag
                     ref={this.input}
-                    type="text"
+                    type={isPassword ? 'password' : 'text'}
                     className="input__field"
                     value={value}
                     onChange={this.changeHandler.bind(this)}

@@ -21,4 +21,7 @@ export const API = {
     WINNERS: {
         GET_LIST: '/GetWinnerList',
     },
+    ANKET: {
+        SEND: '/SendParticipantInfo',
+    },
 };

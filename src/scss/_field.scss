@@ -24,12 +24,16 @@
         height: 54rem;
 
         @include mob {
-            height: 64rem;
+            height: 66rem;
         }
     }
 
     &._area &__box {
         height: 160rem;
+
+        @include mob {
+            height: 180rem;
+        }
     }
 
     &._checkbox &__box {

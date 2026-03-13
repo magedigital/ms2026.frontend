@@ -28,7 +28,8 @@ class FaqForm extends Default<FormI['props'], FormI['state']> implements FormI {
                     <h3 className="faqForm__title">
                         ЕСЛИ ВЫ НЕ НАШЛИ ОТВЕТ
                         <br />
-                        НА СВОЙ ВОПРОС, СВЯЖИТЕСЬ С НАМИ
+                        НА СВОЙ ВОПРОС, <br className="_MOBILE" />
+                        СВЯЖИТЕСЬ С НАМИ
                     </h3>
                     <div className="faqForm__form">
                         <Form

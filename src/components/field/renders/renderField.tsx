@@ -7,12 +7,12 @@ import Select from '@components/select/Select.tsx';
 import I from '../types.ts';
 
 const renderField: I['renderField'] = function () {
-    const { type, name, value, setValue, input, select, checkbox } = this.props;
+    const { type, name, value, setValue, input, select, checkbox, className } = this.props;
 
     if (type === 'input') {
         return (
             <Input
-                className="_formField"
+                className={this.getClass('_formField', className)}
                 value={value}
                 onChange={async (p) => {
                     await setValue({ name, value: p.value });
@@ -21,6 +21,7 @@ const renderField: I['renderField'] = function () {
                 regName={input?.reg}
                 support={input?.support}
                 isArea={input?.isArea}
+                isPassword={input?.isPassword}
             />
         );
     }
@@ -28,7 +29,7 @@ const renderField: I['renderField'] = function () {
     if (type === 'select') {
         return (
             <Select
-                className="_formField"
+                className={this.getClass('_formField', className)}
                 value={value}
                 list={select?.list || []}
                 onChange={async (p) => {
@@ -41,6 +42,7 @@ const renderField: I['renderField'] = function () {
     if (type === 'checkbox') {
         return (
             <Checkbox
+                className={this.getClass('_formField', className)}
                 value={!!value}
                 onChange={async (p) => {
                     await setValue({ name, value: p.value });

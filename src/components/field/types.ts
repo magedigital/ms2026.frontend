@@ -18,6 +18,7 @@ type FieldT = {
         regExp: RegExp;
         isAmount: boolean;
         isArea: boolean;
+        isPassword: boolean;
     }>;
     select?: Partial<{
         list: { id: string; title: string }[];

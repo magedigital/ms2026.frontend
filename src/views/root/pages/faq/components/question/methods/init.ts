@@ -23,15 +23,19 @@ const init: I['init'] = async function (this: I) {
         isActive: question.key === 1,
     });
 
-    this.resizeThrottle = throttle(300, this.init!);
+    if (!this.resizeThrottle) {
+        this.resizeThrottle = throttle(300, this.init!);
+        
+        document.addEventListener('changeWidthWindow', this.resizeThrottle!);
+        document.addEventListener('windowReady', this.init!);
 
-    document.addEventListener('changeWidthWindow', this.resizeThrottle!);
-    document.addEventListener('windowReady', this.init!);
+        this.unmountHandlers.all = () => {
+            document.removeEventListener('changeWidthWindow', this.resizeThrottle!);
+            document.removeEventListener('windowReady', this.init!);
+        };
 
-    this.unmountHandlers.all = () => {
-        document.removeEventListener('changeWidthWindow', this.resizeThrottle!);
-        document.removeEventListener('windowReady', this.init!);
-    };
+        this.timers.check = setTimeout(this.init!.bind(this), 300);
+    }
 };
 
 export default init;

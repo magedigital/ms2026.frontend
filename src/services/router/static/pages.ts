@@ -24,6 +24,9 @@ const pages = {
         links: ['faq'],
         isPublic: true,
     },
+    anket: {
+        links: ['anket'],
+    },
 };
 
 type PageT = {

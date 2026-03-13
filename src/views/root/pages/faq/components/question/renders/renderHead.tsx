@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Icon from '@components/icon/Icon.tsx';
+import StringService from '@services/string/String.service.ts';
 
 import I from '../types.ts';
 
@@ -16,7 +17,12 @@ const renderHead: I['renderHead'] = function () {
         >
             <div className="faqQuestion__headInner _FULL_W">
                 <div className="faqQuestion__headNumber _COL _COL_CENTER">{question.key}</div>
-                <div className="faqQuestion__headTitle">{question.title}</div>
+                <div
+                    className="faqQuestion__headTitle"
+                    dangerouslySetInnerHTML={{
+                        __html: new StringService().setSpaces(question.title),
+                    }}
+                ></div>
                 <i className="faqQuestion__headIcon">
                     <Icon name="faq-drop" />
                 </i>

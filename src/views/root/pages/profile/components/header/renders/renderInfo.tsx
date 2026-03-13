@@ -17,7 +17,7 @@ const renderInfo: I['renderInfo'] = function () {
                 </h3>
                 <div className="profileHeader__infoContent">
                     <div className="profileHeader__infoId">ID {authUser.userId}</div>
-                    <Link pageName="index" className="profileHeader__infoEdit">
+                    <Link pageName="anket" className="profileHeader__infoEdit">
                         Изменить данные
                     </Link>
                 </div>

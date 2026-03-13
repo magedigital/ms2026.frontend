@@ -2,12 +2,15 @@ import EditorI from '@components/editor/types';
 import { FieldT } from '@components/field/types';
 
 type PropsT = {
+    data?: Partial<Record<string, string>>;
     fields: Record<string, FieldT>;
     button: {
         text: string;
         className: string;
     };
     request: (d: Partial<Record<string, string>>) => Promise<void>;
+    fieldClassName?: string;
+    requiredText?: string;
 };
 
 type StateT = {

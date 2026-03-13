@@ -216,7 +216,19 @@
     font-size: 60rem;
     line-height: 1.2;
 
+    @include mob {
+        font-size: 37rem;
+    }
+
     &._mediumSize {
         font-size: 36rem;
+    }
+
+    &._sub {
+        font-size: 24rem;
+
+        @include mob {
+            font-size: 23rem;
+        }
     }
 }

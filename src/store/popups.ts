@@ -17,6 +17,7 @@ type PopupsT = {
     chequePopup: PopupT<{}>;
     loginPopup: PopupT<{}>;
     regPopup: PopupT<{}>;
+    codePopup: PopupT<{}>;
 };
 
 type PopupsReducersT = {
@@ -32,7 +33,10 @@ type PopupsReducersT = {
 };
 
 const popups = {
-    chequePopup: {},
+    chequePopup: {
+        check: (s: StoreT) => !!s.authUser || s.isAuthProcess,
+        redirectPageName: 'index',
+    },
     loginPopup: {
         check: (s: StoreT) => !s.authUser || s.isAuthProcess,
         redirectPageName: 'profile',
@@ -40,6 +44,10 @@ const popups = {
     regPopup: {
         check: (s: StoreT) => !s.authUser || s.isAuthProcess,
         redirectPageName: 'profile',
+    },
+    codePopup: {
+        check: (s: StoreT) => !!s.authUser || s.isAuthProcess,
+        redirectPageName: 'index',
     },
 } as const;
 
