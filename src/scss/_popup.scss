@@ -23,6 +23,11 @@
         }
     }
 
+    &._calcPopup &__inner {
+        width: 888rem;
+        height: 630rem;
+    }
+
     &__inner {
         position: relative;
         z-index: 1;

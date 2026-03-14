@@ -20,8 +20,8 @@ const renderForm: I['renderForm'] = function () {
                         type="input"
                         support={
                             device === 'desktop'
-                                ? 'Адрес электронной почты (Ваш логин):'
-                                : 'Email (Ваш логин):'
+                                ? 'Адрес электронной почты (Ваш логин)'
+                                : 'Email (Ваш логин)'
                         }
                         name="login"
                         value={form?.login || ''}

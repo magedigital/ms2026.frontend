@@ -18,6 +18,7 @@ class Faq extends Page<FaqI['props'], FaqI['state']> implements FaqI {
     constructor(props: FaqI['props']) {
         super(props);
         this.state = {
+            isInit: !!getLocalContent('faq'),
             content: getLocalContent('faq'),
         };
 

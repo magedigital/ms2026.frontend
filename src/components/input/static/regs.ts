@@ -32,6 +32,11 @@ export const inputRegs = {
         emptyChar: '_',
         regExp: /\D/gi,
     },
+    passport: {
+        template: `____ ______`,
+        emptyChar: '_',
+        regExp: /\D/gi,
+    },
 };
 
 type RegsT = {

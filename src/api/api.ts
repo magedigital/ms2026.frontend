@@ -11,6 +11,7 @@ export const API = {
         LOGOUT: '/Logout',
         REGISTRATION: '/Registration',
         GET_USER: '/GetParticipantInfo',
+        GET_INFO: '/GetCabinetInfo',
     },
     CONTENT: {
         FAQ: routes.CONTENT + '/faq/',
@@ -23,5 +24,6 @@ export const API = {
     },
     ANKET: {
         SEND: '/SendParticipantInfo',
+        UPLOAD: '/UploadParticipantFile',
     },
 };

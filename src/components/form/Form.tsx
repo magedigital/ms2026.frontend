@@ -26,7 +26,7 @@ class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
 
     render() {
         const { form, loadingKey, error } = this.state;
-        const { fields, button, fieldClassName, requiredText } = this.props;
+        const { fields, button, fieldClassName, requiredText, uploadFile } = this.props;
 
         if (!form) {
             return;
@@ -47,6 +47,7 @@ class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
                                         targetName: 'form',
                                     });
                                 }}
+                                uploadFile={uploadFile}
                                 className={this.getClass(
                                     '_formField',
                                     fieldClassName || '_whiteColor',

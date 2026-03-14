@@ -27,6 +27,9 @@ const pages = {
     anket: {
         links: ['anket'],
     },
+    fullAnket: {
+        links: ['full-anket'],
+    },
 };
 
 type PageT = {

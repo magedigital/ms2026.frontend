@@ -44,9 +44,20 @@
             position: relative;
             z-index: 1;
             width: 100%;
+            min-height: var(--wheight);
+            transition: $trans;
 
             // transform: translate(0, -600px);
         }
+    }
+
+    &__loader {
+        top: 0;
+        height: var(--wheight);
+    }
+
+    &._loading &__scrollContent {
+        opacity: 0;
     }
 
     &._inner &__scrollInner {

@@ -5,8 +5,46 @@ type PropsT = {
     authUser: StoreT['authUser'];
 };
 
-type StateT = {};
+type StateT = {
+    data?: ProfileDataT;
+};
 
-interface ProfileI extends PageI<PropsT, StateT> {}
+type ProfileDataT = {
+    personal: {
+        id: string;
+        firstName: string;
+        lastName: string;
+    };
+    game: {
+        attempts: number;
+    };
+    hasTransactions: boolean;
+    transactions: any[];
+    balance: number;
+    balanceTitle: string;
+    checks: any[];
+    codes: any[];
+    prizes: ProfileDataPrizeT[];
+    canInputPromocode: boolean;
+};
+
+type ProfileDataPrizeT = {
+    userPrizeId: string;
+    id: string;
+    title: string;
+    url?: string;
+    thumb: string;
+    code: string;
+    status: 'SENDING';
+    statusTitle: string;
+    act: any[];
+    extraTitle: string;
+    count: number;
+};
+
+interface ProfileI extends PageI<PropsT, StateT> {
+    getData(this: ProfileI): Promise<void>;
+}
 
 export default ProfileI;
+export type { ProfileDataT, ProfileDataPrizeT };

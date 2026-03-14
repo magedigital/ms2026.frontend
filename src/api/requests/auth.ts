@@ -2,6 +2,8 @@ import { API } from '@api/api';
 import UserT from '@api/entities/User';
 import request from '@utils/request';
 
+import { ProfileDataT } from '../../views/root/pages/profile/types';
+
 async function login({
     ...data
 }: {
@@ -52,9 +54,19 @@ async function getUser(): Promise<{ user: UserT }> {
     };
 }
 
+async function getInfo(): Promise<ProfileDataT> {
+    const r = await request<ProfileDataT>({
+        method: 'GET',
+        url: API.AUTH.GET_INFO,
+    });
+
+    return r.data;
+}
+
 export const authRequests = {
     login,
     logout,
     registration,
     getUser,
+    getInfo,
 };

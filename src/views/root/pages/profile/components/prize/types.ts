@@ -1,8 +1,9 @@
-import { UserPrizeT } from '@api/entities/User';
 import DefaultI from '@components/default/types';
 
+import { ProfileDataPrizeT } from '../../types';
+
 type PropsT = {
-    prize: UserPrizeT;
+    prize: ProfileDataPrizeT;
 };
 
 type StateT = {};

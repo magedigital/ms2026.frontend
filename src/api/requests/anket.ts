@@ -22,6 +22,20 @@ async function send({
     });
 }
 
+async function upload({ file }: { file: File }): Promise<void> {
+    const formData = new FormData();
+
+    formData.append('file', file);
+    formData.append('fileName', file.name);
+
+    await request({
+        method: 'POST',
+        url: API.ANKET.UPLOAD,
+        data: formData,
+    });
+}
+
 export const anketRequests = {
     send,
+    upload,
 };

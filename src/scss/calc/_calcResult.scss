@@ -1,0 +1,235 @@
+.calcResult {
+    align-items: center;
+    width: 100%;
+
+    &__title {
+        margin-bottom: 4rem;
+        color: #c10230;
+        font-size: 20rem;
+    }
+
+    &:not(._start) &__count {
+        transform: translate(0, 6rem) scale(0.9);
+        opacity: 0;
+    }
+
+    &__count {
+        position: relative;
+        width: 380rem;
+        margin-bottom: -6rem;
+        color: #fff;
+        font-size: 60rem;
+        text-align: center;
+        transition: $trans;
+        will-change: transform;
+
+        @include bg("/media/calc/title-result-back.svg", contain, center);
+
+        &Lines {
+            position: absolute;
+            top: -30rem;
+            z-index: 3;
+            width: 94rem;
+            height: 84rem;
+            transition: $trans;
+            pointer-events: none;
+
+            &._left {
+                right: 100%;
+                margin-right: 6rem;
+                transform: rotateY(180deg);
+            }
+
+            &._right {
+                left: 100%;
+                margin-left: 6rem;
+            }
+
+            &._default:not(._end),
+            &._animate._end {
+                opacity: 0;
+            }
+        }
+
+        &Lines._animate &Line:nth-child(1) {
+            animation: calcResultLine1 0.8s 3 ease-in-out;
+
+            @keyframes calcResultLine1 {
+                0% {
+                    opacity: 0;
+                }
+
+                30% {
+                    opacity: 1;
+                }
+
+                70% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(30rem, -32rem);
+                    opacity: 0;
+                }
+            }
+        }
+
+        &Lines._animate &Line:nth-child(2) {
+            animation: calcResultLine2 0.8s 3 ease-in-out;
+
+            @keyframes calcResultLine2 {
+                0% {
+                    opacity: 0;
+                }
+
+                30% {
+                    opacity: 1;
+                }
+
+                70% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(40rem, -18rem);
+                    opacity: 0;
+                }
+            }
+        }
+
+        &Lines._animate &Line:nth-child(3) {
+            animation: calcResultLine3 0.8s 3 ease-in-out;
+
+            @keyframes calcResultLine3 {
+                0% {
+                    opacity: 0;
+                }
+
+                30% {
+                    opacity: 1;
+                }
+
+                70% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(40rem, -3rem);
+                    opacity: 0;
+                }
+            }
+        }
+
+        &Line {
+            position: absolute;
+
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+                width: 24rem;
+                height: 44rem;
+
+                @include bg("/media/calc/result-line-1.svg", contain, center);
+            }
+
+            &:nth-child(2) {
+                top: 1rem;
+                left: 16rem;
+                width: 76rem;
+                height: 76rem;
+
+                @include bg("/media/calc/result-line-2.svg", contain, center);
+            }
+
+            &:nth-child(3) {
+                right: 24rem;
+                bottom: 0;
+                width: 36rem;
+                height: 22rem;
+
+                @include bg("/media/calc/result-line-3.svg", contain, center);
+            }
+        }
+    }
+
+    &__support {
+        margin-bottom: 12rem;
+        color: #5d279e;
+        font-size: 20rem;
+    }
+
+    &:not(._start) &__slider {
+        transform: translate(0, 6rem);
+        opacity: 0;
+    }
+
+    &__slider {
+        position: relative;
+        z-index: 2;
+        width: calc(100% - 120rem);
+        transition: $trans;
+        transition-delay: 0.2s;
+
+        &Button {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            width: 48rem;
+            height: 48rem;
+            background: #c10230;
+            border-radius: 50%;
+            transform: translate(0, -50%);
+
+            &._prev {
+                left: -64rem;
+            }
+
+            &._next {
+                right: -64rem;
+            }
+        }
+
+        &Inner {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+        }
+
+        &._empty &Inner {
+            justify-content: center;
+            width: 100%;
+        }
+
+        &Item {
+            width: 200rem;
+            margin-right: 16rem;
+            padding: 14rem 14rem 13rem;
+            background: #fff;
+            border-radius: 16rem;
+            transition: $trans;
+            user-select: none;
+
+            &:not(._current) {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            &Thumb {
+                width: 100%;
+                height: 120rem;
+                margin-bottom: 14rem;
+                object-fit: contain;
+                pointer-events: none;
+            }
+
+            &Title {
+                color: #5d279e;
+                font-size: 16rem;
+                line-height: 1.2;
+                text-align: center;
+                text-transform: uppercase;
+                pointer-events: none;
+            }
+        }
+    }
+}

@@ -5,12 +5,13 @@ type PropsT = {
     value: string;
     name: string;
     setValue: (d: { value: string | number | boolean; name: string }) => Promise<void>;
+    uploadFile?: (d: { file: File }) => Promise<void>;
 } & FieldT;
 
 type StateT = {};
 
 type FieldT = {
-    type: 'select' | 'input' | 'checkbox';
+    type: 'select' | 'input' | 'checkbox' | 'file';
     support?: string;
     input?: Partial<{
         reg: keyof typeof inputRegs;
@@ -19,6 +20,7 @@ type FieldT = {
         isAmount: boolean;
         isArea: boolean;
         isPassword: boolean;
+        isAddress: boolean;
     }>;
     select?: Partial<{
         list: { id: string; title: string }[];

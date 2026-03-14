@@ -3,19 +3,19 @@ import React from 'react';
 export const faqFields = {
     question: {
         type: 'input',
-        support: 'Твой вопрос:',
+        support: 'Твой вопрос',
         input: {
             isArea: true,
         },
     },
     name: {
         type: 'input',
-        support: 'Как тебя зовут:',
+        support: 'Как тебя зовут',
         input: {},
     },
     email: {
         type: 'input',
-        support: 'E-mail для получения ответа:',
+        support: 'E-mail для получения ответа',
         input: {},
     },
     agreement: {

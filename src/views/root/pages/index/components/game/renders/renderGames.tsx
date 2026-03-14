@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '@components/button/Button.tsx';
+import { appStore } from '@store/store.tsx';
 
 import I from '../types.ts';
 
@@ -30,7 +31,14 @@ const renderGames: I['renderGames'] = function () {
                             Узнай, сколько упаковок «Моя Семья» соответствует сумме твоей ипотеки.
                         </p>
                         <div className="indexGame__gamesCardButton">
-                            <Button className="_backColor">УЧАСТВОВАТЬ</Button>
+                            <Button
+                                className="_backColor"
+                                onClick={() => {
+                                    appStore.getState().setPopup({ name: 'calcPopup' });
+                                }}
+                            >
+                                УЧАСТВОВАТЬ
+                            </Button>
                         </div>
                     </div>
                 </div>

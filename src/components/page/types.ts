@@ -7,6 +7,7 @@ type PropsT = {};
 type StateT = {
     isFixBarShow?: boolean;
     isMobMenuShow?: boolean;
+    isInit?: boolean;
 };
 
 interface PageI<P = {}, S = {}> extends DefaultI<PropsT & P, StateT & S> {

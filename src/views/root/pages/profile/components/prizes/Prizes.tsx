@@ -17,14 +17,14 @@ class Prizes extends Default<PrizesI['props'], PrizesI['state']> implements Priz
     }
 
     render() {
-        const { authUser } = this.props;
+        const { data } = this.props;
 
         return (
             <div ref={this.parent} className="profilePrizes _SECTION">
                 <div className="profilePrizes__inner _INNER _inner">
                     <h3 className="profilePrizes__title _TITLE _mediumSize">МОИ ПРИЗЫ</h3>
                     <div className="profilePrizes__prizes">
-                        {authUser.prizes.map((p) => (
+                        {data.prizes.map((p) => (
                             <div className="profilePrizes__prizesCard" key={p.id}>
                                 <Prize prize={p} />
                             </div>

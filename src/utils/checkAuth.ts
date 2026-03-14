@@ -36,7 +36,15 @@ export default async function checkAuth({ redirect }: ParamsT): Promise<void> {
         return;
     }
 
-    const { user } = await authRequests.getUser();
+    let user;
+
+    try {
+        user = (await authRequests.getUser()).user;
+    } catch (e) {
+        await logoutHandler();
+
+        return;
+    }
 
     if (!user) {
         await logoutHandler();

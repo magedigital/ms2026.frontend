@@ -4,14 +4,24 @@ const drawDirectionItems: I['drawDirectionItems'] = async function () {
     const { items } = this.state;
     const { currentItem, currentNumber, allItems, allItemProp } = this.props;
 
-    if ((!allItems && typeof currentNumber !== 'number') || items.length < 2) {
-        return;
-    }
-
     const clearItem = (itemNode: HTMLElement) => {
         itemNode.removeAttribute('data-prev');
         itemNode.removeAttribute('data-next');
     };
+
+    if ((!allItems && typeof currentNumber !== 'number') || items.length < 2) {
+        items.forEach((item) => {
+            const itemNode = this.parent.current!.querySelector(
+                `.list__item[data-id="${item._id}"]`,
+            ) as HTMLElement;
+
+            if (itemNode) {
+                clearItem(itemNode);
+            }
+        });
+
+        return;
+    }
 
     items.forEach((item) => {
         const itemNode = this.parent.current!.querySelector(

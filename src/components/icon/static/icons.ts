@@ -8,6 +8,9 @@ const icons = [
     'scan',
     'faq-drop',
     'check',
+    'upload',
+    'next-arrow',
+    'prev-arrow',
 ] as const;
 
 export default icons;

@@ -14,10 +14,11 @@ type InfoPopupT<T = {}> = PopupT<
 >;
 
 type PopupsT = {
-    chequePopup: PopupT<{}>;
-    loginPopup: PopupT<{}>;
-    regPopup: PopupT<{}>;
-    codePopup: PopupT<{}>;
+    chequePopup: PopupT;
+    loginPopup: PopupT;
+    regPopup: PopupT;
+    codePopup: PopupT;
+    calcPopup: PopupT;
 };
 
 type PopupsReducersT = {
@@ -49,6 +50,7 @@ const popups = {
         check: (s: StoreT) => !!s.authUser || s.isAuthProcess,
         redirectPageName: 'index',
     },
+    calcPopup: {},
 } as const;
 
 type PopupDataT = Partial<{

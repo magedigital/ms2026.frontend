@@ -24,6 +24,7 @@
 @import "loader";
 @import "form";
 @import "checkbox";
+@import "upload";
 @import "index/indexHeader";
 @import "index/indexPrizes";
 @import "index/indexGame";
@@ -35,3 +36,5 @@
 @import "faq/faqQuestion";
 @import "faq/faqForm";
 @import "anket/anketHeader";
+@import "calc/calc";
+@import "calc/calcResult";

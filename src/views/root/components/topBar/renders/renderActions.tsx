@@ -11,7 +11,15 @@ const renderActions: I['renderActions'] = function () {
 
     return (
         <div className="topBar__actions">
-            <div className="topBar__action _calc _CLICK">Калькулятор ипотеки</div>
+            <div
+                className="topBar__action _calc _CLICK"
+                onClick={() => {
+                    appStore.getState().setPopup({ name: 'calcPopup' });
+                    mobMenuHandler(false);
+                }}
+            >
+                Калькулятор ипотеки
+            </div>
             <div
                 className="topBar__action _reg _CLICK"
                 onClick={() => {

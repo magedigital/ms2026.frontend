@@ -25,15 +25,36 @@
         font-size: 24rem;
         line-height: 1.2;
         text-align: center;
+        text-transform: uppercase;
     }
 
     &__status {
-        padding: 6rem 16rem;
-        font-weight: 600;
+        padding: 7rem 16rem 6rem;
+        font-weight: 700;
         font-size: 14rem;
         font-family: Onest;
         text-transform: uppercase;
         border: 2rem solid transparent;
         border-radius: 360rem;
+
+        &._SENDING {
+            color: #c10230;
+            background: #ffcd03;
+        }
+
+        &._RECEIVED {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        &._PROCESSING {
+            color: #5d279e;
+            background: #fff;
+        }
+
+        &._DATA_NEEDED {
+            color: #fff;
+            background: #c10230;
+        }
     }
 }

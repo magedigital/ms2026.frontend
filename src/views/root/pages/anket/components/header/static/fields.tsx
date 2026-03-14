@@ -3,33 +3,33 @@ import React from 'react';
 export const anketFields = {
     firstName: {
         type: 'input',
-        support: 'Имя*:',
+        support: 'Имя*',
     },
     lastName: {
         type: 'input',
-        support: 'Фамилия*:',
+        support: 'Фамилия*',
     },
     thirdName: {
         type: 'input',
-        support: 'Отчество*:',
+        support: 'Отчество*',
     },
     phone: {
         type: 'input',
-        support: 'Номер мобильного телефона*:',
+        support: 'Номер мобильного телефона*',
         input: {
             reg: 'phone',
         },
     },
     password: {
         type: 'input',
-        support: 'Пароль*:',
+        support: 'Пароль*',
         input: {
             isPassword: true,
         },
     },
     password2: {
         type: 'input',
-        support: 'Повтор пароля*:',
+        support: 'Повтор пароля*',
         input: {
             isPassword: true,
         },

@@ -5,7 +5,14 @@ const clear: I['clear'] = function (s) {
         return undefined as any;
     }
 
-    const phone = s.toString().replace(/\D/g, '').slice(0, 10);
+    const phone = s
+        .toString()
+        .replace(/\D/g, '')
+        .split('')
+        .reverse()
+        .filter((t, i) => i < 10)
+        .reverse()
+        .join('');
 
     return phone;
 };

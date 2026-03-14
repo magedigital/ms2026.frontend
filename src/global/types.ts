@@ -7,6 +7,7 @@ declare global {
         heightPrevValue: number;
         socAuthUrls: Record<string, string>;
         userAuthorized?: boolean;
+        daDataToken: string;
     }
 
     namespace NodeJS {

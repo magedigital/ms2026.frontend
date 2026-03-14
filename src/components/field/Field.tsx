@@ -31,8 +31,7 @@ class Field extends Default<FieldI['props'], FieldI['state']> implements FieldI 
                     this.setClass(type),
                 )}
             >
-                {type !== 'checkbox' && <p className="field__support">{support}</p>}
-
+                {type !== 'checkbox' && <p className="field__support">{support}:</p>}
                 <div className="field__box">{this.renderField()}</div>
             </div>
         );

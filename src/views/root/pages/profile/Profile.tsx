@@ -8,6 +8,9 @@ import Codes from './components/codes/Codes.tsx';
 import Header from './components/header/Header.tsx';
 import Prizes from './components/prizes/Prizes.tsx';
 
+import getData from './methods/getData.ts';
+import init from './methods/init.ts';
+
 import ProfileI from './types.ts';
 
 class Profile extends Page<ProfileI['props'], ProfileI['state']> implements ProfileI {
@@ -15,24 +18,35 @@ class Profile extends Page<ProfileI['props'], ProfileI['state']> implements Prof
 
     constructor(props: ProfileI['props']) {
         super(props);
-        this.state = {};
+        this.state = {
+            isInit: false,
+        };
 
         this.parent = React.createRef();
     }
 
+    init = init;
+
+    getData = getData;
+
     render() {
+        const { data } = this.state;
         const { authUser } = this.props;
 
         return this.renderPage({
-            render: () =>
-                authUser ? (
-                    <>
-                        <Header authUser={authUser} />
-                        <Codes authUser={authUser} />
-                        <Prizes authUser={authUser} />
-                        <Footer />
-                    </>
-                ) : null,
+            render: () => (
+                <>
+                    {authUser && data ? (
+                        <>
+                            <Header authUser={authUser} />
+                            <Codes authUser={authUser} />
+                            <Prizes authUser={authUser} data={data} />
+                        </>
+                    ) : null}
+
+                    <Footer />
+                </>
+            ),
             className: '_inner',
         });
     }

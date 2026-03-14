@@ -1,5 +1,5 @@
-@mixin bg($url, $size, $pos) {
-    background: url($url) no-repeat;
+@mixin bg($url, $size, $pos, $rep: no-repeat) {
+    background: url($url) $rep;
     background-position: $pos;
     background-size: $size;
 }

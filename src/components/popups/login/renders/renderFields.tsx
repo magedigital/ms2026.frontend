@@ -20,8 +20,8 @@ const renderFields: I['renderFields'] = function () {
                     type="input"
                     support={
                         device === 'desktop'
-                            ? 'Адрес электронной почты (Ваш логин):'
-                            : 'Email (Ваш логин):'
+                            ? 'Адрес электронной почты (Ваш логин)'
+                            : 'Email (Ваш логин)'
                     }
                     name="login"
                     value={form.login || ''}
@@ -34,7 +34,7 @@ const renderFields: I['renderFields'] = function () {
                 <div className="popup__formFieldBox _FULL_W">
                     <Field
                         type="input"
-                        support="Пароль:"
+                        support="Пароль"
                         name="password"
                         value={form.password || ''}
                         setValue={async ({ value }) => {

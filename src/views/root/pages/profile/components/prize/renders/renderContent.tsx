@@ -8,7 +8,9 @@ const renderContent: I['renderContent'] = function () {
     return (
         <div className="profilePrize__content _COL">
             <p className="profilePrize__name">{prize.title}</p>
-            <div className="profilePrize__status">{prize.actStatus}</div>
+            <div className={this.getClass('profilePrize__status', this.setClass(prize.status))}>
+                {prize.statusTitle}
+            </div>
         </div>
     );
 };

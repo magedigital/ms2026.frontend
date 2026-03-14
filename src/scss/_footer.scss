@@ -2,28 +2,32 @@
     position: relative;
     z-index: 12;
     width: 100%;
-    margin-top: -70rem;
-    padding: 140rem 0 58rem;
+    margin-top: auto;
 
-    @include bg("/media/main-back-4.svg", 100% auto, center top);
+    &__wrapper {
+        margin-top: -70rem;
+        padding: 140rem 0 58rem;
 
-    &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        width: 100%;
-        height: calc(100% - 200rem);
-        background: #8fc045;
-        content: "";
-        pointer-events: none;
-    }
+        @include bg("/media/main-back-4.svg", 100% auto, center top);
 
-    @include mob {
-        margin-top: -30rem;
-        padding: 56rem 0 70rem;
+        @include mob {
+            margin-top: -30rem;
+            padding: 56rem 0 70rem;
 
-        @include bg("/media/main-back-4-mob.svg", 100% auto, center top);
+            @include bg("/media/main-back-4-mob.svg", 100% auto, center top);
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: calc(100% - 200rem);
+            background: #8fc045;
+            content: "";
+            pointer-events: none;
+        }
     }
 
     &__inner {

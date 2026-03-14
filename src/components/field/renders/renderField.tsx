@@ -3,11 +3,13 @@ import React from 'react';
 import Checkbox from '@components/checkbox/Checkbox.tsx';
 import Input from '@components/input/Input.tsx';
 import Select from '@components/select/Select.tsx';
+import Upload from '@components/upload/Upload.tsx';
 
 import I from '../types.ts';
 
 const renderField: I['renderField'] = function () {
-    const { type, name, value, setValue, input, select, checkbox, className } = this.props;
+    const { type, name, value, setValue, uploadFile, input, select, checkbox, className } =
+        this.props;
 
     if (type === 'input') {
         return (
@@ -50,6 +52,19 @@ const renderField: I['renderField'] = function () {
             >
                 {checkbox?.content}
             </Checkbox>
+        );
+    }
+
+    if (type === 'file') {
+        return (
+            <Upload
+                fileName={value}
+                onChange={async (d) => {
+                    if (uploadFile) {
+                        await uploadFile({ file: d.file });
+                    }
+                }}
+            />
         );
     }
 };
