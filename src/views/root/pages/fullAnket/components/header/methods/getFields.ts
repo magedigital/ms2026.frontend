@@ -12,6 +12,7 @@ const getFields: I['getFields'] = function () {
             let reg;
             let regExp;
             let type: FieldT['type'] | undefined;
+            let isAddress: boolean | undefined;
 
             if (field.type === 'photo') {
                 type = 'file';
@@ -27,6 +28,10 @@ const getFields: I['getFields'] = function () {
                 reg = 'passport' as const;
             }
 
+            if (field.type === 'address') {
+                isAddress = true;
+            }
+
             if (name === 'inn') {
                 regExp = /\D/gi;
             }
@@ -35,7 +40,7 @@ const getFields: I['getFields'] = function () {
                 fields[name] = {
                     type,
                     support: field.title,
-                    ...(type === 'input' ? { input: { reg, regExp } } : {}),
+                    ...(type === 'input' ? { input: { reg, regExp, isAddress } } : {}),
                 };
             }
         });

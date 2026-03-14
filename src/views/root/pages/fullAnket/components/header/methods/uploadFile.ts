@@ -3,8 +3,8 @@ import checkAuth from '@utils/checkAuth.ts';
 
 import I from '../types.ts';
 
-const uploadFile: I['uploadFile'] = async function ({ file }) {
-    await anketRequests.upload({ file });
+const uploadFile: I['uploadFile'] = async function ({ file, name }) {
+    await anketRequests.upload({ file, name });
     await checkAuth({});
 };
 

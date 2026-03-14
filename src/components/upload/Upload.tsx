@@ -8,6 +8,7 @@ import uploadHandler from './methods/uploadHandler.ts';
 
 import UploadI from './types.ts';
 
+import renderLoading from './renders/renderLoading.tsx';
 import renderMain from './renders/renderMain.tsx';
 import renderOver from './renders/renderOver.tsx';
 import renderResult from './renders/renderResult.tsx';
@@ -29,6 +30,7 @@ class Upload extends Default<UploadI['props'], UploadI['state']> implements Uplo
     renderMain = renderMain;
     renderResult = renderResult;
     renderOver = renderOver;
+    renderLoading = renderLoading;
 
     render() {
         const { isOver } = this.state;
@@ -45,6 +47,7 @@ class Upload extends Default<UploadI['props'], UploadI['state']> implements Uplo
                 {this.renderMain()}
                 {this.renderResult()}
                 {this.renderOver()}
+                {this.renderLoading()}
             </div>
         );
     }

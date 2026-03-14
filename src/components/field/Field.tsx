@@ -1,6 +1,10 @@
+import { debounce } from 'throttle-debounce';
+
 import React from 'react';
 
 import Default from '@components/default/Default.tsx';
+
+import getAddresses from './methods/getAddresses.ts';
 
 import FieldI from './types.ts';
 
@@ -8,13 +12,18 @@ import renderField from './renders/renderField.tsx';
 
 class Field extends Default<FieldI['props'], FieldI['state']> implements FieldI {
     parent: FieldI['parent'];
+    getAddressesInc: FieldI['getAddressesInc'];
 
     constructor(props: FieldI['props']) {
         super(props);
         this.state = {};
 
+        this.getAddressesInc = debounce(300, this.getAddresses.bind(this));
+
         this.parent = React.createRef();
     }
+
+    getAddresses = getAddresses;
 
     renderField = renderField;
 

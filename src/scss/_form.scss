@@ -8,6 +8,7 @@
     }
 
     &__field {
+        position: relative;
         width: 100%;
 
         & + & {

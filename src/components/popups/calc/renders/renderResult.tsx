@@ -58,7 +58,11 @@ const renderResult: I['renderResult'] = function () {
                         <Button
                             className="_subColor"
                             onClick={async () => {
-                                await this.asyncSetState({ step: 'start', currentProgressStep: 1 });
+                                await this.asyncSetState({
+                                    step: 'start',
+                                    currentProgressStep: 1,
+                                    amount: '0',
+                                });
                             }}
                         >
                             Посчитать ещё

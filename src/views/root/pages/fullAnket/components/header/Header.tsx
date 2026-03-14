@@ -27,18 +27,25 @@ class Header extends Default<HeaderI['props'], HeaderI['state']> implements Head
     sendForm = sendForm;
 
     render() {
+        const userData = this.getUserData();
+
         return (
             <div ref={this.parent} className="anketHeader _SECTION">
                 <div className="anketHeader__inner _INNER">
                     <div className="anketHeader__head _COL">
                         <h1 className="anketHeader__headTitle _TITLE">АНКЕТА</h1>
                         <p className="anketHeader__headText _TITLE _sub">
-                            Для получения приза заполните все поля и приложите необходимые документы
+                            Для получения приза заполните все поля и&nbsp;приложите необходимые документы
                         </p>
                     </div>
                     <div className="anketHeader__content">
                         <Form
-                            data={this.getUserData()}
+                            data={userData}
+                            fieldsKey={Object.keys(userData)
+                                .sort()
+                                .map((k) => userData[k])
+                                .filter((t) => t)
+                                .join('')}
                             fields={this.getFields()}
                             button={{ text: 'сохранить данные', className: '_subColor' }}
                             request={this.sendForm.bind(this)}

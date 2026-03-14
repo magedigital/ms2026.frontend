@@ -5,6 +5,7 @@ import Editor from '@components/editor/Editor.tsx';
 import Error from '@components/error/Error.tsx';
 import Field from '@components/field/Field.tsx';
 
+import changePropsCb from './methods/changePropsCb.ts';
 import init from './methods/init.ts';
 import sendForm from './methods/sendForm.ts';
 
@@ -20,23 +21,33 @@ class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
         this.parent = React.createRef();
     }
 
+    changingProps = ['fieldsKey'];
+
+    changePropsCb = changePropsCb;
+
     init = init;
 
     sendForm = sendForm;
 
     render() {
         const { form, loadingKey, error } = this.state;
-        const { fields, button, fieldClassName, requiredText, uploadFile } = this.props;
+        const { fields, fieldsList, button, fieldClassName, requiredText, uploadFile } = this.props;
 
         if (!form) {
             return;
         }
 
+        const resultFieldsList = fieldsList || Object.keys(fields);
+
         return (
             <div ref={this.parent} className="form _FULL_W _COL">
                 <div className="form__fields">
-                    {Object.keys(fields).map((n) => (
-                        <div className="form__field" key={n}>
+                    {resultFieldsList.map((n, i) => (
+                        <div
+                            className="form__field"
+                            key={n}
+                            style={{ zIndex: resultFieldsList.length - i }}
+                        >
                             <Field
                                 {...fields[n]}
                                 name={n}

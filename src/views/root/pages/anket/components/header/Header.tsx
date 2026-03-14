@@ -25,20 +25,30 @@ class Header extends Default<HeaderI['props'], HeaderI['state']> implements Head
     sendForm = sendForm;
 
     render() {
+        const { authUser } = this.props;
+
         return (
             <div ref={this.parent} className="anketHeader _SECTION">
                 <div className="anketHeader__inner _INNER">
                     <div className="anketHeader__head _COL">
                         <h1 className="anketHeader__headTitle _TITLE">АНКЕТА</h1>
                         <p className="anketHeader__headText _TITLE _sub">
-                            Для завершения регистрации заполните данные ниже
+                            {authUser.isFirstAnket
+                                ? 'Для завершения регистрации заполните данные ниже'
+                                : 'Вы можете изменить данные ниже'}
                         </p>
                     </div>
                     <div className="anketHeader__content">
                         <Form
                             data={this.getUserData()}
                             fields={anketFields}
-                            button={{ text: 'завершить регистрацию', className: '_subColor' }}
+                            fieldsList={Object.keys(anketFields).filter(
+                                (k) => authUser.isFirstAnket || k !== 'mailing',
+                            )}
+                            button={{
+                                text: authUser.isFirstAnket ? 'завершить регистрацию' : 'Сохранить',
+                                className: '_subColor',
+                            }}
                             request={this.sendForm.bind(this)}
                             fieldClassName="_"
                             requiredText="* обязательные поля"

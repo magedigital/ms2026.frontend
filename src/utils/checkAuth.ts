@@ -63,13 +63,13 @@ export default async function checkAuth({ redirect }: ParamsT): Promise<void> {
     let pageName: PageNamesT | undefined;
     let ids: Record<string, string> | undefined;
 
-    // if (user?.status === 'ANKET_REQUIRED') {
-    //     pageName = 'anket';
-    // }
+    if (user?.status === 'ANKET_REQUIRED') {
+        pageName = 'anket';
+    }
 
-    // if (user?.status === 'EXTRA_ANKET_REQUIRED') {
-    //     pageName = 'full-anket';
-    // }
+    if (user?.status === 'EXTRA_ANKET_REQUIRED') {
+        pageName = 'fullAnket';
+    }
 
     // if (user?.status === 'ACT_REQUIRED' && user.nextActPrizeId) {
     //     pageName = 'akt-inner';

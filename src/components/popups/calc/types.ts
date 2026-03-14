@@ -16,7 +16,6 @@ type StateT = {
 
 interface CalcI extends PopupI<PropsT, StateT> {
     lineAnimateId?: number;
-    procId?: string;
 
     setInputSize(this: CalcI): void;
     amountHandler(this: CalcI, d: { value: string }): Promise<void>;

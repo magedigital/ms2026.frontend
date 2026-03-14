@@ -86,6 +86,7 @@ class Input extends Default<InputI['props'], InputI['state']> implements InputI 
                     onBlur={this.focusHandler.bind(this, false)}
                     id={this.id}
                     disabled={disabled}
+                    autoComplete="off"
                 />
             </div>
         );

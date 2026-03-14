@@ -5,10 +5,12 @@ type PropsT = {
     value: string;
     name: string;
     setValue: (d: { value: string | number | boolean; name: string }) => Promise<void>;
-    uploadFile?: (d: { file: File }) => Promise<void>;
+    uploadFile?: (d: { file: File; name: string }) => Promise<void>;
 } & FieldT;
 
-type StateT = {};
+type StateT = {
+    addressesList?: string[];
+};
 
 type FieldT = {
     type: 'select' | 'input' | 'checkbox' | 'file';
@@ -31,6 +33,9 @@ type FieldT = {
 };
 
 interface FieldI extends DefaultI<PropsT, StateT> {
+    getAddressesInc: () => void;
+    getAddresses(this: FieldI): Promise<void>;
+
     renderField(this: FieldI): React.ReactNode;
 }
 

@@ -9,7 +9,10 @@ const renderMain: I['renderMain'] = function () {
         <label className="upload__main _FULL _COL _COL_CENTER _CLICK">
             <input
                 type="file"
-                onChange={(e) => this.uploadHandler({ file: e.target.files![0] })}
+                onChange={async (e) => {
+                    await this.uploadHandler({ file: e.target.files![0] });
+                    e.target.value = '';
+                }}
                 accept=".jpg,.jpeg,.png"
             />
             <i className="upload__mainIcon">

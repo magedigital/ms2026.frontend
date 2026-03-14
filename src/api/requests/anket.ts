@@ -22,11 +22,11 @@ async function send({
     });
 }
 
-async function upload({ file }: { file: File }): Promise<void> {
+async function upload({ file, name }: { file: File; name: string }): Promise<void> {
     const formData = new FormData();
 
     formData.append('file', file);
-    formData.append('fileName', file.name);
+    formData.append('fileName', name);
 
     await request({
         method: 'POST',

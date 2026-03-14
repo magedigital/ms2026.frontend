@@ -15,6 +15,7 @@ interface UploadI extends DefaultI<PropsT, StateT> {
     renderMain(this: UploadI): React.ReactNode;
     renderResult(this: UploadI): React.ReactNode;
     renderOver(this: UploadI): React.ReactNode;
+    renderLoading(this: UploadI): React.ReactNode;
 }
 
 export default UploadI;

@@ -58,6 +58,7 @@ type PropsT = {
     getWrapperParent?: () => HTMLElement | null;
     notEmptySize?: boolean;
     name?: string;
+    wrapperClassName?: string;
 };
 
 type StateT = {

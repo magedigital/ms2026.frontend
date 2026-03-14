@@ -29,8 +29,13 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
         sizeParentNode,
         getWrapperParent,
         notEmptySize,
+        wrapperClassName,
     } = this.props;
-    const parent = this.parent.current!;
+    let parent = this.parent.current;
+
+    if (wrapperClassName) {
+        parent = this.parent.current!.querySelector<HTMLDivElement>(`.${wrapperClassName}`);
+    }
 
     if (!parent) {
         return;
@@ -112,8 +117,16 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
             },
         }));
 
+        if (wrapperClassName) {
+            elems.push({
+                className: `.${wrapperClassName}`,
+                id: 'wrapper',
+                style: { width: '', height: '' },
+            });
+        }
+
         const params = getRealParams({
-            parent,
+            parent: this.parent.current!,
             wrapperParent,
             elems,
             classNames: ['_static'],
@@ -162,8 +175,10 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
             }
         });
 
+        const parentParams = (wrapperClassName ? params.wrapper : params.parent) as RealParamsItemT;
+
         if (parentStyleProps.includes('width')) {
-            let resultHeight = params.parent.height;
+            let resultHeight = parentParams.height;
 
             if (minHeight && resultHeight < minHeight) {
                 resultHeight = minHeight;
@@ -189,7 +204,7 @@ const drawItems: I['drawItems'] = async function ({ addesIds, deletesIds, wasEmp
         }
 
         if (parentStyleProps.includes('height')) {
-            let resultWidth = params.parent.width;
+            let resultWidth = parentParams.width;
 
             if (minWidth && resultWidth < minWidth) {
                 resultWidth = minWidth;

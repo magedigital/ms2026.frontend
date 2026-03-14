@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 import setAnimate from '@utils/setAnimate.ts';
 
 import I from '../types.ts';
@@ -7,12 +5,16 @@ import I from '../types.ts';
 import { calcProgressSteps } from '../static/progressSteps.ts';
 
 const start: I['start'] = async function () {
+    const { amount } = this.state;
+
+    if (+amount <= 0) {
+        return;
+    }
+
     const duration = 2000;
     const lineNode = this.parent.current!.querySelector(
         '.calc__processProgressLine',
     ) as HTMLElement;
-
-    this.procId = v4();
 
     await this.asyncSetState({ step: 'process' });
 

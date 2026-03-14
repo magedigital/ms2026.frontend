@@ -12,7 +12,7 @@ interface HeaderI extends DefaultI<PropsT, StateT> {
     getUserData(this: HeaderI): Partial<Record<string, string>>;
     getFields(this: HeaderI): Record<string, FieldT>;
 
-    uploadFile(this: HeaderI, d: { file: File }): Promise<void>;
+    uploadFile(this: HeaderI, d: { file: File; name: string }): Promise<void>;
     sendForm(this: HeaderI, d: Partial<Record<string, string>>): Promise<void>;
 }
 

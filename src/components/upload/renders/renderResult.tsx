@@ -14,7 +14,10 @@ const renderResult: I['renderResult'] = function () {
             <label className="upload__resultButton _CLICK">
                 <input
                     type="file"
-                    onChange={(e) => this.uploadHandler({ file: e.target.files![0] })}
+                    onChange={async (e) => {
+                        await this.uploadHandler({ file: e.target.files![0] });
+                        e.target.value = '';
+                    }}
                     accept=".jpg,.jpeg,.png"
                 />
                 <i className="upload__resultButtonIcon">

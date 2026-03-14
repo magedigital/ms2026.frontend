@@ -9,8 +9,10 @@ type PropsT = {
     };
     request: (d: Partial<Record<string, string>>) => Promise<void>;
 } & Partial<{
+    fieldsList: string[];
+    fieldsKey: string;
     data: Partial<Record<string, string>>;
-    uploadFile: (d: { file: File }) => Promise<void>;
+    uploadFile: (d: { file: File; name: string }) => Promise<void>;
     fieldClassName: string;
     requiredText: string;
 }>;
