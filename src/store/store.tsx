@@ -23,6 +23,7 @@ type StoreT = {
     levels: string[];
     pagesIds: Record<string, number>;
     authUser?: UserT;
+    isAuthCheck?: boolean;
     isRootInit: boolean;
     isWindowLoad: boolean;
     isCookiesShow: boolean;
@@ -83,7 +84,7 @@ const appStore = create<StoreT & ReducersT>((set) => ({
             return JSON.parse(localUser) as UserT;
         }
     })(),
-    setAuthUser: (authUser) => set({ authUser }),
+    setAuthUser: (authUser) => set({ authUser, ...(authUser ? { isAuthCheck: true } : {}) }),
     ...createPopupsStore(set),
 }));
 

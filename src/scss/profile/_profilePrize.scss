@@ -37,6 +37,10 @@
         border: 2rem solid transparent;
         border-radius: 360rem;
 
+        @include mob {
+            font-size: 16rem;
+        }
+
         &._SENDING {
             color: #c10230;
             background: #ffcd03;

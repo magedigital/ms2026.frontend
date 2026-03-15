@@ -81,6 +81,10 @@
     &._minSize {
         padding: 10rem 16rem;
         font-size: 18rem;
+
+        @include mob {
+            padding: 7rem 15rem;
+        }
     }
 
     &__loader {

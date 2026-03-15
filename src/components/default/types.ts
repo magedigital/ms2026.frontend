@@ -8,6 +8,7 @@ type PropsT = Partial<{
     children: React.ReactNode;
     getParent?: () => HTMLElement | undefined | null;
     authUser?: StoreT['authUser'];
+    isAuthCheck?: StoreT['isAuthCheck'];
     onClick?: (e: MouseEvent) => void;
 }>;
 
@@ -45,7 +46,7 @@ interface DefaultI<P = ObjT, S = ObjT> extends React.Component<PropsT & P, State
     isSetStartCalcSize?: boolean;
     isSetEndCalcSize?: boolean;
     savedPrevPageUrl?: string;
-    isCheckAuth?: boolean;
+    isAuthCheck?: boolean;
     isDocFocus?: boolean;
     isOnline?: boolean;
     wheelScrollNodeClass?: string;

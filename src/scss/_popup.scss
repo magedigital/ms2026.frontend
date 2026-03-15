@@ -19,6 +19,7 @@
         overflow-y: auto;
 
         @include mob {
+            display: block;
             padding: 78rem 16rem 24rem;
         }
     }
@@ -26,6 +27,12 @@
     &._calcPopup &__inner {
         width: 888rem;
         height: 630rem;
+        background: none;
+
+        @include mob {
+            width: 100%;
+            height: auto;
+        }
     }
 
     &__inner {
@@ -33,9 +40,6 @@
         z-index: 1;
         width: 100%;
         width: 588rem;
-
-        // margin: 56rem auto 0;
-
         margin: auto;
         background: #ffcd03;
         border-radius: 22rem;

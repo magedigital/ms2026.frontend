@@ -2,9 +2,17 @@
     width: 100%;
     padding: 84rem 0;
 
+    @include mob {
+        padding: 64rem 0;
+    }
+
     &__title {
         margin-bottom: 40rem;
         text-align: center;
+
+        @include mob {
+            margin-bottom: 34rem;
+        }
     }
 
     &__table {

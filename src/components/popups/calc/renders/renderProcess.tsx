@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Media from '@components/media/Media.tsx';
+
 import I from '../types.ts';
 
 import { calcProgressSteps } from '../static/progressSteps.ts';
@@ -20,21 +22,41 @@ const renderProcess: I['renderProcess'] = function () {
                         )}
                         key={k}
                     >
-                        <img
-                            src={require(`@media/calc/${calcProgressSteps[k].thumb}`)}
-                            className={this.getClass('calc__processThumbInner')}
-                        />
+                        <Media check={(d) => d === 'desktop'}>
+                            <img
+                                src={require(`@media/calc/${calcProgressSteps[k].thumb}`)}
+                                className={this.getClass('calc__processThumbInner')}
+                            />
+                        </Media>
+                        <Media check={(d) => d === 'mobile'}>
+                            <img
+                                src={require(`@media/calc/${calcProgressSteps[k].mobThumb}`)}
+                                className={this.getClass('calc__processThumbInner')}
+                            />
+                        </Media>
                     </div>
-
-                    <img
-                        src={require(`@media/calc/${calcProgressSteps[k].back}`)}
-                        className={this.getClass(
-                            'calc__processBack',
-                            this.setClass(k),
-                            currentProgressStep === +k && '_current',
-                        )}
-                        key={k}
-                    />
+                    <Media check={(d) => d === 'desktop'}>
+                        <img
+                            src={require(`@media/calc/${calcProgressSteps[k].back}`)}
+                            className={this.getClass(
+                                'calc__processBack',
+                                this.setClass(k),
+                                currentProgressStep === +k && '_current',
+                            )}
+                            key={k}
+                        />
+                    </Media>
+                    <Media check={(d) => d === 'mobile'}>
+                        <img
+                            src={require(`@media/calc/${calcProgressSteps[k].mobBack}`)}
+                            className={this.getClass(
+                                'calc__processBack',
+                                this.setClass(k),
+                                currentProgressStep === +k && '_current',
+                            )}
+                            key={k}
+                        />
+                    </Media>
                 </>
             ))}
 

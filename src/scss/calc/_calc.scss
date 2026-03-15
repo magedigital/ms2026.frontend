@@ -5,8 +5,21 @@
     height: 100%;
     overflow: hidden;
     border-radius: 20rem;
+    transition: $trans;
 
     @include bg("/media/calc/calc-bg.svg", cover, center);
+
+    @include mob {
+        height: 716rem;
+        background: #8ec046;
+        border-radius: 26rem;
+    }
+
+    &._result {
+        @include mob {
+            height: 990rem;
+        }
+    }
 
     &__startHead {
         position: absolute;
@@ -18,6 +31,10 @@
         padding: 20rem 0;
         transition: $trans;
 
+        @include mob {
+            padding: 16rem 0;
+        }
+
         &Title {
             margin-bottom: 5rem;
             padding: 18rem 24rem;
@@ -27,6 +44,15 @@
             text-transform: uppercase;
 
             @include bg("/media/calc/title-back.svg", contain, center);
+
+            @include mob {
+                margin-bottom: 3rem;
+                padding: 20rem 36rem;
+                font-size: 31rem;
+                white-space: nowrap;
+
+                @include bg("/media/calc/title-back-mob.svg", contain, center);
+            }
         }
 
         &Text {
@@ -34,6 +60,11 @@
             font-size: 20rem;
             line-height: 1.2;
             text-align: center;
+
+            @include mob {
+                max-width: 87%;
+                font-size: 23.5rem;
+            }
         }
 
         &Thumb {
@@ -43,6 +74,10 @@
             width: 225rem;
             height: 378rem;
             object-fit: contain;
+
+            @include mob {
+                display: none;
+            }
 
             &._left {
                 left: -2rem;
@@ -73,6 +108,16 @@
 
         @include bg("/media/calc/calc-bg-1.svg", contain, center top);
 
+        @include mob {
+            top: 214rem;
+            width: 94%;
+            height: 300rem;
+            margin-left: 0;
+            padding: 0 16rem 0 0;
+
+            @include bg("/media/calc/calc-bg-1-mob.svg", contain, center top);
+        }
+
         &Field {
             display: flex;
             align-items: center;
@@ -82,12 +127,22 @@
             margin: 118rem auto 0;
             text-align: center;
 
+            @include mob {
+                width: 220rem;
+                margin: 71rem auto 0;
+            }
+
             & label {
                 padding-left: 12rem;
                 color: #c10230;
                 font-size: 48rem;
                 text-transform: uppercase;
                 cursor: text;
+
+                @include mob {
+                    padding-left: 9rem;
+                    font-size: 39rem;
+                }
             }
         }
 
@@ -95,6 +150,10 @@
             color: #fff;
             font-size: 48rem;
             text-transform: uppercase;
+
+            @include mob {
+                font-size: 39rem;
+            }
         }
     }
 
@@ -118,6 +177,16 @@
 
         @include bg("/media/calc/calc-process-back.svg", 100% auto, center top);
 
+        @include mob {
+            top: 213rem;
+            width: 93%;
+            height: 430rem;
+            margin: 0;
+            padding: 32rem 15rem 73rem;
+
+            @include bg("/media/calc/calc-process-back-mob.svg", 100% auto, center top);
+        }
+
         &Thumb {
             position: absolute;
             top: 24rem;
@@ -129,6 +198,12 @@
             animation: calcProcessThumb 2s infinite ease-in-out;
             pointer-events: none;
             will-change: transform;
+
+            @include mob {
+                width: 250rem;
+                height: 250rem;
+                margin-left: 5rem;
+            }
 
             @keyframes calcProcessThumb {
                 0% {
@@ -148,7 +223,7 @@
                 }
 
                 64% {
-                    transform: translate(-50%, 0) scale(.92) rotate(-1deg);
+                    transform: translate(-50%, 0) scale(0.92) rotate(-1deg);
                 }
 
                 82% {
@@ -186,6 +261,10 @@
             object-fit: contain;
             transition: $trans;
             pointer-events: none;
+
+            @include mob {
+                top: -10rem;
+            }
 
             &:not(._current) {
                 opacity: 0;
@@ -263,6 +342,10 @@
                 text-transform: uppercase;
                 transition: $trans;
 
+                @include mob {
+                    font-size: 23rem;
+                }
+
                 &:not(._current) {
                     opacity: 0;
 
@@ -292,6 +375,10 @@
         padding: 20rem 68rem 0;
         transition: $trans;
 
+        @include mob {
+            padding: 20rem 14rem 0;
+        }
+
         &Title {
             position: relative;
             margin-bottom: 8rem;
@@ -303,12 +390,25 @@
 
             @include bg("/media/calc/title-back-2.svg", contain, center);
 
+            @include mob {
+                width: 100%;
+                margin-bottom: 12rem;
+                font-size: 32rem;
+
+                @include bg("/media/calc/title-back-mob.svg", contain, center);
+            }
+
             & span {
                 position: absolute;
                 top: 16rem;
                 right: 12rem;
                 color: #fff;
                 font-size: 16rem;
+
+                @include mob {
+                    top: 18rem;
+                    right: 80rem;
+                }
             }
         }
 
@@ -318,6 +418,10 @@
             align-items: center;
             width: 100%;
             padding: 12rem 0 0;
+
+            @include mob {
+                padding: 0;
+            }
 
             &::before {
                 position: absolute;
@@ -329,6 +433,12 @@
                 content: "";
 
                 @include bg("/media/calc/calc-bg-6.svg", 100% auto, center top);
+
+                @include mob {
+                    top: 58rem;
+
+                    @include bg("/media/calc/calc-bg-6-mob.svg", 100% auto, center top);
+                }
             }
         }
 
@@ -338,16 +448,27 @@
             padding: 3rem;
             background: #fff;
             border-radius: 360rem;
+
+            @include mob {
+                margin-bottom: 34rem;
+                padding: 4rem;
+            }
         }
 
         &Tab {
-            padding: 4rem 9rem;
+            padding: 5rem 9rem 4rem;
             color: #5d279e;
             font-size: 14rem;
+            font-family: BlocDef;
             line-height: 1.3;
             text-transform: uppercase;
             border-radius: 360rem;
             transition: $trans;
+
+            @include mob {
+                padding: 7rem 10rem 4rem;
+                font-size: 18rem;
+            }
 
             &._current {
                 color: #fff;
@@ -362,6 +483,10 @@
         &Blocks {
             width: 100%;
             height: 330rem;
+
+            @include mob {
+                height: 560rem;
+            }
         }
 
         &Block {
@@ -400,16 +525,38 @@
             bottom: 0;
             margin-top: 24rem;
         }
+
+        @include mob {
+            bottom: 90rem;
+            flex-direction: column-reverse;
+        }
     }
 
     &__button {
+        @include mob {
+            width: 280rem;
+
+            & .button {
+                padding: 16rem 32rem;
+            }
+        }
+
         & + & {
             margin-left: 16rem;
+
+            @include mob {
+                margin-bottom: 14rem;
+                margin-left: 0;
+            }
         }
     }
 
     &__buttons._result &__button {
         width: 240rem;
+
+        @include mob {
+            width: 280rem;
+        }
     }
 
     &__support {
@@ -423,6 +570,12 @@
         font-family: Onest;
         text-align: center;
         pointer-events: none;
+
+        @include mob {
+            bottom: 24rem;
+            padding: 0 8rem;
+            font-size: 15.5rem;
+        }
 
         & a {
             display: inline-block;

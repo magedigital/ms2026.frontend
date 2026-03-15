@@ -4,6 +4,10 @@
     &__title {
         margin-bottom: 48rem;
         text-align: center;
+
+        @include mob {
+            margin-bottom: 26rem;
+        }
     }
 
     &__info {
@@ -12,6 +16,11 @@
         padding: 24rem 32rem;
         background: #fff;
         border-radius: 20rem;
+
+        @include mob {
+            margin-bottom: 38rem;
+            padding: 13rem 19rem 28rem;
+        }
 
         &Inner {
             position: relative;
@@ -22,11 +31,21 @@
             margin-bottom: 14rem;
             color: #5d279e;
             font-size: 30rem;
+
+            @include mob {
+                margin-bottom: 13rem;
+                font-size: 24rem;
+            }
         }
 
         &Content {
             display: flex;
             align-items: center;
+
+            @include mob {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         &Id {
@@ -39,6 +58,13 @@
             line-height: 1.4;
             background: #ffcd03;
             border-radius: 360rem;
+
+            @include mob {
+                margin-right: 0;
+                margin-bottom: 22rem;
+                padding: 6rem 12rem;
+                font-size: 16rem;
+            }
         }
 
         &Edit {
@@ -56,6 +82,10 @@
             right: 0;
             bottom: 0;
             z-index: 2;
+
+            @include mob {
+                bottom: -8rem;
+            }
         }
     }
 
@@ -72,12 +102,25 @@
 
         @include bg("/media/inner/game-back.jpg", cover, center top);
 
+        @include mob {
+            justify-content: flex-start;
+            height: 414rem;
+            padding: 32rem 34rem 44rem;
+
+            @include bg("/media/inner/game-back-mob.jpg", cover, center top);
+        }
+
         &Title {
             margin-bottom: 18rem;
             color: #fff;
             font-size: 48rem;
             text-align: center;
             text-transform: uppercase;
+
+            @include mob {
+                margin-bottom: 9rem;
+                font-size: 31rem;
+            }
         }
 
         &Info {
@@ -89,10 +132,20 @@
             font-family: Onest;
             background: #ffcd03;
             border-radius: 360rem;
+
+            @include mob {
+                font-weight: 700;
+                font-size: 15rem;
+            }
         }
 
         &Button {
             width: 200rem;
+
+            @include mob {
+                width: 232rem;
+                height: 62rem;
+            }
         }
     }
 }

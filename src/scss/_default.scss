@@ -222,6 +222,10 @@
 
     &._mediumSize {
         font-size: 36rem;
+
+        @include mob {
+            font-size: 32rem;
+        }
     }
 
     &._sub {

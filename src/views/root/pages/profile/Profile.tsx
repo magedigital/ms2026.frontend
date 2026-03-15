@@ -8,6 +8,7 @@ import Codes from './components/codes/Codes.tsx';
 import Header from './components/header/Header.tsx';
 import Prizes from './components/prizes/Prizes.tsx';
 
+import checkAuthCb from './methods/checkAuthCb.ts';
 import getData from './methods/getData.ts';
 import init from './methods/init.ts';
 
@@ -26,6 +27,7 @@ class Profile extends Page<ProfileI['props'], ProfileI['state']> implements Prof
     }
 
     init = init;
+    checkAuthCb = checkAuthCb;
 
     getData = getData;
 
@@ -52,8 +54,9 @@ class Profile extends Page<ProfileI['props'], ProfileI['state']> implements Prof
     }
 }
 
-const mapStore = (store: StoreT) => ({
-    authUser: store.authUser,
+const mapStore = (s: StoreT) => ({
+    authUser: s.authUser,
+    isAuthCheck: s.isAuthCheck,
 });
 
 export default WithStore(Profile, mapStore);

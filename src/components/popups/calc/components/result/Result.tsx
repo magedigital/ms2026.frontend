@@ -34,7 +34,8 @@ class Result extends Default<ResultI['props'], ResultI['state']> implements Resu
                 className={this.getClass('calcResult _COL', isStart && '_start')}
             >
                 <p className="calcResult__title">
-                    Остаток по ипотеке в упаковках напитка {value.replace('.', ',')}л:
+                    Остаток по ипотеке <br className="_MOBILE" />в упаковках напитка{' '}
+                    {value.replace('.', ',')}л:
                 </p>
                 <p className="calcResult__count">
                     <div

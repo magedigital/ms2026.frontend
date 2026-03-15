@@ -3,6 +3,7 @@ import { StoreT } from '@store/store';
 
 type PropsT = {
     authUser: StoreT['authUser'];
+    isAuthCheck: StoreT['isAuthCheck'];
 };
 
 type StateT = {

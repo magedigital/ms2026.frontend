@@ -5,7 +5,7 @@ import I from '../types.ts';
 
 const init: I['init'] = async function (this: I) {
     const slider = this.parent.current!;
-    const { value } = this.props;
+    const { value, device } = this.props;
     const valueData = calcValues[value];
 
     this.timers.start = setTimeout(async () => {
@@ -16,7 +16,7 @@ const init: I['init'] = async function (this: I) {
         await this.asyncSetState({ isEnd: true });
     }, 2_200);
 
-    if (valueData.thumbs.length <= 3) {
+    if (valueData.thumbs.length <= 3 && device === 'desktop') {
         return;
     }
 

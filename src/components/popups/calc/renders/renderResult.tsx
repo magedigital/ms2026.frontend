@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '@components/button/Button.tsx';
 import List from '@components/list/List.tsx';
+import Media from '@components/media/Media.tsx';
 
 import Result from '../components/result/Result.tsx';
 
@@ -34,20 +35,50 @@ const renderResult: I['renderResult'] = function () {
                         </div>
                     ))}
                 </div>
-                <List
-                    renderKey={step === 'result' ? currentTab : undefined}
-                    items={step === 'result' ? [{ _id: currentTab }] : []}
-                    parentClass="calc__resultBlocks"
-                    itemClass="calc__resultBlock"
-                    itemStyleProps={[]}
-                    parentStyleProps={[]}
-                    parentRealStyleProps={[]}
-                    render={({ item }) => ({
-                        item: <Result value={item._id} amount={+amount.replace(/\D/gi, '')} />,
-                    })}
-                    allItems={Object.keys(calcValues)}
-                    currentItem={currentTab}
-                />
+                <Media check={(d) => d === 'desktop'}>
+                    <List
+                        renderKey={step === 'result' ? currentTab : undefined}
+                        items={step === 'result' ? [{ _id: currentTab }] : []}
+                        parentClass="calc__resultBlocks"
+                        itemClass="calc__resultBlock"
+                        itemStyleProps={[]}
+                        parentStyleProps={[]}
+                        parentRealStyleProps={[]}
+                        render={({ item }) => ({
+                            item: (
+                                <Result
+                                    value={item._id}
+                                    amount={+amount.replace(/\D/gi, '')}
+                                    device="desktop"
+                                />
+                            ),
+                        })}
+                        allItems={Object.keys(calcValues)}
+                        currentItem={currentTab}
+                    />
+                </Media>
+                <Media check={(d) => d === 'mobile'}>
+                    <List
+                        renderKey={step === 'result' ? currentTab : undefined}
+                        items={step === 'result' ? [{ _id: currentTab }] : []}
+                        parentClass="calc__resultBlocks"
+                        itemClass="calc__resultBlock"
+                        itemStyleProps={[]}
+                        parentStyleProps={[]}
+                        parentRealStyleProps={[]}
+                        render={({ item }) => ({
+                            item: (
+                                <Result
+                                    value={item._id}
+                                    amount={+amount.replace(/\D/gi, '')}
+                                    device="mobile"
+                                />
+                            ),
+                        })}
+                        allItems={Object.keys(calcValues)}
+                        currentItem={currentTab}
+                    />
+                </Media>
                 <div className="calc__buttons _result">
                     <div className="calc__button">
                         <Button className="_subEmptyColor" onClick={this.close.bind(this)}>
