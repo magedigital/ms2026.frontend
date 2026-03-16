@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.7dc7906f.css",
+    "main.css": "/static/css/main.ab77bd3b.css",
     "main.js": "/static/js/main.c4fd9913.js",
     "static/js/8535.cfcff395.chunk.js": "/static/js/8535.cfcff395.chunk.js",
     "static/js/557.238d9864.chunk.js": "/static/js/557.238d9864.chunk.js",
@@ -56,20 +56,19 @@
     "static/js/5768.572c4427.chunk.js": "/static/js/5768.572c4427.chunk.js",
     "static/js/7340.924a559a.chunk.js": "/static/js/7340.924a559a.chunk.js",
     "static/js/3732.28be5790.chunk.js": "/static/js/3732.28be5790.chunk.js",
-    "static/media/inner-back.jpg": "/static/media/inner-back.48c6874783567716990e.jpg",
-    "static/media/inner-back-mob.jpg": "/static/media/inner-back-mob.aa8dd7eefc03391fd824.jpg",
-    "static/media/game-back.jpg": "/static/media/game-back.9cb01d3dd1ab3f21586e.jpg",
-    "static/media/game-back-mob.jpg": "/static/media/game-back-mob.0d15e6154d44dc4231d6.jpg",
     "static/media/rules.pdf": "/static/media/rules.f1ba36b94e200557cbcc.pdf",
     "static/media/sok-image.png": "/static/media/sok-image.83453424a81d513b0f11.png",
     "static/media/main-prize-image.png": "/static/media/main-prize-image.c508743632be977bdb30.png",
     "static/media/Regular.ttf": "/static/media/Regular.e0e4d3ce947620b00ed5.ttf",
     "static/media/sok-image-1.png": "/static/media/sok-image-1.d3dae6ada86a3ecf6af0.png",
+    "static/media/inner-back.jpg": "/static/media/inner-back.d3e12cc48f072caa0671.jpg",
     "static/media/main-prize-image-mob.png": "/static/media/main-prize-image-mob.c889fad8d956532032b4.png",
     "static/media/sok-image-mob.png": "/static/media/sok-image-mob.e1a7590b419b4f71aea7.png",
+    "static/media/game-back.jpg": "/static/media/game-back.9ce1f934e5944937696c.jpg",
     "static/media/main-back-2.svg": "/static/media/main-back-2.9632729df37ce8389aa7.svg",
     "static/media/step-icon-2.svg": "/static/media/step-icon-2.b81b033703b019d0a6e0dbbbdb37f90f.svg",
     "static/media/blocc.ttf": "/static/media/blocc.cbdcad2da9c72b9f6a3c.ttf",
+    "static/media/game-back-mob.jpg": "/static/media/game-back-mob.e2bca11d614ab1cdce9d.jpg",
     "static/media/activ-1.png": "/static/media/activ-1.69b701dbc99dc5fb3f53.png",
     "static/media/Onest-Medium.ttf": "/static/media/Onest-Medium.fbd1029ceefc29dbe253.ttf",
     "static/media/Onest-Bold.ttf": "/static/media/Onest-Bold.e6f62dc971ba457a32e0.ttf",
@@ -99,6 +98,7 @@
     "static/media/product-02l-2.png": "/static/media/product-02l-2.8003a3665876b75bef62.png",
     "static/media/product-02l-3.png": "/static/media/product-02l-3.79cdd930a28b47488ce6.png",
     "static/media/product-02l-4.png": "/static/media/product-02l-4.f9a450d6fa8ba8536a6c.png",
+    "static/media/inner-back-mob.jpg": "/static/media/inner-back-mob.3818c5b625531417f103.jpg",
     "static/media/product-02l-1.png": "/static/media/product-02l-1.6b011280eb2f4341c336.png",
     "static/media/calc-bg-3.svg": "/static/media/calc-bg-3.c71b33393a5cd708fe51.svg",
     "static/media/calc-bg-3-mob.svg": "/static/media/calc-bg-3-mob.23bc2b39030443b51744.svg",
@@ -199,7 +199,7 @@
     "static/media/arrow-1.svg": "/static/media/arrow-1.b36c8e738a92fc69a506.svg",
     "static/media/zagl-footer-mob.svg": "/static/media/zagl-footer-mob.0031ef9f24835e066c86.svg",
     "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg",
-    "main.7dc7906f.css.map": "/static/css/main.7dc7906f.css.map",
+    "main.ab77bd3b.css.map": "/static/css/main.ab77bd3b.css.map",
     "main.c4fd9913.js.map": "/static/js/main.c4fd9913.js.map",
     "8535.cfcff395.chunk.js.map": "/static/js/8535.cfcff395.chunk.js.map",
     "557.238d9864.chunk.js.map": "/static/js/557.238d9864.chunk.js.map",
@@ -257,7 +257,7 @@
     "3732.28be5790.chunk.js.map": "/static/js/3732.28be5790.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7dc7906f.css",
+    "static/css/main.ab77bd3b.css",
     "static/js/main.c4fd9913.js"
   ]
 }
