@@ -26,7 +26,7 @@ class Calc extends Popup<CalcI['props'], CalcI['state']> implements CalcI {
             amount: '0',
             step: 'start',
             currentTab: '0.2',
-            // currentProgressStep: 1,
+            // currentProgressStep: 2,
         };
 
         this.parent = React.createRef();

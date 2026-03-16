@@ -298,10 +298,19 @@
                     content: "";
 
                     @include bg("/media/calc/calc-process.svg", contain, left center);
+
+                    @include mob {
+                        width: calc(100% + 20rem);
+                        background-size: auto 100%;
+                    }
                 }
 
                 &::before {
                     left: -100%;
+
+                    @include mob {
+                        left: calc(-100% - 20rem);
+                    }
                 }
 
                 @keyframes calcProgress {
@@ -320,7 +329,7 @@
                 top: 0;
                 right: 0;
                 z-index: 4;
-                width: 90%;
+                width: 30%;
                 height: 100%;
                 background: #783fc7;
             }
