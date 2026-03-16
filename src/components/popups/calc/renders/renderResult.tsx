@@ -38,7 +38,7 @@ const renderResult: I['renderResult'] = function () {
                 <Media check={(d) => d === 'desktop'}>
                     <List
                         renderKey={step === 'result' ? currentTab : undefined}
-                        items={step === 'result' ? [{ _id: currentTab }] : []}
+                        items={step === 'result' ? [{ _id: currentTab, amount }] : []}
                         parentClass="calc__resultBlocks"
                         itemClass="calc__resultBlock"
                         itemStyleProps={[]}
@@ -48,7 +48,7 @@ const renderResult: I['renderResult'] = function () {
                             item: (
                                 <Result
                                     value={item._id}
-                                    amount={+amount.replace(/\D/gi, '')}
+                                    amount={+item.amount.replace(/\D/gi, '')}
                                     device="desktop"
                                 />
                             ),
@@ -60,7 +60,7 @@ const renderResult: I['renderResult'] = function () {
                 <Media check={(d) => d === 'mobile'}>
                     <List
                         renderKey={step === 'result' ? currentTab : undefined}
-                        items={step === 'result' ? [{ _id: currentTab }] : []}
+                        items={step === 'result' ? [{ _id: currentTab, amount }] : []}
                         parentClass="calc__resultBlocks"
                         itemClass="calc__resultBlock"
                         itemStyleProps={[]}
@@ -70,7 +70,7 @@ const renderResult: I['renderResult'] = function () {
                             item: (
                                 <Result
                                     value={item._id}
-                                    amount={+amount.replace(/\D/gi, '')}
+                                    amount={+item.amount.replace(/\D/gi, '')}
                                     device="mobile"
                                 />
                             ),
@@ -94,6 +94,7 @@ const renderResult: I['renderResult'] = function () {
                                     currentProgressStep: 1,
                                     amount: '0',
                                 });
+                                this.setInputSize();
                             }}
                         >
                             Посчитать ещё
