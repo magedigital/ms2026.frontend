@@ -68,6 +68,10 @@
         }
     }
 
+    &._inner &__scrollInner {
+        background-color: #5c0f8b;
+    }
+
     &._inner &__scrollContent {
         padding-top: 170rem;
 
