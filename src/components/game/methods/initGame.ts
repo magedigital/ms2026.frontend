@@ -36,7 +36,7 @@ const initGame: I['initGame'] = function (app) {
             console.log('playWithoutConfirmation');
         },
         switchToMobileWidth: 480,
-        userNotAuthorized: !getCookie(enums.ACCESS_TOKEN),
+        userNotAuthorized: !window.JWT,
         activityIsOver: true,
     };
 

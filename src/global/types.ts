@@ -14,6 +14,7 @@ declare global {
                 duplicateTimeout: number;
                 showConsole: boolean;
                 apiURL: string;
+                catchOnce?: boolean;
             };
             getAppRoot: () => HTMLElement;
             activate: () => void;

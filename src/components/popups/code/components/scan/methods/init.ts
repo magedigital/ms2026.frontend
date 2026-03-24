@@ -3,7 +3,7 @@ import { getCookie } from '@utils/cookies.ts';
 
 import I from '../types.ts';
 
-const scriptSrc = 'index-Cha0RgGU.js';
+const scriptSrc = 'index-CkiTM5kE.js';
 const styleSrc = 'index-D5odaqUt.css';
 const root = '/reader/assets';
 
@@ -17,6 +17,7 @@ const init: I['init'] = async function (this: I) {
             duplicateTimeout: 3_000,
             showConsole: false,
             apiURL: '/api/ChZScan',
+            catchOnce: true,
         },
         getAppRoot: () => this.parent.current!,
         activate: () => undefined,
