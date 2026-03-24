@@ -5,14 +5,7 @@ import I from '../types.ts';
 
 const sendForm: I['sendForm'] = async function (d) {
     const data = {
-        firstName: d.firstName,
-        lastName: d.lastName,
-        thirdName: d.thirdName,
-        phone: d.phone,
-        agreement: !!d.agreement,
-        mailing: d.mailing ? '1' : undefined,
-        password1: d.password,
-        password2: d.password2,
+        ...d,
     };
 
     await anketRequests.send({ data });
