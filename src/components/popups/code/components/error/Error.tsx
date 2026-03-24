@@ -21,10 +21,10 @@ export default function Error({ setStep, updateListRender, error }: PropsT): Rea
                 <div className="popup__scanErrorBorder">
                     <DashedBorder />
                 </div>
-                <p className="popup__scanErrorText">{error}</p>
+                <p className="popup__scanErrorText">Ошибка</p>
                 <ErrorC
                     className="popup__scanErrorValue"
-                    error="Неверный код"
+                    error={error}
                     callback={updateListRender}
                 />
                 <div className="popup__scanErrorButton">
