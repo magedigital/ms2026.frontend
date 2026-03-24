@@ -13,6 +13,8 @@ const init: I['init'] = async function () {
         setCookie(enums.ACCESS_TOKEN, rootJWT);
     }
 
+    window.getJWT = () => getCookie(enums.ACCESS_TOKEN);
+
     window.userAuthorized = !!getCookie(enums.ACCESS_TOKEN);
 
     this.resizeHandler(true);

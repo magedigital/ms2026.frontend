@@ -8,6 +8,7 @@ declare global {
         socAuthUrls: Record<string, string>;
         daDataToken: string;
         userAuthorized?: boolean;
+        getJWT: () => string | undefined;
         dataMatrixApp?: {
             root?: HTMLElement;
             config: {
