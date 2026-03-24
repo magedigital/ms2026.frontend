@@ -21,6 +21,7 @@ const renderStep: I['renderStep'] = function (id) {
             )}
             {id === 'error' && (
                 <Error
+                    error={this.error}
                     setStep={this.setStep.bind(this)}
                     updateListRender={async () => {
                         await this.asyncSetState({ updateListRenderKey: new Date().getTime() });

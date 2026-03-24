@@ -33,8 +33,8 @@ const init: I['init'] = async function (this: I) {
             apiSuccess: async () => {
                 await setStep('final');
             },
-            apiError: async () => {
-                await setStep('error');
+            apiError: async (e) => {
+                await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
             },
         },
     };

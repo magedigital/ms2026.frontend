@@ -52,15 +52,17 @@ const popups = {
         redirectPageName: 'profile',
     },
     gamePopup: {
-        check: (s: StoreT) => !!s.authUser || s.isAuthProcess,
-        redirectPageName: 'profile',
+        check: (s: StoreT) =>
+            (!!s.authUser || s.isAuthProcess) && s.profileData && s.profileData.game.attempts > 0,
+        redirectPageName: (s: StoreT) =>
+            (!s.authUser && !s.isAuthProcess) || !s.profileData ? 'profile' : undefined,
     },
     calcPopup: {},
 } as const;
 
 type PopupDataT = Partial<{
     check: (s: StoreT) => boolean;
-    redirectPageName: PageNamesT;
+    redirectPageName: PageNamesT | ((s: StoreT) => PageNamesT | undefined);
 }>;
 
 const getPopupSearch = (name: string, data: ObjT | undefined): string => {
@@ -102,7 +104,14 @@ const createPopupsStore = (set: (data: Partial<StoreT>) => void): PopupsT & Popu
 
         if (popupData.check && !popupData.check(appStore.getState())) {
             if (popupData.redirectPageName) {
-                AppRouter.changePage({ pageName: popupData.redirectPageName });
+                const redirectPageName =
+                    typeof popupData.redirectPageName === 'function'
+                        ? popupData.redirectPageName(appStore.getState())
+                        : popupData.redirectPageName;
+
+                if (redirectPageName) {
+                    AppRouter.changePage({ pageName: redirectPageName });
+                }
             }
 
             return;

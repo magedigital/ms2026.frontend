@@ -20,16 +20,18 @@ const renderGame: I['renderGame'] = function () {
                     'попыток',
                 ])}
             </p>
-            <div className="profileHeader__gameButton">
-                <Button
-                    className="_whiteColor"
-                    onClick={() => {
-                        appStore.getState().setPopup({ name: 'gamePopup' });
-                    }}
-                >
-                    ИГРАТЬ
-                </Button>
-            </div>
+            {data.game.attempts > 0 && (
+                <div className="profileHeader__gameButton">
+                    <Button
+                        className="_whiteColor"
+                        onClick={() => {
+                            appStore.getState().setPopup({ name: 'gamePopup' });
+                        }}
+                    >
+                        ИГРАТЬ
+                    </Button>
+                </div>
+            )}
         </div>
     );
 };

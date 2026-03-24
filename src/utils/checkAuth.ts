@@ -52,6 +52,11 @@ export default async function checkAuth({ redirect }: ParamsT): Promise<void> {
         return;
     }
 
+    try {
+        const d = await authRequests.getInfo();
+        appStore.getState().setProfileData(d);
+    } catch (e) {}
+
     if (user.personal.phone && user.personal.phone.length === 11) {
         user.personal.phone = user.personal.phone.slice(1);
     }

@@ -41,6 +41,11 @@ const initGame: I['initGame'] = function (app) {
     };
 
     app.setData(data);
+
+    this.unmountHandlers.all = () => {
+        window.removeEventListener('load', updateLayout);
+        window.removeEventListener('resize', updateLayout);
+    };
 };
 
 export default initGame;

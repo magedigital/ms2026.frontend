@@ -13,7 +13,9 @@ type StateT = {
 };
 
 interface CodePopupI extends PopupI<PropsT, StateT> {
-    setStep(s: keyof typeof codeSteps): Promise<void>;
+    error?: string;
+
+    setStep(s: keyof typeof codeSteps, error?: string): Promise<void>;
 
     renderStep(this: CodePopupI, id: keyof typeof codeSteps): React.ReactNode;
 }

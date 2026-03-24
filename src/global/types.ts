@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios';
+
 declare global {
     interface Window {
         widthValue: number;
@@ -29,7 +31,7 @@ declare global {
                 dataMatrixSuccess: (d: any) => void;
                 dataMatrixError: (e: any) => void;
                 apiSuccess: (d: any) => void;
-                apiError: (e: any) => void;
+                apiError: (e?: AxiosError) => void;
             }>;
         };
         JWT?: string;

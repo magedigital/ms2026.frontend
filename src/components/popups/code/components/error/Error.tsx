@@ -10,9 +10,10 @@ import ChequePopupI from '../../types';
 type PropsT = {
     setStep: ChequePopupI['setStep'];
     updateListRender: () => Promise<void>;
+    error?: string;
 };
 
-export default function Error({ setStep, updateListRender }: PropsT): React.ReactNode {
+export default function Error({ setStep, updateListRender, error }: PropsT): React.ReactNode {
     return (
         <>
             <div className="popup__title _bottom">РЕГИСТРАЦИЯ КОДА</div>
@@ -20,7 +21,7 @@ export default function Error({ setStep, updateListRender }: PropsT): React.Reac
                 <div className="popup__scanErrorBorder">
                     <DashedBorder />
                 </div>
-                <p className="popup__scanErrorText">Ошибка</p>
+                <p className="popup__scanErrorText">{error}</p>
                 <ErrorC
                     className="popup__scanErrorValue"
                     error="Неверный код"
