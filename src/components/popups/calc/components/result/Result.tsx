@@ -101,13 +101,9 @@ class Result extends Default<ResultI['props'], ResultI['state']> implements Resu
                                 )}
                                 key={t}
                             >
-                                <img
-                                    src={t}
-                                    alt=""
-                                    className="calcResult__sliderItemThumb"
-                                />
+                                <img src={t} alt="" className="calcResult__sliderItemThumb" />
                                 <p className="calcResult__sliderItemTitle">
-                                    напиток сокосодержащий «АБРИКОС-ПЕРСИКОС»
+                                    {valueData.thumbsExtra?.[1]}
                                 </p>
                             </div>
                         ))}
