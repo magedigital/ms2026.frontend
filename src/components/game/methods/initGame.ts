@@ -16,6 +16,8 @@ const initGame: I['initGame'] = function (app) {
     window.addEventListener('load', updateLayout);
     window.addEventListener('resize', updateLayout);
 
+    window.JWT = getCookie(enums.ACCESS_TOKEN);
+
     const data: GameDataT = {
         gameData: {
             id: 'SLOT',
