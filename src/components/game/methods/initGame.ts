@@ -24,7 +24,7 @@ const initGame: I['initGame'] = function (app) {
             request1: { url: '/api/TentGame', method: 'POST' },
             request2: { url: '/api/TentGame', method: 'POST' },
         },
-        gameIndex: 0,
+        gameIndex: 1,
         closeHandler: close,
         registerHandler: () => {
             appStore.getState().setPopup({ name: 'regPopup' });
