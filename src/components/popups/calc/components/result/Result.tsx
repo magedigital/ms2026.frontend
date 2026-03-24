@@ -93,18 +93,16 @@ class Result extends Default<ResultI['props'], ResultI['state']> implements Resu
                             </div>
                         ))}
                     <div className="calcResult__sliderInner">
-                        {valueData.thumbs.map((t) => (
+                        {valueData.thumbsExtra.map((t, i) => (
                             <div
                                 className={this.getClass(
                                     'calcResult__sliderItem',
                                     !isSlider && '_current',
                                 )}
-                                key={t}
+                                key={i}
                             >
-                                <img src={t} alt="" className="calcResult__sliderItemThumb" />
-                                <p className="calcResult__sliderItemTitle">
-                                    {valueData.thumbsExtra?.[1]}
-                                </p>
+                                <img src={t[0]} alt="" className="calcResult__sliderItemThumb" />
+                                <p className="calcResult__sliderItemTitle">{t[1]}</p>
                             </div>
                         ))}
                     </div>
