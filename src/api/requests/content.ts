@@ -4,7 +4,7 @@ import request from '@utils/request';
 import { FaqContentT } from '../../views/root/pages/faq/types';
 import { MainContentT } from '../../views/root/pages/index/types';
 
-const version = 1;
+const version = 2;
 
 type HeaderContentT = {
     menu: {
