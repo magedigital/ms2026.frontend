@@ -40,6 +40,9 @@ const renderFields: I['renderFields'] = function () {
                         setValue={async ({ value }) => {
                             await this.setValue({ data: { password: value }, targetName: 'form' });
                         }}
+                        input={{
+                            isPassword: true,
+                        }}
                     />
                 </div>
                 <div

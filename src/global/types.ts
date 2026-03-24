@@ -11,6 +11,7 @@ declare global {
         daDataToken: string;
         userAuthorized?: boolean;
         getJWT: () => string | undefined;
+        setJWT: (t: string) => void;
         dataMatrixApp?: {
             root?: HTMLElement;
             config: {
