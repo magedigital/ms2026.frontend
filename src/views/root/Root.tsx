@@ -20,7 +20,7 @@ import pages from './static/pages.tsx';
 const Styles = typeof window !== 'undefined' && require('./components/Styles.tsx').default;
 
 class Root extends React.Component<RootI['props'], RootI['state']> implements RootI {
-    parent: React.RefObject<HTMLDivElement | null>;
+    parent: RootI['parent'];
     mode: RootI['mode'];
 
     constructor(props: RootI['props']) {
