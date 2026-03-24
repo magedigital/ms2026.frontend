@@ -11,7 +11,7 @@ type PropsT = {
 };
 
 type StateT = {
-    form?: Partial<{ login: string }>;
+    form?: Partial<{ login: string; confirm: boolean }>;
 };
 
 interface FormI extends EditorI<PropsT, StateT> {

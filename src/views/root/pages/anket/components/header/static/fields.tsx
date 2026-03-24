@@ -39,7 +39,10 @@ export const anketFields = {
         checkbox: {
             content: (
                 <>
-                    Я соглашаюсь с <a href="#">политикой конфиденциальности</a>
+                    Я соглашаюсь с{' '}
+                    <a href="/upload/docs/politics.pdf" target="_blank">
+                        политикой конфиденциальности
+                    </a>
                 </>
             ),
         },
@@ -49,7 +52,10 @@ export const anketFields = {
         checkbox: {
             content: (
                 <>
-                    Я соглашаюсь с <a href="#">условиями обработки персональных данных</a>
+                    Я соглашаюсь с{' '}
+                    <a href="/upload/docs/agreement-anket.pdf" target="_blank">
+                        условиями обработки персональных данных
+                    </a>
                 </>
             ),
         },

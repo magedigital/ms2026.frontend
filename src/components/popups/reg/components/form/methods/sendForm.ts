@@ -11,6 +11,11 @@ const sendForm: I['sendForm'] = async function () {
         return;
     }
 
+    if (!form.confirm) {
+        await this.asyncSetState({ error: { text: 'Необходимо согласие' } });
+        return;
+    }
+
     await this.asyncSetState({ loadingKey: 'send', error: undefined });
 
     try {

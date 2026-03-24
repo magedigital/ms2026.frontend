@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Checkbox from '@components/checkbox/Checkbox.tsx';
 import Field from '@components/field/Field.tsx';
 
 import I from '../types.ts';
@@ -29,6 +30,20 @@ const renderForm: I['renderForm'] = function () {
                             await this.setValue({ data: { login: value }, targetName: 'form' });
                         }}
                     />
+                </div>
+                <div className="popup__formField _FULL_W">
+                    <Checkbox
+                        value={!!form.confirm}
+                        onChange={async ({ value }) => {
+                            await this.setValue({ data: { confirm: value }, targetName: 'form' });
+                        }}
+                    >
+                        Я соглашаюсь с{' '}
+                        <a href="/upload/docs/agreement-reg.pdf" target="_blank">
+                            условиями обработки персональных данных
+                        </a>
+                        *
+                    </Checkbox>
                 </div>
             </div>
         </div>

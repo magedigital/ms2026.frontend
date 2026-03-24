@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Default from '@components/default/Default.tsx';
+import Link from '@components/link/Link.tsx';
 import StringService from '@services/string/String.service.ts';
 
 import FooterI from './types.ts';
@@ -22,16 +23,32 @@ class Footer extends Default<FooterI['props'], FooterI['state']> implements Foot
                     <div className="footer__inner _INNER">
                         <div className="footer__nav">
                             <div className="footer__navBlock">
-                                <div className="footer__navLink _CLICK">ПРАВИЛА АКЦИИ</div>
-                                <div className="footer__navLink _CLICK">ОБРАТНАЯ СВЯЗЬ</div>
+                                <a
+                                    className="footer__navLink _CLICK"
+                                    href="/upload/docs/rules.pdf"
+                                    target="_blank"
+                                >
+                                    ПРАВИЛА АКЦИИ
+                                </a>
+                                <Link className="footer__navLink _CLICK" pageName="faq">
+                                    ОБРАТНАЯ СВЯЗЬ
+                                </Link>
                             </div>
                             <div className="footer__navBlock">
-                                <div className="footer__navLink _CLICK">
+                                <a
+                                    className="footer__navLink _CLICK"
+                                    href="/upload/docs/politics.pdf"
+                                    target="_blank"
+                                >
                                     Политика в отношении обработки персональных данных
-                                </div>
-                                <div className="footer__navLink _CLICK">
+                                </a>
+                                <a
+                                    className="footer__navLink _CLICK"
+                                    href="/upload/docs/agreement.pdf"
+                                    target="_blank"
+                                >
                                     Пользовательское соглашение
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <p
