@@ -1,4 +1,5 @@
 import { enums } from '@global/enums.ts';
+import checkAuth from '@utils/checkAuth.ts';
 import { getCookie } from '@utils/cookies.ts';
 
 import I from '../types.ts';
@@ -31,6 +32,7 @@ const init: I['init'] = async function (this: I) {
             //     console.log(e);
             // },
             apiSuccess: async () => {
+                await checkAuth({});
                 await setStep('final');
             },
             apiError: async (e) => {
