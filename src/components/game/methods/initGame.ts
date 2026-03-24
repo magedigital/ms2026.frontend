@@ -21,8 +21,8 @@ const initGame: I['initGame'] = function (app) {
     const data: GameDataT = {
         gameData: {
             id: 'SLOT',
-            request1: { url: '/api/TentGame', method: 'POST' },
-            request2: { url: '/api/TentGame', method: 'POST' },
+            request1: { url: '/api/PlayGame', method: 'POST' },
+            request2: { url: '/api/PlayGame', method: 'POST' },
         },
         gameIndex: 1,
         closeHandler: close,
