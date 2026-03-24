@@ -1,0 +1,112 @@
+.select {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &__field {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 360rem;
+
+        &Value {
+            max-width: 100%;
+            overflow: hidden;
+            line-height: 1.3;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        & i {
+            position: absolute;
+            top: 50%;
+            right: 16rem;
+            z-index: 2;
+            display: block;
+            width: 16rem;
+            height: 16rem;
+            transform: translate(0, -50%);
+            transition: $trans;
+
+            @include mob {
+                right: 20rem;
+                width: 20rem;
+                height: 20rem;
+            }
+        }
+    }
+
+    &._active &__field i {
+        transform: translate(0, -50%) rotate(-180deg);
+    }
+
+    &._subMode &__field {
+        background: #fff;
+
+        &Value {
+            padding: 0 16rem;
+            color: var(--sub-color);
+            font-size: 16rem;
+            font-family: Onest;
+
+            @include mob {
+                padding: 0 20rem;
+                font-weight: 600;
+                font-size: 18rem;
+            }
+        }
+    }
+
+    &:not(._active) &__list {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__list {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        max-height: 200rem;
+        margin-top: 2rem;
+        padding: 20rem 16rem;
+        overflow: hidden;
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 20rem;
+        box-shadow: 6rem 6rem 0 0 rgba(#000, 0.15);
+        transition: $trans;
+
+        @include mob {
+            border-radius: 28rem;
+        }
+
+        &Item {
+            width: 100%;
+            transition: $trans;
+        }
+    }
+
+    &._subMode &__listItem {
+        color: var(--sub-color);
+        font-size: 16rem;
+        font-family: Onest;
+
+        @include mob {
+            font-size: 18rem;
+        }
+
+        &:hover {
+            color: var(--active-color);
+        }
+
+        &._current {
+            font-weight: 600;
+        }
+    }
+
+    &._subMode &__listItem + &__listItem {
+        margin-top: 12rem;
+    }
+}

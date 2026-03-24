@@ -1,0 +1,94 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 15rem 32rem;
+    color: #fff;
+    font-size: 24rem;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3rem solid transparent;
+    border-radius: 360rem;
+
+    @include button(0.97);
+
+    @include mob {
+        padding: 13rem 26rem;
+        font-size: 23rem;
+    }
+
+    &._backColor {
+        color: #fff;
+        background: var(--back-color);
+
+        @include hover {
+            &:hover {
+                background: #f10109;
+            }
+        }
+    }
+
+    &._subColor {
+        color: #fff;
+        background: #5d279e;
+    }
+
+    &._subEmptyColor {
+        color: #5d279e;
+        border-color: #5d279e;
+    }
+
+    &._whiteEmptyColor {
+        color: #fff;
+        border-color: #fff;
+
+        @include hover {
+            &:hover {
+                color: var(--sub-color);
+                background: #fff;
+            }
+        }
+    }
+
+    &._whiteColor {
+        color: #5d279e;
+        background: #fff;
+    }
+
+    &._subEmptyColor &__loader ._LL {
+        background: #5d279e;
+    }
+
+    &._whiteEmptyColor &__loader ._LL {
+        background: #fff;
+    }
+
+    &._bigSize {
+        padding: 20rem 32rem;
+    }
+
+    &._mediumSize {
+        padding: 12rem 24rem;
+
+        @include mob {
+            padding: 13rem 26rem;
+        }
+    }
+
+    &._minSize {
+        padding: 10rem 16rem;
+        font-size: 18rem;
+
+        @include mob {
+            padding: 7rem 15rem;
+        }
+    }
+
+    &__loader {
+        background: inherit;
+        border-radius: inherit;
+    }
+}

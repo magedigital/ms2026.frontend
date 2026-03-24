@@ -1,0 +1,225 @@
+.topBar {
+    width: 100%;
+    padding: 16rem 0;
+
+    &._mobMenu {
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    &._fix {
+        padding: 5rem 0;
+
+        @include mob {
+            padding: 16rem 0;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__btn {
+        width: 32rem;
+        height: 32rem;
+    }
+
+    &._mobMenu &__btn {
+        transform: scale(0.8);
+    }
+
+    &__logo {
+        width: 118rem;
+        margin: 0 0 0 28rem;
+        transform: translate(0, 14rem);
+
+        @include mob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 68rem;
+            margin: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &._fix &__logo {
+        transform: scale(0.83);
+
+        @include mob {
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__mobile {
+        margin: 0 auto;
+        padding: 38rem 0;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0 auto;
+
+        @include mob {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0 40rem;
+        }
+
+        &Item {
+            color: #fff;
+            font-size: 18rem;
+            transition: $trans;
+
+            @include button(0.96);
+
+            @include hover {
+                &:hover {
+                    color: #fdca32;
+                }
+            }
+
+            @include mob {
+                font-size: 26rem;
+            }
+
+            & + & {
+                margin-left: 16rem;
+
+                @include mob {
+                    margin-top: 33rem;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        margin-top: -2rem;
+
+        @include mob {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    &__action {
+        position: relative;
+        z-index: 1;
+        height: 42rem;
+        padding: 11rem 21rem 10rem;
+        color: #fff;
+        font-size: 18rem;
+        text-transform: uppercase;
+        border-radius: 360rem;
+
+        @include button(0.96);
+
+        @include mob {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300rem;
+            height: 53rem;
+            padding: 11rem 20rem !important;
+            font-size: 25.5rem;
+        }
+
+        & + & {
+            margin-left: 12rem;
+
+            @include mob {
+                margin-top: 32rem;
+                margin-left: 0;
+            }
+        }
+
+        &._calc {
+            padding-left: 48rem;
+            overflow: hidden;
+            background: #783fc7;
+
+            @include hover {
+                &:hover {
+                    background: #9753f7;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                top: 1rem;
+                right: 100%;
+                z-index: 2;
+                width: 90rem;
+                height: 68rem;
+                margin-right: -56rem;
+                content: "";
+
+                @include bg("/media/icon-btn-1.svg", contain, right top);
+
+                @include mob {
+                    top: 6rem;
+                    width: 80rem;
+                    height: 58rem;
+                    margin-right: -49rem;
+                }
+            }
+        }
+
+        &._reg {
+            padding-left: 60rem;
+            background: #8ec046;
+
+            @include hover {
+                &:hover {
+                    background: #a9e03b;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                top: -17rem;
+                left: -8rem;
+                z-index: 2;
+                width: 90rem;
+                height: 66rem;
+                content: "";
+
+                @include bg("/media/icon-btn-2.svg", contain, right top);
+
+                @include mob {
+                    top: -10rem;
+                    left: -18rem;
+                    width: 80rem;
+                    height: 56rem;
+                }
+            }
+        }
+
+        &._profile {
+            background: #c10230;
+
+            @include hover {
+                &:hover {
+                    background: #f10109;
+                }
+            }
+        }
+    }
+
+    &__profile {
+        width: 32rem;
+        height: 32rem;
+        margin-left: auto;
+        object-fit: contain;
+    }
+}

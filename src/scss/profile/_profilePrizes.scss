@@ -1,0 +1,35 @@
+.profilePrizes {
+    width: 100%;
+    padding: 0 0 150rem;
+
+    &__inner {
+        align-items: center;
+    }
+
+    &__title {
+        margin-bottom: 40rem;
+        text-align: center;
+    }
+
+    &__prizes {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% + 20rem);
+
+        @include mob {
+            flex-flow: column nowrap;
+            width: 100%;
+        }
+
+        &Card {
+            width: calc(100% / 3);
+            margin-bottom: 20rem;
+            padding: 0 10rem;
+
+            @include mob {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    }
+}
