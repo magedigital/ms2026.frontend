@@ -4,7 +4,7 @@ import { getCookie } from '@utils/cookies.ts';
 
 import I from '../types.ts';
 
-const scriptSrc = 'index-DFM968OX.js';
+const scriptSrc = 'index-BTTRtr2W.js';
 const styleSrc = 'index-D5odaqUt.css';
 const root = '/reader/assets';
 

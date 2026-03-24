@@ -14,7 +14,7 @@ const init: I['init'] = async function () {
     }
 
     window.getJWT = () => getCookie(enums.ACCESS_TOKEN);
-    window.setJWT = (t: string) => setCookie(enums.ACCESS_TOKEN, t);
+    window.setJWT = (t) => setCookie(enums.ACCESS_TOKEN, t);
 
     window.userAuthorized = !!getCookie(enums.ACCESS_TOKEN);
 
