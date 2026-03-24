@@ -23,11 +23,6 @@ const init: I['init'] = async function (this: I) {
         document.head.appendChild(link);
     }
 
-    if (window.dataMatrixApp) {
-        window.dataMatrixApp.root = this.parent.current!;
-        window.dataMatrixApp.getAppRoot = () => this.parent.current!;
-    }
-
     if (!document.head.querySelector('script[data-reader]')) {
         window.dataMatrixApp = {
             root: this.parent.current!,
@@ -38,16 +33,7 @@ const init: I['init'] = async function (this: I) {
                 catchOnce: true,
             },
             getAppRoot: () => this.parent.current!,
-            activate: () => undefined,
-            deactivate: () => undefined,
-            restart: () => undefined,
             on: {
-                // dataMatrixSuccess: (d) => {
-                //     console.log(d);
-                // },
-                // dataMatrixError: (e) => {
-                //     console.log(e);
-                // },
                 apiSuccess: async () => {
                     await checkAuth({});
                     await setStep('final');
@@ -57,11 +43,27 @@ const init: I['init'] = async function (this: I) {
                 },
             },
         };
+    }
 
+    if (window.dataMatrixApp) {
+        window.dataMatrixApp.root = this.parent.current!;
+        window.dataMatrixApp.getAppRoot = () => this.parent.current!;
+        window.dataMatrixApp.on = {
+            apiSuccess: async () => {
+                await checkAuth({});
+                await setStep('final');
+            },
+            apiError: async (e) => {
+                await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
+            },
+        };
+    }
+
+    if (!document.head.querySelector('script[data-reader]')) {
         const script = document.createElement('script');
 
         script.onload = async () => {
-            window.dataMatrixApp!.activate();
+            window.dataMatrixApp!.activate!();
             await this.asyncSetState({ isInit: true });
         };
 
@@ -70,13 +72,12 @@ const init: I['init'] = async function (this: I) {
 
         document.head.appendChild(script);
     } else {
-        window.dataMatrixApp!.activate();
+        window.dataMatrixApp!.activate!();
         await this.asyncSetState({ isInit: true });
     }
 
     this.unmountHandlers.all = () => {
         if (window.dataMatrixApp?.deactivate) {
-            console.log('deac');
             window.dataMatrixApp.deactivate();
         }
     };

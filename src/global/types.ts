@@ -21,9 +21,9 @@ declare global {
                 catchOnce?: boolean;
             };
             getAppRoot: () => HTMLElement;
-            activate: () => void;
-            deactivate: () => void;
-            restart: () => void;
+            activate?: () => void;
+            deactivate?: () => void;
+            restart?: () => void;
             on?: Partial<{
                 camAccessError: (e: any) => void;
                 camAccessSuccess: (d: any) => void;
