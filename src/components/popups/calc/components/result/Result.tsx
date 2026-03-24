@@ -102,7 +102,12 @@ class Result extends Default<ResultI['props'], ResultI['state']> implements Resu
                                 key={i}
                             >
                                 <img src={t[0]} alt="" className="calcResult__sliderItemThumb" />
-                                <p className="calcResult__sliderItemTitle">{t[1]}</p>
+                                <p
+                                    className="calcResult__sliderItemTitle"
+                                    dangerouslySetInnerHTML={{
+                                        __html: new StringService().clearSpaces(t[1]),
+                                    }}
+                                ></p>
                             </div>
                         ))}
                     </div>
