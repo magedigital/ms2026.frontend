@@ -3,6 +3,7 @@ import React from 'react';
 import Default from '@components/default/Default.tsx';
 import Link from '@components/link/Link.tsx';
 import StringService from '@services/string/String.service.ts';
+import { StoreT, WithStore } from '@store/store.tsx';
 
 import FooterI from './types.ts';
 
@@ -17,6 +18,8 @@ class Footer extends Default<FooterI['props'], FooterI['state']> implements Foot
     }
 
     render() {
+        const { mainContent } = this.props;
+
         return (
             <div ref={this.parent} className="footer">
                 <div className="footer__wrapper _SECTION">
@@ -55,7 +58,7 @@ class Footer extends Default<FooterI['props'], FooterI['state']> implements Foot
                             className="footer__text"
                             dangerouslySetInnerHTML={{
                                 __html: new StringService().setSpaces(
-                                    '1 — Вариант использования приза. 2 — Вариант использования приза. Максимальная сумма приза 35 тысяч рублей. 3 — Кэшбэк — возврат части денежных средств, потраченных на покупку продукции «Моя Семья» объемом 0.95 л, 1.93 л. Общий срок проведения акции с 01.04.2026 по 31.08.2026. Срок регистрации кодов для участия в Акции: с 01.04.2026 по 31.07.2026 (включительно). Информацию об организаторе акции, условиях участия, правилах проведения, призах, их количестве, сроках, месте и порядке их получения узнавайте на сайте prizy-moya-semia.ru.  © 2026. АО «Мултон». Все права защищены.',
+                                    mainContent?.components.footer.disclaimer.description,
                                 ),
                             }}
                         ></p>
@@ -66,4 +69,8 @@ class Footer extends Default<FooterI['props'], FooterI['state']> implements Foot
     }
 }
 
-export default Footer;
+const mapStore = (s: StoreT) => ({
+    mainContent: s.mainContent,
+});
+
+export default WithStore(Footer, mapStore);

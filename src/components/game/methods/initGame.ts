@@ -1,5 +1,6 @@
 import { enums } from '@global/enums.ts';
 import { appStore } from '@store/store.tsx';
+import checkAuth from '@utils/checkAuth.ts';
 import { getCookie } from '@utils/cookies.ts';
 
 import I, { GameDataT } from '../types.ts';
@@ -32,8 +33,8 @@ const initGame: I['initGame'] = function (app) {
         signUpHandler: () => {
             appStore.getState().setPopup({ name: 'loginPopup' });
         },
-        playWithoutConfirmation: () => {
-            console.log('playWithoutConfirmation');
+        gameFinishHandler: async () => {
+            await checkAuth({});
         },
         switchToMobileWidth: 480,
         userNotAuthorized: !window.JWT,

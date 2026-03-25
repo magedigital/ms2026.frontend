@@ -1,6 +1,6 @@
 import I from '../types.ts';
 
-const scriptSrc = 'js/main.5545f6d0.js';
+const scriptSrc = 'js/main.90b87c54.js';
 const styleSrc = 'css/main.ca3f4a3e.css';
 const root = '/_game/static';
 
