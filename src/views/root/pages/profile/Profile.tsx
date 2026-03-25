@@ -8,9 +8,8 @@ import Codes from './components/codes/Codes.tsx';
 import Header from './components/header/Header.tsx';
 import Prizes from './components/prizes/Prizes.tsx';
 
+import changePropsCb from './methods/changePropsCb.ts';
 import checkAuthCb from './methods/checkAuthCb.ts';
-import getData from './methods/getData.ts';
-import init from './methods/init.ts';
 
 import ProfileI from './types.ts';
 
@@ -26,23 +25,23 @@ class Profile extends Page<ProfileI['props'], ProfileI['state']> implements Prof
         this.parent = React.createRef();
     }
 
-    init = init;
+    changingProps = ['profileData'];
+
+    changePropsCb = changePropsCb;
+
     checkAuthCb = checkAuthCb;
 
-    getData = getData;
-
     render() {
-        const { data } = this.state;
-        const { authUser } = this.props;
+        const { authUser, profileData } = this.props;
 
         return this.renderPage({
             render: () => (
                 <>
-                    {authUser && data ? (
+                    {authUser && profileData ? (
                         <>
-                            <Header data={data} authUser={authUser} />
-                            <Codes data={data} authUser={authUser} />
-                            <Prizes data={data} authUser={authUser} />
+                            <Header data={profileData} authUser={authUser} />
+                            <Codes data={profileData} authUser={authUser} />
+                            <Prizes data={profileData} authUser={authUser} />
                         </>
                     ) : null}
 
@@ -57,6 +56,7 @@ class Profile extends Page<ProfileI['props'], ProfileI['state']> implements Prof
 const mapStore = (s: StoreT) => ({
     authUser: s.authUser,
     isAuthCheck: s.isAuthCheck,
+    profileData: s.profileData,
 });
 
 export default WithStore(Profile, mapStore);

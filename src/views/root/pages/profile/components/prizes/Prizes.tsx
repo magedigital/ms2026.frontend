@@ -19,6 +19,10 @@ class Prizes extends Default<PrizesI['props'], PrizesI['state']> implements Priz
     render() {
         const { data } = this.props;
 
+        if (!data.prizes.length) {
+            return;
+        }
+
         return (
             <div ref={this.parent} className="profilePrizes _SECTION">
                 <div className="profilePrizes__inner _INNER _inner">

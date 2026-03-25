@@ -1,6 +1,11 @@
 .profilePrizes {
     width: 100%;
+    margin-top: -70rem;
     padding: 0 0 150rem;
+
+    @include mob {
+        margin-top: -20rem;
+    }
 
     &__inner {
         align-items: center;

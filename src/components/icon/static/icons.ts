@@ -11,6 +11,7 @@ const icons = [
     'upload',
     'next-arrow',
     'prev-arrow',
+    'info-i',
 ] as const;
 
 export default icons;

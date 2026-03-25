@@ -4,11 +4,10 @@ import { StoreT } from '@store/store';
 type PropsT = {
     authUser: StoreT['authUser'];
     isAuthCheck: StoreT['isAuthCheck'];
+    profileData: StoreT['profileData'];
 };
 
-type StateT = {
-    data?: ProfileDataT;
-};
+type StateT = {};
 
 type ProfileDataT = {
     personal: {
@@ -49,13 +48,11 @@ type ProfileDataPrizeT = {
     status: 'SENDING';
     statusTitle: string;
     act: any[];
-    extraTitle: string;
+    extraTitle?: string;
     count: number;
 };
 
-interface ProfileI extends PageI<PropsT, StateT> {
-    getData(this: ProfileI): Promise<void>;
-}
+interface ProfileI extends PageI<PropsT, StateT> {}
 
 export default ProfileI;
 export type { ProfileDataT, ProfileDataPrizeT, ProfileChzCodeT };
