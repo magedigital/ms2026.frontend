@@ -18,6 +18,7 @@ const sendForm: I['sendForm'] = async function (form) {
     });
 
     await faqRequests.sendForm({ data });
+    await this.asyncSetState({ isSuccess: true, name: form.name });
 };
 
 export default sendForm;

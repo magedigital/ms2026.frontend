@@ -3,6 +3,7 @@
     width: 100%;
     margin: -140rem 0 0;
     padding: 170rem 0;
+    background: #5c0f8b;
 
     @include mob {
         margin-top: -50rem;
@@ -308,7 +309,7 @@
 
                     @include mob {
                         font-size: 43rem;
-                        line-height: .9;
+                        line-height: 0.9;
                     }
                 }
 
