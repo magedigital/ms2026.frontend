@@ -8,14 +8,16 @@ const sendForm: I['sendForm'] = async function (form) {
     };
 
     Object.keys(form).forEach((k) => {
-        let v = form[k];
-
-        if (k === 'agreement') {
-            v = form.agreement ? 'Y' : undefined;
-        }
+        const v = form[k];
 
         data[k] = v;
     });
+
+    delete data.agreement;
+
+    if (form.agreement && form.personal) {
+        data.agreement = 'Y';
+    }
 
     await faqRequests.sendForm({ data });
     await this.asyncSetState({ isSuccess: true, name: form.name });
