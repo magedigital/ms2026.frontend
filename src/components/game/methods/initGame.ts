@@ -33,6 +33,7 @@ const initGame: I['initGame'] = function (app) {
         signUpHandler: () => {
             appStore.getState().setPopup({ name: 'loginPopup' });
         },
+        gameStartHandler: () => undefined,
         gameFinishHandler: async () => {
             await checkAuth({});
         },

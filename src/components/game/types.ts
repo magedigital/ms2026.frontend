@@ -23,8 +23,8 @@ type GameDataT = {
     registerHandler?: () => void;
     signUpHandler?: () => void;
     playWithoutConfirmation?: () => void;
-    gameStartHandler?: () => void;
-    gameFinishHandler?: () => void;
+    gameStartHandler: () => void;
+    gameFinishHandler: () => void;
     userNotAuthorized: boolean;
     activityIsOver: boolean;
 };
