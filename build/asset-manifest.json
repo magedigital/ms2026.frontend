@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.11cd84ad.css",
-    "main.js": "/static/js/main.a98a1403.js",
+    "main.css": "/static/css/main.b1b76ac1.css",
+    "main.js": "/static/js/main.d1f55d13.js",
     "static/js/8535.cfcff395.chunk.js": "/static/js/8535.cfcff395.chunk.js",
     "static/js/557.238d9864.chunk.js": "/static/js/557.238d9864.chunk.js",
     "static/js/5209.0f590753.chunk.js": "/static/js/5209.0f590753.chunk.js",
@@ -168,6 +168,7 @@
     "static/media/activ-back-1-mob.svg": "/static/media/activ-back-1-mob.1868aa4563b813d8791f.svg",
     "static/media/activ-back-2-mob.svg": "/static/media/activ-back-2-mob.28d278d381614cfb9411.svg",
     "static/media/activ-back-2.svg": "/static/media/activ-back-2.4c0b05b0fb1a8abd141a.svg",
+    "static/media/faq-form-success-mob.svg": "/static/media/faq-form-success-mob.6cf18213a926a7c0f4f5.svg",
     "static/media/faq-form-back-mob.svg": "/static/media/faq-form-back-mob.7ab29c1332ef1dd4c2c5.svg",
     "static/media/sign-back-2-mob.svg": "/static/media/sign-back-2-mob.552631fc8276aaeb1c5e.svg",
     "static/media/sign-back-3.svg": "/static/media/sign-back-3.e825d70a7816c1133b05.svg",
@@ -192,6 +193,7 @@
     "static/media/calc-process-back.svg": "/static/media/calc-process-back.6980969cc28f2399def0.svg",
     "static/media/calc-bg-6-mob.svg": "/static/media/calc-bg-6-mob.3f377cd0dba9fcba2f55.svg",
     "static/media/faq-form-back.svg": "/static/media/faq-form-back.bd4526a8eae087af2043.svg",
+    "static/media/faq-form-success.svg": "/static/media/faq-form-success.cb4d59d128d57f6406c8.svg",
     "static/media/calc-process-back-mob.svg": "/static/media/calc-process-back-mob.ab3464de8ca21d24f9ae.svg",
     "static/media/result-line-2-mob.svg": "/static/media/result-line-2-mob.b93a14af193adf94967b.svg",
     "static/media/result-line-2.svg": "/static/media/result-line-2.8024070c9af4d0c6f24d.svg",
@@ -203,8 +205,8 @@
     "static/media/arrow-1.svg": "/static/media/arrow-1.b36c8e738a92fc69a506.svg",
     "static/media/zagl-footer-mob.svg": "/static/media/zagl-footer-mob.0031ef9f24835e066c86.svg",
     "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg",
-    "main.11cd84ad.css.map": "/static/css/main.11cd84ad.css.map",
-    "main.a98a1403.js.map": "/static/js/main.a98a1403.js.map",
+    "main.b1b76ac1.css.map": "/static/css/main.b1b76ac1.css.map",
+    "main.d1f55d13.js.map": "/static/js/main.d1f55d13.js.map",
     "8535.cfcff395.chunk.js.map": "/static/js/8535.cfcff395.chunk.js.map",
     "557.238d9864.chunk.js.map": "/static/js/557.238d9864.chunk.js.map",
     "5209.0f590753.chunk.js.map": "/static/js/5209.0f590753.chunk.js.map",
@@ -265,7 +267,7 @@
     "3732.c36c7987.chunk.js.map": "/static/js/3732.c36c7987.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11cd84ad.css",
-    "static/js/main.a98a1403.js"
+    "static/css/main.b1b76ac1.css",
+    "static/js/main.d1f55d13.js"
   ]
 }

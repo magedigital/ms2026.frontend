@@ -5,7 +5,7 @@ type ParamsT = {
     blockNode: HTMLElement | undefined | null;
     offset?: number;
     duration?: number;
-    dir?: 'top';
+    dir?: 'top' | 'center';
 };
 
 export default function scrollToBlock({
@@ -25,7 +25,7 @@ export default function scrollToBlock({
 
     if (dir === 'top') {
         blockStartOffset = offsetTop + offset;
-    } else if (blockNode.offsetHeight < scrollNode.offsetHeight) {
+    } else if (blockNode.offsetHeight < scrollNode.offsetHeight || dir === 'center') {
         blockStartOffset -= (scrollNode.offsetHeight - blockNode.offsetHeight) / 2;
     }
 

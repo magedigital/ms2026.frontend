@@ -66,6 +66,8 @@ async function getInfo(): Promise<ProfileDataT> {
         url: API.AUTH.GET_INFO,
     });
 
+    window.gameAttempts = r.data.game.attempts;
+
     if (r.data.chzCodes) {
         r.data.chzCodes = r.data.chzCodes.map((c, i) => ({
             ...c,
