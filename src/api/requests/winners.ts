@@ -29,8 +29,8 @@ async function getList(): Promise<WinnersDataT> {
         url: API.WINNERS.GET_LIST,
     });
 
-    r.data.winners.forEach((w) => {
-        w.id = w.raffleId;
+    r.data.winners.forEach((w, k) => {
+        w.id = k.toString();
     });
 
     r.data.raffles.forEach((i) => {
