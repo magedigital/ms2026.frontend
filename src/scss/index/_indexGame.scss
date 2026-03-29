@@ -10,6 +10,10 @@
         background: var(--sub-color);
     }
 
+    & {
+        background-color: #5c0f8b;
+    }
+
     &::after {
         position: absolute;
         top: -378rem;
