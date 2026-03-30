@@ -1,6 +1,6 @@
 export const calcProgressSteps = {
     '1': {
-        title: 'Проверяем цены на сок',
+        title: 'Проверяем цены на напитки «Моя Семья»',
         thumb: 'calc-loading-1.png',
         mobThumb: 'calc-loading-1-mob.png',
         back: 'calc-bg-2.svg',
