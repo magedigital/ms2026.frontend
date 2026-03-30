@@ -52,8 +52,7 @@ const popups = {
         redirectPageName: 'profile',
     },
     gamePopup: {
-        check: (s: StoreT) =>
-            (!!s.authUser || s.isAuthProcess) && s.profileData && s.profileData.game.attempts > 0,
+        check: (s: StoreT) => !!s.authUser || s.isAuthProcess,
         redirectPageName: (s: StoreT) =>
             (!s.authUser && !s.isAuthProcess) || !s.profileData ? 'profile' : undefined,
     },
