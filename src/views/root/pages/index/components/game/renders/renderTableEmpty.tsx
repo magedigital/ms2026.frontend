@@ -28,7 +28,7 @@ const renderTableEmpty: I['renderTableEmpty'] = function (this: I, { id }) {
         return (
             <>
                 <h3>Победителей пока нет</h3>
-                <p>Они будут объявлены {raffle.to.slice(0, 5)}</p>
+                <p>Они будут объявлены {raffle.publish}</p>
             </>
         );
     }
