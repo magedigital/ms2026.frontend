@@ -4,8 +4,8 @@ import { getCookie } from '@utils/cookies.ts';
 
 import I from '../types.ts';
 
-const scriptSrc = 'index-BTTRtr2W.js';
-const styleSrc = 'index-D5odaqUt.css';
+const scriptSrc = 'index-l-Ggnx_o.js';
+const styleSrc = 'index-pmtJmDpG.css';
 const root = '/reader/assets';
 
 const init: I['init'] = async function (this: I) {
