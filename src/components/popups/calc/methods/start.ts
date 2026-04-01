@@ -11,7 +11,7 @@ const start: I['start'] = async function () {
         return;
     }
 
-    const duration = 2_000;
+    const duration = 1_500;
     const lineNode = this.parent.current!.querySelector(
         '.calc__processProgressLine',
     ) as HTMLElement;
