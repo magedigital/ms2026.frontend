@@ -16,7 +16,9 @@ const renderContent: I['renderContent'] = function (this: I) {
                     {this.renderResult()}
                     <p className="calc__support">
                         ** Расчёт не является точным и носит игровой характер, подробнее - в{' '}
-                        <a href="#">Правилах акции</a>
+                        <a href="/upload/docs/rules.pdf" target="_blank">
+                            Правилах акции
+                        </a>
                     </p>
                 </div>
             )}
