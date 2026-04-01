@@ -1,4 +1,5 @@
 import { authRequests } from '@api/requests/auth.ts';
+import { appStore } from '@store/store.tsx';
 import checkAuth from '@utils/checkAuth.ts';
 import { RequestErrorT } from '@utils/request.ts';
 
@@ -14,7 +15,14 @@ const sendForm: I['sendForm'] = async function (code) {
     await this.asyncSetState({ loadingKey: 'send', error: undefined });
 
     try {
-        await authRequests.login({ login, password: code, isCode: true });
+        await authRequests.login({
+            login,
+            password: code,
+            isCode: true,
+            ...(appStore.getState().authUser?.status === 'EMAIL_CONFIRM_REQUIRED'
+                ? { confirmEmail: true }
+                : {}),
+        });
         await checkAuth({ redirect: true });
     } catch (e) {
         const error = e as RequestErrorT;

@@ -10,6 +10,7 @@ async function login({
     login: string | undefined;
     password: string | undefined;
     isCode?: boolean;
+    confirmEmail?: boolean;
 }): Promise<void> {
     await request<{ isFirstCheck?: boolean }>({
         method: 'POST',
