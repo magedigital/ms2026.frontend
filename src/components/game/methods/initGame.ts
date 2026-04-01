@@ -39,7 +39,7 @@ const initGame: I['initGame'] = function (app) {
         },
         switchToMobileWidth: 480,
         userNotAuthorized: !window.JWT,
-        activityIsOver: true,
+        activityIsOver: false,
     };
 
     app.setData(data);
