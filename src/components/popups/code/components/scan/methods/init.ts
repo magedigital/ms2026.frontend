@@ -39,7 +39,7 @@ const init: I['init'] = async function (this: I) {
                     await checkAuth({});
                     await setStep('final');
 
-                    if (r?.isFirstCode) {
+                    if (r?.isFirstCode || r?.data?.isFirstCode) {
                         sendGoal('regFirstCode');
                     }
 
