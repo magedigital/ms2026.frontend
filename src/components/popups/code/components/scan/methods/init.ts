@@ -35,9 +35,14 @@ const init: I['init'] = async function (this: I) {
             },
             getAppRoot: () => this.parent.current!,
             on: {
-                apiSuccess: async () => {
+                apiSuccess: async (r) => {
                     await checkAuth({});
                     await setStep('final');
+
+                    if (r?.isFirstCode) {
+                        sendGoal('regFirstCode');
+                    }
+
                     sendGoal('regCodeSuccess');
                 },
                 apiError: async (e) => {

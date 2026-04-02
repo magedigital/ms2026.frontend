@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 declare global {
     interface Window {
@@ -31,7 +31,7 @@ declare global {
                 camStopped: () => void;
                 dataMatrixSuccess: (d: any) => void;
                 dataMatrixError: (e: any) => void;
-                apiSuccess: (d: any) => void;
+                apiSuccess: (d?: AxiosResponse['data']) => void;
                 apiError: (e?: AxiosError) => void;
             }>;
         };
