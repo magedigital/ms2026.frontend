@@ -8,7 +8,7 @@ const renderStartHead: I['renderStartHead'] = function () {
             <h3 className="calc__startHeadTitle">ИПОТЕЧНый Калькулятор</h3>
             <p className="calc__startHeadText">
                 Введи размер остатка по своей ипотеке, и мы посчитаем <br className="_DESKTOP" />
-                сколько это&nbsp;в&nbsp;упаковках сока Моя Семья**
+                сколько это&nbsp;в&nbsp;упаковках Моя Семья**
             </p>
             <img
                 src={require('@media/calc/pack-1.png')}
