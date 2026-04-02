@@ -1,5 +1,7 @@
 import React from 'react';
 
+import StringService from '@services/string/String.service.ts';
+
 import I from '../types.ts';
 
 const renderSteps: I['renderSteps'] = function () {
@@ -47,7 +49,17 @@ const renderSteps: I['renderSteps'] = function () {
                     <br />
                     <b className="_large">
                         КЭШБЕК
-                        <i className="indexHeader__stepContentInfo _CLICK">i</i>
+                        <i className="indexHeader__stepContentInfo _CLICK">
+                            i
+                            <div
+                                className="indexHeader__stepContentAlert"
+                                dangerouslySetInnerHTML={{
+                                    __html: new StringService().setSpaces(
+                                        'Гарантированные призы перечисляются через СБП на банковскую карту победителя, привязанную к номеру мобильного телефона, указанного при регистрации на Сайте Акции.',
+                                    ),
+                                }}
+                            ></div>
+                        </i>
                     </b>
                     <br />
                     <span>

@@ -186,7 +186,7 @@
         position: absolute;
         top: 0;
         right: -4rem;
-        z-index: 2;
+        z-index: 10;
         align-items: flex-end;
         width: 360rem;
 
@@ -220,6 +220,7 @@
         }
 
         &:nth-child(3) {
+            z-index: 40;
             margin-bottom: 66rem;
             padding-left: 120rem;
 
@@ -379,6 +380,7 @@
 
         &Content {
             position: relative;
+            z-index: 10;
             color: #fff;
             font-size: 22rem;
             line-height: 1.04;
@@ -446,6 +448,34 @@
                     height: 24rem;
                     margin: -6rem 0 0 10rem;
                 }
+            }
+
+            &Alert {
+                position: absolute;
+                right: 100%;
+                bottom: 100%;
+                z-index: 20;
+                width: 274rem;
+                padding: 16rem;
+                color: #5d279e;
+                font-weight: 600;
+                font-size: 14rem;
+                font-family: Onest;
+                line-height: 1.3;
+                background: #fff;
+                border-radius: 20rem;
+                transform: rotate(-5deg);
+                opacity: 0;
+                transition: $trans;
+                pointer-events: none;
+
+                @include mob {
+                    transform: rotate(-4deg);
+                }
+            }
+
+            &Info:hover &Alert {
+                opacity: 1;
             }
         }
 
