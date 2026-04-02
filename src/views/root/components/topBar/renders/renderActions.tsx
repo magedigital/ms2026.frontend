@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { appStore } from '@store/store.tsx';
+import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
@@ -16,6 +17,7 @@ const renderActions: I['renderActions'] = function () {
                 onClick={() => {
                     appStore.getState().setPopup({ name: 'calcPopup' });
                     mobMenuHandler(false);
+                    sendGoal('headerCalculatorBtn');
                 }}
             >
                 Калькулятор ипотеки
@@ -25,6 +27,7 @@ const renderActions: I['renderActions'] = function () {
                 onClick={() => {
                     appStore.getState().setPopup({ name: 'codePopup' });
                     mobMenuHandler(false);
+                    sendGoal('headerRegCodeBtn');
                 }}
             >
                 Регистрируй код
@@ -34,6 +37,7 @@ const renderActions: I['renderActions'] = function () {
                 onClick={() => {
                     AppRouter.changePage({ pageName: 'profile' });
                     mobMenuHandler(false);
+                    sendGoal('regCodeBtn,profileRegCodeBtn');
                 }}
             >
                 ЛИЧНЫЙ КАБИНЕТ

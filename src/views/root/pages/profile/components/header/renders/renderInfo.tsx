@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '@components/button/Button.tsx';
 import Link from '@components/link/Link.tsx';
+import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
@@ -17,7 +18,13 @@ const renderInfo: I['renderInfo'] = function () {
                 </h3>
                 <div className="profileHeader__infoContent">
                     <div className="profileHeader__infoId">ID {authUser.userId}</div>
-                    <Link pageName="anket" className="profileHeader__infoEdit">
+                    <Link
+                        pageName="anket"
+                        className="profileHeader__infoEdit"
+                        callback={() => {
+                            sendGoal('profileEditData');
+                        }}
+                    >
                         Изменить данные
                     </Link>
                 </div>

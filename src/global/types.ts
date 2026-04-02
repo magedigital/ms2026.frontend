@@ -37,6 +37,8 @@ declare global {
         };
         JWT?: string;
         gameAttempts?: number;
+        ymId: number;
+        ym?: (key: number, name: string, text?: string) => void;
 
         getAppRoot?: () => HTMLElement;
         activateGameApp?: () => void;

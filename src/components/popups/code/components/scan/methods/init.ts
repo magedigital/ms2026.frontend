@@ -1,6 +1,7 @@
 import { enums } from '@global/enums.ts';
 import checkAuth from '@utils/checkAuth.ts';
 import { getCookie } from '@utils/cookies.ts';
+import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
@@ -37,9 +38,11 @@ const init: I['init'] = async function (this: I) {
                 apiSuccess: async () => {
                     await checkAuth({});
                     await setStep('final');
+                    sendGoal('regCodeSuccess');
                 },
                 apiError: async (e) => {
                     await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
+                    sendGoal('regCodeError');
                 },
             },
         };

@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '@components/button/Button.tsx';
 import StringService from '@services/string/String.service.ts';
 import { appStore } from '@store/store.tsx';
+import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
@@ -26,6 +27,7 @@ const renderGame: I['renderGame'] = function () {
                         className="_whiteColor"
                         onClick={() => {
                             appStore.getState().setPopup({ name: 'gamePopup' });
+                            sendGoal('profileHistory');
                         }}
                     >
                         ИГРАТЬ

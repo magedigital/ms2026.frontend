@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '@components/button/Button.tsx';
 import { appStore } from '@store/store.tsx';
+import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
@@ -23,6 +24,7 @@ const renderGames: I['renderGames'] = function () {
                                 className="_backColor"
                                 onClick={() => {
                                     appStore.getState().setPopup({ name: 'gamePopup' });
+                                    sendGoal('BingoBtn');
                                 }}
                             >
                                 УЧАСТВОВАТЬ
@@ -42,6 +44,7 @@ const renderGames: I['renderGames'] = function () {
                                 className="_backColor"
                                 onClick={() => {
                                     appStore.getState().setPopup({ name: 'calcPopup' });
+                                    sendGoal('CalculatorBtn');
                                 }}
                             >
                                 УЧАСТВОВАТЬ
