@@ -1,4 +1,4 @@
-// window.ymId = 96951425;
+window.ymId = 96457356;
 
 export default function sendGoal(name: string, isWin?: boolean): void {
     if (!window.ym) {
