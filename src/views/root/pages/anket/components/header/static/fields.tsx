@@ -9,7 +9,7 @@ export const anketFields = {
         type: 'input',
         support: 'Фамилия*',
     },
-    thirdName: {
+    secondName: {
         type: 'input',
         support: 'Отчество*',
     },
