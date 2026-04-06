@@ -9,7 +9,7 @@ const sendForm: I['sendForm'] = async function (d) {
         lastName: d.lastName,
         secondName: d.secondName,
         phone: d.phone,
-        agreement: !!d.agreement,
+        agreement: !!d.agreement && !!d.personal,
         mailing: d.mailing ? '1' : undefined,
         password1: d.password,
         password2: d.password2,
