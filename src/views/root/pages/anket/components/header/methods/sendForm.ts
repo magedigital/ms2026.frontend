@@ -7,7 +7,7 @@ const sendForm: I['sendForm'] = async function (d) {
     const data = {
         firstName: d.firstName,
         lastName: d.lastName,
-        thirdName: d.thirdName,
+        secondName: d.secondName,
         phone: d.phone,
         agreement: !!d.agreement,
         mailing: d.mailing ? '1' : undefined,

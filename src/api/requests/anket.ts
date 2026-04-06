@@ -7,7 +7,7 @@ async function send({
     data: Partial<{
         firstName: string;
         lastName: string;
-        thirdName: string;
+        secondName: string;
         phone: string;
         agreement: boolean;
         mailing: string;
