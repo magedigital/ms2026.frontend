@@ -8,7 +8,7 @@ const renderPrizes: I['renderPrizes'] = function () {
             <div className="indexPrizes__prizesCard _garant _COL">
                 <p className="indexPrizes__prizesCardTitle">ГАРАНТИРОВАННЫЙ ПРИЗ</p>
                 <p className="indexPrizes__prizesCardContent">
-                    <b>КЭШБЭК</b>
+                    <b>КЕШБЭК</b>
                     <br />
                     <span>
                         НА КАРТУ<span className="_degree">3</span>

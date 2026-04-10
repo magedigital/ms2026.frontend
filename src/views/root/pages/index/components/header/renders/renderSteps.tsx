@@ -48,7 +48,7 @@ const renderSteps: I['renderSteps'] = function () {
                     <b>ПОЛУЧАЙ</b>
                     <br />
                     <b className="_large">
-                        КЭШБЕК
+                        КЕШБЭК
                         <i className="indexHeader__stepContentInfo _CLICK">
                             i
                             <div
