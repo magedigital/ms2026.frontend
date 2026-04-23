@@ -14,10 +14,7 @@ const renderSteps: I['renderSteps'] = function () {
                     className="indexHeader__stepThumb"
                 />
                 <div className="indexHeader__stepContent">
-                    <b>
-                        ПРОСТО <br />
-                        ПОКУПАЙ И ПЕЙ
-                    </b>
+                    <b>КУПИ</b>
                     <br />
                     НАПИТКИ
                     <br />
@@ -31,9 +28,20 @@ const renderSteps: I['renderSteps'] = function () {
                     className="indexHeader__stepThumb"
                 />
                 <div className="indexHeader__stepContent">
-                    <b>РЕГИСТРИРУЙ</b>
+                    <b>СКАНИРУЙ</b>
                     <br />
-                    КОД С КРЫШКИ
+                    КОД НА КРЫШКЕ{' '}
+                    <i className="indexHeader__stepContentInfo _CLICK">
+                        i
+                        <div className="indexHeader__stepContentAlert">
+                            <img
+                                src={require('@media/header-thumb.png')}
+                                alt=""
+                                className="indexHeader__stepContentAlertThumb"
+                            />
+                            Отсканируй специальный код на крышке при помощи смартфона после покупки
+                        </div>
+                    </i>
                     <br />
                     НАПИТКА
                 </div>
@@ -45,7 +53,7 @@ const renderSteps: I['renderSteps'] = function () {
                     className="indexHeader__stepThumb"
                 />
                 <div className="indexHeader__stepContent">
-                    <b>ПОЛУЧАЙ</b>
+                    <b>ПОЛУЧИ</b>
                     <br />
                     <b className="_large">
                         КЕШБЭК

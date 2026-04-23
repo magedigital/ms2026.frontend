@@ -102,7 +102,7 @@
         &Title {
             max-width: 100%;
             margin-bottom: -17rem;
-            color: var(--back-color);
+            color: #fff;
             font-size: 99rem;
             text-align: center;
 
@@ -201,11 +201,12 @@
         position: relative;
 
         &:nth-child(1) {
-            margin-bottom: 80rem;
+            margin-right: 16rem;
+            margin-bottom: 90rem;
             padding-left: 120rem;
 
             @include mob {
-                margin-bottom: 70rem;
+                margin-bottom: 86rem;
                 padding-right: 48rem;
             }
         }
@@ -267,7 +268,7 @@
             right: 100%;
             width: 89rem;
             height: 89rem;
-            margin: 0 13rem 0 0;
+            margin: 0 8rem 0 0;
             padding: 3rem 0 0 8rem;
             content: "2";
 
@@ -339,14 +340,14 @@
 
         &:nth-child(2) &Thumb {
             top: -44rem;
-            right: -74rem;
+            right: -94rem;
             width: 224rem;
             height: 224rem;
             object-position: right top;
 
             @include mob {
-                top: -40rem;
-                right: -38rem;
+                top: -36rem;
+                right: -64rem;
                 width: 204rem;
                 height: 204rem;
             }
@@ -462,6 +463,7 @@
                 font-size: 14rem;
                 font-family: Onest;
                 line-height: 1.3;
+                text-align: left;
                 background: #fff;
                 border-radius: 20rem;
                 transform: rotate(-5deg);
@@ -472,6 +474,14 @@
                 @include mob {
                     transform: rotate(-4deg);
                 }
+
+                &Thumb {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 12rem;
+                    object-fit: contain;
+                    border-radius: 20rem;
+                }
             }
 
             &Info:hover &Alert {
@@ -480,12 +490,27 @@
         }
 
         &:nth-child(1) &Content {
+            padding-top: 12rem;
             transform: rotate(-5deg);
         }
 
         &:nth-child(2) &Content {
             text-align: right;
             transform: rotate(5deg);
+        }
+
+        &:nth-child(2) &ContentInfo {
+            top: 24rem;
+            margin-left: 6rem;
+        }
+
+        &:nth-child(2) &ContentAlert {
+            width: 222rem;
+            margin: 0 26rem -66rem 0;
+
+            @include mob {
+                margin: 0;
+            }
         }
 
         &:nth-child(3) &Content {
