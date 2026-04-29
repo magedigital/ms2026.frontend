@@ -689,15 +689,32 @@
     }
 
     &__scanReader {
-        display: block;
         width: 100%;
-        height: 300rem;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-        background: #000;
-        border-radius: 12rem;
+
+        &Content {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 300rem;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #000;
+            border-radius: 12rem;
+
+            & div,
+            & span,
+            & video,
+            & button {
+                margin: 0;
+                padding: 0;
+                border: none;
+                outline: none;
+            }
+
+            & video {
+                display: block;
+            }
+        }
 
         & * {
             box-sizing: border-box;
@@ -708,19 +725,54 @@
             height: 100%;
         }
 
-        /* Сброс стилей для вложенных элементов */
-        & div,
-        & span,
-        & video,
-        & button {
-            margin: 0;
-            padding: 0;
-            border: none;
-            outline: none;
+        &Actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 12rem;
+
+            @include mob {
+                margin-top: 24rem;
+            }
         }
 
-        & video {
-            display: block;
+        &Action {
+            display: flex;
+            align-items: center;
+
+            &._focus {
+                padding-right: 32rem;
+
+                @include mob {
+                    margin-right: auto;
+                    padding-right: 0;
+                }
+            }
+
+            & + & {
+                margin-left: 16rem;
+            }
+
+            &Btn {
+                width: 48rem;
+                height: 48rem;
+                background: #5d279e;
+                border-radius: 50%;
+            }
+
+            &Name {
+                margin-left: 14rem;
+                color: #5d279e;
+                font-weight: 600;
+                font-size: 16rem;
+                font-family: Onest;
+
+                @include mob {
+                    margin-left: 12rem;
+                    font-size: 17rem;
+                }
+            }
         }
     }
 

@@ -5,14 +5,16 @@ import sendGoal from '@utils/sendGoal.ts';
 
 import I from '../types.ts';
 
-const scriptSrc = 'index-l-Ggnx_o.js';
-const styleSrc = 'index-pmtJmDpG.css';
+const scriptSrc = 'index-BHAlkg5t.js';
+const styleSrc = 'index-Dhd3dDzA.css';
 const root = '/reader/assets';
 
 const init: I['init'] = async function (this: I) {
     const { setStep } = this.props;
 
     window.JWT = getCookie(enums.ACCESS_TOKEN);
+
+    const rootNode = this.parent.current!.querySelector<HTMLElement>('.popup__scanReaderContent')!;
 
     if (!document.head.querySelector('link[data-reader]')) {
         const link = document.createElement('link');
@@ -26,14 +28,14 @@ const init: I['init'] = async function (this: I) {
 
     if (!document.head.querySelector('script[data-reader]')) {
         window.dataMatrixApp = {
-            root: this.parent.current!,
+            root: rootNode,
             config: {
                 duplicateTimeout: 3_000,
                 showConsole: false,
                 apiURL: '/api/ChZScan',
                 catchOnce: true,
             },
-            getAppRoot: () => this.parent.current!,
+            getAppRoot: () => rootNode,
             on: {
                 apiSuccess: async (r) => {
                     await checkAuth({});
@@ -49,13 +51,17 @@ const init: I['init'] = async function (this: I) {
                     await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
                     sendGoal('regCodeError');
                 },
+                camCapabilities: async (c) => {
+                    console.log(c, 'camCapabilities');
+                    await this.asyncSetState({ canZoom: !!c.zoom, canFocus: !!c.focusDistance });
+                },
             },
         };
     }
 
     if (window.dataMatrixApp) {
-        window.dataMatrixApp.root = this.parent.current!;
-        window.dataMatrixApp.getAppRoot = () => this.parent.current!;
+        window.dataMatrixApp.root = rootNode;
+        window.dataMatrixApp.getAppRoot = () => rootNode;
         window.dataMatrixApp.on = {
             apiSuccess: async () => {
                 await checkAuth({});
@@ -63,6 +69,10 @@ const init: I['init'] = async function (this: I) {
             },
             apiError: async (e) => {
                 await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
+            },
+            camCapabilities: async (c) => {
+                console.log(c, 'camCapabilities');
+                await this.asyncSetState({ canZoom: !!c.zoom, canFocus: !!c.focusDistance });
             },
         };
     }

@@ -12,6 +12,9 @@ const icons = [
     'next-arrow',
     'prev-arrow',
     'info-i',
+    'scan-focus',
+    'scan-minus',
+    'scan-plus',
 ] as const;
 
 export default icons;

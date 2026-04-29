@@ -22,13 +22,19 @@ window.dataMatrixApp = {
      * Показывать консоль поверх экрана
      * По умолчанию false
      */
-    showConsole: false,
+    showConsole: true,
 
     /**
      * URL API для отправки данных сканирования
      * JSON-заглушка: /response.json
      */
     apiURL: "/response.json",
+
+    /**
+     * Остановить сканер после первого успешного сканирования
+     * По умолчанию true
+     */
+    catchOnce: true,
   },
 
   /**
@@ -64,6 +70,24 @@ window.dataMatrixApp = {
   },
 
   /**
+   * Изменить фокус камеры
+   * @param step процентное значение от 1 до 100. Если 0 - переключить на автофокус
+   */
+  camFocus: function (step) {
+    console.log("DataMatrix Scanner: camFocus() called");
+    // Функция будет определена в main.jsx после загрузки модуля
+  },
+
+  /**
+   * Изменить фокус камеры
+   * @param step процентное значение от 0 до 100
+   */
+  camZoom: function (step) {
+    console.log("DataMatrix Scanner: camZoom() called");
+    // Функция будет определена в main.jsx после загрузки модуля
+  },
+
+  /**
    * Обработчики событий (заглушки, будут заменены в main.jsx)
    */
   on: {
@@ -72,6 +96,29 @@ window.dataMatrixApp = {
     },
     camAccessSuccess: function (cameraData) {
       console.log("camAccessSuccess:", cameraData);
+    },
+    camCapabilities: function (capabilities) {
+      console.log("camCapabilities:", capabilities);
+      // Показываем кнопки зума, если камера поддерживает зум
+      if (capabilities.zoom) {
+        const zoomIn = document.getElementById("zoomIn");
+        const zoomOut = document.getElementById("zoomOut");
+        if (zoomIn) zoomIn.style.display = "inline-block";
+        if (zoomOut) zoomOut.style.display = "inline-block";
+      }
+      // Показываем кнопки фокуса, если камера поддерживает фокус
+      if (capabilities.focusDistance) {
+        const focusIn = document.getElementById("focusIn");
+        const focusOut = document.getElementById("focusOut");
+        const focusAuto = document.getElementById("focusAuto");
+        const focusMax = document.getElementById("focusMax");
+        const focusMin = document.getElementById("focusMin");
+        if (focusIn) focusIn.style.display = "inline-block";
+        if (focusOut) focusOut.style.display = "inline-block";
+        if (focusAuto) focusAuto.style.display = "inline-block";
+        if (focusMax) focusMax.style.display = "inline-block";
+        if (focusMin) focusMin.style.display = "inline-block";
+      }
     },
     camStarting: function () {
       console.log("camStarting");

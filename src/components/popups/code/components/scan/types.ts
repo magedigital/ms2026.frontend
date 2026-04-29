@@ -9,6 +9,8 @@ type PropsT = {
 
 type StateT = {
     isInit?: boolean;
+    canFocus?: boolean;
+    canZoom?: boolean;
 };
 
 interface ScanI extends DefaultI<PropsT, StateT> {}

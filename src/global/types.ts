@@ -20,6 +20,8 @@ declare global {
                 apiURL: string;
                 catchOnce?: boolean;
             };
+            camZoom?: (n: number) => void;
+            camFocus?: (n: number, f?: boolean) => void;
             getAppRoot: () => HTMLElement;
             activate?: () => void;
             deactivate?: () => void;
@@ -33,6 +35,10 @@ declare global {
                 dataMatrixError: (e: any) => void;
                 apiSuccess: (d?: AxiosResponse['data']) => void;
                 apiError: (e?: AxiosError) => void;
+                camCapabilities: (c: {
+                    zoom: { min: number; max: number; step: number };
+                    focusDistance: { min: number; max: number; step: number };
+                }) => void;
             }>;
         };
         JWT?: string;

@@ -47,13 +47,13 @@
       display: block;
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-Cha0RgGU.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D5odaqUt.css">
+  <script type="module" crossorigin src="./assets/index-BHAlkg5t.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Dhd3dDzA.css">
 </head>
 
 <body>
   <div id="root"></div>
-  <script src="./interface.js"></script>
+  <script src="./interface.js"></script>
   <!-- Скрипт для отладки: автозапуск приложения после загрузки -->
   <!-- Для интеграции в другие проекты этот скрипт можно удалить -->
   <script>
@@ -68,6 +68,27 @@
       }, 100);
     });
   </script>
+  <style>
+    #zoomIn,
+    #zoomOut {
+      display: none;
+    }
+
+    #focusIn,
+    #focusOut,
+    #focusAuto,
+    #focusMax,
+    #focusMin {
+      display: none;
+    }
+  </style>
+  <button id="zoomIn" onclick="window.dataMatrixApp.camZoom(+10,true)">z+</button>
+  <button id="zoomOut" onclick="window.dataMatrixApp.camZoom(-10,true)">z-</button>
+  <button id="focusIn" onclick="window.dataMatrixApp.camFocus(+10,true)">f+</button>
+  <button id="focusOut" onclick="window.dataMatrixApp.camFocus(-10,true)">f-</button>
+  <button id="focusAuto" onclick="window.dataMatrixApp.camFocus(0)">af</button>
+  <button id="focusMax" onclick="window.dataMatrixApp.camFocus(+100)">maxf</button>
+  <button id="focusMin" onclick="window.dataMatrixApp.camFocus(-100)">minf</button>
 </body>
 
 </html>
