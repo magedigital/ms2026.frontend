@@ -10,7 +10,7 @@ const styleSrc = 'index-Dhd3dDzA.css';
 const root = '/reader/assets';
 
 const init: I['init'] = async function (this: I) {
-    const { setStep } = this.props;
+    const { setStep, updateListRender } = this.props;
 
     window.JWT = getCookie(enums.ACCESS_TOKEN);
 
@@ -52,8 +52,8 @@ const init: I['init'] = async function (this: I) {
                     sendGoal('regCodeError');
                 },
                 camCapabilities: async (c) => {
-                    console.log(c, 'camCapabilities');
                     await this.asyncSetState({ canZoom: !!c.zoom, canFocus: !!c.focusDistance });
+                    await updateListRender();
                 },
             },
         };
@@ -71,8 +71,8 @@ const init: I['init'] = async function (this: I) {
                 await setStep('error', e?.response?.data?.errorText || 'Ошибка сервера');
             },
             camCapabilities: async (c) => {
-                console.log(c, 'camCapabilities');
                 await this.asyncSetState({ canZoom: !!c.zoom, canFocus: !!c.focusDistance });
+                await updateListRender();
             },
         };
     }
