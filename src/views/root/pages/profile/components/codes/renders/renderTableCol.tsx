@@ -12,7 +12,7 @@ const renderTableCol: I['renderTableCol'] = function ({ row, name }) {
     }
 
     if (name === 'status') {
-        return <>{row.statusTitle}</>;
+        return <>{[row.statusTitle, row.refuseReason].filter((t) => t).join(', ')}</>;
     }
 };
 
