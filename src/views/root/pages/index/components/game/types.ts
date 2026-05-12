@@ -24,6 +24,7 @@ interface GameI extends DefaultI<PropsT, StateT> {
 
     renderGames(this: GameI): React.ReactNode;
     renderWinners(this: GameI): React.ReactNode;
+    renderShops(this: GameI): React.ReactNode;
 
     renderTableCol: TableRenderRowT<WinnerT, keyof typeof winnerTableCols>;
     renderTableEmpty: TableRenderEmptyT;

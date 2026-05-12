@@ -268,8 +268,26 @@
         }
 
         &Head {
+            position: relative;
+            z-index: 1;
             align-items: center;
             margin-bottom: 54rem;
+
+            &::before {
+                position: absolute;
+                top: 72rem;
+                right: -504rem;
+                z-index: -1;
+                width: 530rem;
+                height: 600rem;
+                content: "";
+
+                @include bg("/media/shops-line-1.svg", contain, right top);
+
+                @include mob {
+                    display: none;
+                }
+            }
 
             @include mob {
                 position: relative;
@@ -467,6 +485,152 @@
 
         &Button {
             width: 240rem;
+        }
+    }
+
+    &__shops {
+        position: relative;
+        z-index: 1;
+        align-items: center;
+        width: 100%;
+        margin: 150rem 0 0;
+        padding: 0 60rem;
+
+        @include mob {
+            margin: 140rem 0 0;
+            padding: 0;
+        }
+
+        &::before {
+            position: absolute;
+            top: 100rem;
+            left: 50%;
+            z-index: -1;
+            width: 123%;
+            height: 1000rem;
+            transform: translate(-50%, 0);
+            content: "";
+            pointer-events: none;
+
+            @include bg("/media/shops-back.svg", 100% auto, center top);
+
+            @include mob {
+                display: none;
+            }
+        }
+
+        &Title {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 106rem;
+            margin-bottom: 48rem;
+            padding: 3rem 0 0;
+            color: #c10230;
+            font-size: 60rem;
+            text-transform: uppercase;
+
+            @include mob {
+                margin-bottom: 16rem;
+                font-size: 36rem;
+            }
+
+            &::after {
+                position: absolute;
+                right: -604rem;
+                bottom: 34rem;
+                z-index: -1;
+                width: 530rem;
+                height: 800rem;
+                content: "";
+
+                @include bg("/media/shops-line-2.svg", contain, right bottom);
+
+                @include mob {
+                    right: -110rem;
+                    bottom: 100rem;
+                    width: 250rem;
+                    height: 250rem;
+
+                    @include bg("/media/shops-line-2-mob.svg", contain, right bottom);
+                }
+            }
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: -1;
+                width: 140%;
+                height: 100%;
+                margin-left: -38rem;
+                transform: translate(-50%, -50%);
+                content: "";
+
+                @include bg("/media/shops-title.svg", contain, center);
+
+                @include mob {
+                    width: 130%;
+                    margin-left: -22rem;
+                }
+            }
+        }
+
+        &Cards {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(100% + 10rem);
+            margin-left: -5rem;
+
+            @include mob {
+                width: calc(100% + 4rem);
+                margin-left: -2rem;
+            }
+        }
+
+        &Card {
+            width: calc(100% / 4);
+            margin-bottom: 10rem;
+            padding: 0 5rem;
+
+            @include mob {
+                width: calc(100% / 3);
+                margin-bottom: 4rem;
+                padding: 0 2rem;
+            }
+
+            &:nth-last-child(1),
+            &:nth-last-child(2) {
+                width: 50%;
+            }
+        }
+    }
+
+    &__shop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 120rem;
+        background: #6722a3;
+        border-radius: 20rem;
+
+        @include mob {
+            height: 92rem;
+        }
+
+        &Title {
+            color: #ffd200;
+            font-size: 32rem;
+            line-height: 1;
+            text-transform: uppercase;
+            border-bottom: 2rem solid rgba(#ffd200, 0.7);
+
+            @include mob {
+                font-size: 20rem;
+            }
         }
     }
 }

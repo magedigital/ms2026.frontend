@@ -11,6 +11,7 @@ import setWeek from './methods/setWeek.ts';
 import GameI from './types.ts';
 
 import renderGames from './renders/renderGames.tsx';
+import renderShops from './renders/renderShops.tsx';
 import renderTableCol from './renders/renderTableCol.tsx';
 import renderTableEmpty from './renders/renderTableEmpty.tsx';
 import renderWinners from './renders/renderWinners.tsx';
@@ -39,6 +40,7 @@ class Game extends Default<GameI['props'], GameI['state']> implements GameI {
 
     renderGames = renderGames;
     renderWinners = renderWinners;
+    renderShops = renderShops;
     renderTableCol = renderTableCol;
     renderTableEmpty = renderTableEmpty;
 
@@ -48,6 +50,7 @@ class Game extends Default<GameI['props'], GameI['state']> implements GameI {
                 <div className="indexGame__inner _INNER">
                     {this.renderGames()}
                     {this.renderWinners()}
+                    {this.renderShops()}
                 </div>
             </div>
         );

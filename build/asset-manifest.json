@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ebc9fded.css",
-    "main.js": "/static/js/main.6be8ad80.js",
+    "main.css": "/static/css/main.a1f3f34b.css",
+    "main.js": "/static/js/main.748c28ab.js",
     "static/js/7590.7c6ce63b.chunk.js": "/static/js/7590.7c6ce63b.chunk.js",
     "static/js/8996.78e7b3e6.chunk.js": "/static/js/8996.78e7b3e6.chunk.js",
     "static/js/7830.afcaff7c.chunk.js": "/static/js/7830.afcaff7c.chunk.js",
@@ -26,8 +26,8 @@
     "static/js/5929.2966b840.chunk.js": "/static/js/5929.2966b840.chunk.js",
     "static/js/1038.83989b60.chunk.js": "/static/js/1038.83989b60.chunk.js",
     "static/js/5562.ab743b6d.chunk.js": "/static/js/5562.ab743b6d.chunk.js",
-    "static/js/2893.715f65ed.chunk.js": "/static/js/2893.715f65ed.chunk.js",
-    "static/js/6990.81219b63.chunk.js": "/static/js/6990.81219b63.chunk.js",
+    "static/js/2893.21408390.chunk.js": "/static/js/2893.21408390.chunk.js",
+    "static/js/6990.6165b8ff.chunk.js": "/static/js/6990.6165b8ff.chunk.js",
     "static/js/6577.18b140ed.chunk.js": "/static/js/6577.18b140ed.chunk.js",
     "static/js/6029.6e3e5f5c.chunk.js": "/static/js/6029.6e3e5f5c.chunk.js",
     "static/js/9904.58d9472e.chunk.js": "/static/js/9904.58d9472e.chunk.js",
@@ -36,7 +36,7 @@
     "static/js/7066.dee74964.chunk.js": "/static/js/7066.dee74964.chunk.js",
     "static/js/3354.fcc7458c.chunk.js": "/static/js/3354.fcc7458c.chunk.js",
     "static/js/4961.2ec06d00.chunk.js": "/static/js/4961.2ec06d00.chunk.js",
-    "static/js/754.349e6792.chunk.js": "/static/js/754.349e6792.chunk.js",
+    "static/js/754.edac372d.chunk.js": "/static/js/754.edac372d.chunk.js",
     "static/js/7268.bfc23355.chunk.js": "/static/js/7268.bfc23355.chunk.js",
     "static/js/8684.7023a729.chunk.js": "/static/js/8684.7023a729.chunk.js",
     "static/js/1160.20da2bd1.chunk.js": "/static/js/1160.20da2bd1.chunk.js",
@@ -138,6 +138,7 @@
     "static/media/zagl-back-mob.svg": "/static/media/zagl-back-mob.b0d5b9ed955118a30fc8.svg",
     "static/media/product-095l-1.png": "/static/media/product-095l-1.eaeab5e84b47f4e45ddc.png",
     "static/media/slogan-main-1.svg": "/static/media/slogan-main-1.e6e68a1b5fac773efb4be845414370e3.svg",
+    "static/media/shops-back.svg": "/static/media/shops-back.e6b9494d11169a802d90.svg",
     "static/media/calc-loading-1-mob.png": "/static/media/calc-loading-1-mob.3c5baadc852b2a9885a9.png",
     "static/media/date-frame.svg": "/static/media/date-frame.bb1236408ef43945435f.svg",
     "static/media/calc-loading-2-mob.png": "/static/media/calc-loading-2-mob.33ac879c1dd267f4d6d6.png",
@@ -156,6 +157,7 @@
     "static/media/counter-back.svg": "/static/media/counter-back.c7ac784b8f5bab74f902.svg",
     "static/media/line-back-1.svg": "/static/media/line-back-1.9080776d4d97e2ab4e21.svg",
     "static/media/line-back-2.svg": "/static/media/line-back-2.376156d3ceeaf02bcca3.svg",
+    "static/media/shops-title.svg": "/static/media/shops-title.7660334ad33fa552fadd.svg",
     "static/media/line-back-3.svg": "/static/media/line-back-3.5a47e9fe8193d79c3d59.svg",
     "static/media/tab-bottom.svg": "/static/media/tab-bottom.2ff0e2d37c264a5594bf.svg",
     "static/media/ma-logo.svg": "/static/media/ma-logo.6946e35cea19a09a1872.svg",
@@ -180,6 +182,8 @@
     "static/media/main-back-1-mob.svg": "/static/media/main-back-1-mob.a957a4dd06dba5b132d4.svg",
     "static/media/main-back-1.svg": "/static/media/main-back-1.6613f33e049f34de82c7.svg",
     "index.html": "/index.html",
+    "static/media/shops-line-2.svg": "/static/media/shops-line-2.173ff45b803574deb5ca.svg",
+    "static/media/shops-line-1.svg": "/static/media/shops-line-1.1d90414fc1019b84924a.svg",
     "static/media/result-line-3-mob.svg": "/static/media/result-line-3-mob.a1e03d05fb5c04235240.svg",
     "static/media/result-line-1.svg": "/static/media/result-line-1.e08676cb80901b3b5831.svg",
     "static/media/ya-logo.svg": "/static/media/ya-logo.6135c2c7f1ad6bdbef4a.svg",
@@ -208,10 +212,11 @@
     "static/media/arrow-2.svg": "/static/media/arrow-2.efcf185a6b859837f07e.svg",
     "static/media/arrow-1.svg": "/static/media/arrow-1.b36c8e738a92fc69a506.svg",
     "static/media/zagl-footer-mob.svg": "/static/media/zagl-footer-mob.0031ef9f24835e066c86.svg",
-    "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg"
+    "static/media/zagl-footer.svg": "/static/media/zagl-footer.6d2f5ef6ec043b082309.svg",
+    "static/media/shops-line-2-mob.svg": "/static/media/shops-line-2-mob.6fd8161e2230b80d3786.svg"
   },
   "entrypoints": [
-    "static/css/main.ebc9fded.css",
-    "static/js/main.6be8ad80.js"
+    "static/css/main.a1f3f34b.css",
+    "static/js/main.748c28ab.js"
   ]
 }
