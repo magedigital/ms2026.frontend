@@ -35,7 +35,39 @@ async function upload({ file, name }: { file: File; name: string }): Promise<voi
     });
 }
 
+async function getAkt({ id }: { id: string }): Promise<{ pdf: string }> {
+    const r = await request<{ pdf: string }>({
+        method: 'POST',
+        url: API.ANKET.GET_AKT,
+        data: {
+            userPrizeId: id,
+        },
+    });
+
+    return r.data;
+}
+
+async function resetAkt(): Promise<void> {
+    await request({
+        method: 'POST',
+        url: API.ANKET.RESET_AKT,
+    });
+}
+
+async function sendAkt(f: FormData): Promise<void> {
+    
+
+    await request({
+        method: 'POST',
+        url: API.ANKET.SEND_AKT,
+        data: f,
+    });
+}
+
 export const anketRequests = {
     send,
     upload,
+    getAkt,
+    resetAkt,
+    sendAkt,
 };

@@ -76,10 +76,10 @@ export default async function checkAuth({ redirect }: ParamsT): Promise<void> {
         pageName = 'fullAnket';
     }
 
-    // if (user?.status === 'ACT_REQUIRED' && user.nextActPrizeId) {
-    //     pageName = 'akt-inner';
-    //     ids = { '1': user.nextActPrizeId };
-    // }
+    if (user?.status === 'ACT_REQUIRED' && user.nextActPrizeId) {
+        pageName = 'akt-inner';
+        ids = { '1': user.nextActPrizeId };
+    }
 
     if (redirect && !pageName) {
         pageName = 'profile';

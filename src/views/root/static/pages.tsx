@@ -2,6 +2,7 @@ import React from 'react';
 
 import I from '../types.ts';
 
+import Akt from '../pages/akt/Akt.tsx';
 import Anket from '../pages/anket/Anket.tsx';
 import Faq from '../pages/faq/Faq.tsx';
 import FullAnket from '../pages/fullAnket/FullAnket.tsx';
@@ -27,6 +28,11 @@ const pages = {
     anket: {
         render(this: I) {
             return <Anket />;
+        },
+    },
+    akt: {
+        render(this: I) {
+            return <Akt />;
         },
     },
     fullAnket: {

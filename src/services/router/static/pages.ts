@@ -30,6 +30,14 @@ const pages = {
     fullAnket: {
         links: ['full-anket'],
     },
+    akt: {
+        links: ['akt'],
+    },
+    'akt-inner': {
+        links: [],
+        parentName: 'akt' as const,
+        level: 1,
+    },
 };
 
 type PageT = {

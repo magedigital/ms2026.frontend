@@ -58,7 +58,13 @@ class Form extends Editor<FormI['props'], FormI['state']> implements FormI {
                                         targetName: 'form',
                                     });
                                 }}
-                                uploadFile={uploadFile}
+                                uploadFile={async (d) => {
+                                    await this.setValue({
+                                        data: { [n]: d.file.name },
+                                        targetName: 'form',
+                                    });
+                                    await uploadFile?.(d);
+                                }}
                                 className={this.getClass(
                                     '_formField',
                                     fieldClassName || '_whiteColor',

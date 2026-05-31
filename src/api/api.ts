@@ -26,5 +26,8 @@ export const API = {
     ANKET: {
         SEND: '/SendParticipantInfo',
         UPLOAD: '/UploadParticipantFile',
+        GET_AKT: '/GetAct',
+        RESET_AKT: '/ResetParticipantInfoStatus',
+        SEND_AKT: '/SendParticipantAct',
     },
 };
