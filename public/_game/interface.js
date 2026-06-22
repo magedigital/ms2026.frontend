@@ -10,7 +10,11 @@
 // Установить название игры.
 // Просто переменная - используется внутри этого файла для удобства,
 // передается ниже в конфигурацию, сама на приложение не влияет
-window.gameId = 'SLOT';
+window.gameId = "SLOT";
+
+// Установить количество попыток
+// Используется для проверки количества попыток
+window.gameAttempts = 1;
 
 // Указать, авторизован пользователь или нет
 // Просто переменная - используется внутри этого файла для удобства,
@@ -25,33 +29,45 @@ window.activityIsOver = false; //true; false;
 // Также функция для использования внутри этого файла, заглушка
 // Имитирует закрытие попапа с игрой
 window.closeGamePopup = function () {
-    console.log('closeGamePopup');
+  console.log("closeGamePopup");
 };
 
 // Также функция для использования внутри этого файла, заглушка
 // Имитирует переход к регистрации чека
 window.registerBill = function () {
-    console.log('registerBill');
+  console.log("registerBill");
 };
 
 // Также функция для использования внутри этого файла, заглушка
 // Имитирует переход к регистрации пользователя
 window.signUp = function () {
-    console.log('signUp');
+  console.log("signUp");
 };
 
 // Также функция для использования внутри этого файла, заглушка
 // Имитирует вызов тостера при событии, когда пользователь нажал Играть
 // без подтверждения
 window.playWithoutConfirmation = function () {
-    console.log('playWithoutConfirmation');
+  console.log("playWithoutConfirmation");
+};
+
+// Также функция для использования внутри этого файла, заглушка
+// Имитирует запуск игры
+window.onGameStart = function () {
+  console.log("onGameStart");
+};
+
+// Также функция для использования внутри этого файла, заглушка
+// Имитирует окончание игры
+window.onGameFinish = function () {
+  console.log("onGameFinish");
 };
 
 /**
  * Возвращает корневой элемент для рендеринга приложения
  */
 window.getAppRoot = function () {
-    return document.getElementById('game');
+  return document.getElementById("game");
 };
 
 /**
@@ -72,71 +88,73 @@ window.restartGameApp = null;
 // Функция инициализации приложения. Вызывается из обработчика в Index.html,
 // см. <div id="root" class="game" oninit="onAppReadyHandler">
 function onAppReadyHandler(app) {
-    // Функция обработки ресайза страницы.
-    // Берется элемент-контейнер и передается его размер в приложение.
-    // Это как пример, реализация может быть любой, главное, передать размеры для приложения
-    function updateLayout() {
-        var container = document.getElementById('container');
-        app.resize(container.clientWidth, container.clientHeight);
-    }
+  // Функция обработки ресайза страницы.
+  // Берется элемент-контейнер и передается его размер в приложение.
+  // Это как пример, реализация может быть любой, главное, передать размеры для приложения
+  function updateLayout() {
+    var container = document.getElementById("container");
+    app.resize(container.clientWidth, container.clientHeight);
+  }
+  updateLayout();
+
+  // Инициализация веб-страницы
+  // Обновление размеров приложения при готовности страницы
+  function initHandler() {
     updateLayout();
+  }
 
-    // Инициализация веб-страницы
-    // Обновление размеров приложения при готовности страницы
-    function initHandler() {
-        updateLayout();
-    }
+  // Ресайз веб-страницы
+  // Обновление размеров приложения при ресайзе страницы
+  function resizeHandler() {
+    updateLayout();
+  }
 
-    // Ресайз веб-страницы
-    // Обновление размеров приложения при ресайзе страницы
-    function resizeHandler() {
-        updateLayout();
-    }
+  // Подписываемся на события изменения, чтобы вызывать updateLayout
+  // Обновление размеров приложения можно делать и иначе -
+  // здесь просто пример использования
+  window.addEventListener("load", initHandler);
+  window.addEventListener("resize", resizeHandler);
 
-    // Подписываемся на события изменения, чтобы вызывать updateLayout
-    // Обновление размеров приложения можно делать и иначе -
-    // здесь просто пример использования
-    window.addEventListener('load', initHandler);
-    window.addEventListener('resize', resizeHandler);
+  // Настройки приложения
+  var data = {
+    // Это список настроек для обмена данными игр
+    games: {
+      // id - для передачи кода игры
+      // request1 - запрос до старта
+      // request2 - запрос после старта
+      // Чтобы игра передавала данные, надо закомментированные строчки открыть, и закрыть строчки с заглушками
+      1: {
+        id: "SLOT",
+        // request1: { url: "/api/TentGame", method: "POST" },
+        request1: { url: "/api/TentGame1.json", method: "GET" },
+        // request2: { url: "/api/TentGame", method: "POST" },
+        request2: { url: "/api/TentGame2.json", method: "GET" },
+      },
+      // Это индекс игр для быстрой идентификации внутри приложения
+      index: { SLOT: 1 },
+    },
+    // Обработчик закрытия попапа
+    closeHandler: window.closeGamePopup,
+    // Обработчик перехода к регистрации чека
+    registerHandler: window.registerBill,
+    // Обработчик перехода к регистрации пользователя
+    signUpHandler: window.signUp,
+    // Обработчик попытки игры без подтверждения
+    playWithoutConfirmation: window.playWithoutConfirmation,
+    // Значение ширины окна, при котором происходит переключение на мобильную версию
+    switchToMobileWidth: 720,
+    // Указать, авторизован пользователь или нет
+    userNotAuthorized: !window.userAuthorized,
+    // Указать, действует ли еще акция или нет
+    activityIsOver: window.activityIsOver,
+    gameStartHandler: window.onGameStart,
+    gameFinishHandler: window.onGameFinish,
+  };
 
-    // Настройки приложения
-    var data = {
-        // Это список настроек для обмена данными игр
-        games: {
-            // id - для передачи кода игры
-            // request1 - запрос до старта
-            // request2 - запрос после старта
-            // Чтобы игра передавала данные, надо закомментированные строчки открыть, и закрыть строчки с заглушками
-            1: {
-                id: 'SLOT',
-                // request1: { url: "/api/TentGame", method: "POST" },
-                request1: { url: '/api/TentGame1.json', method: 'GET' },
-                // request2: { url: "/api/TentGame", method: "POST" },
-                request2: { url: '/api/TentGame2.json', method: 'GET' },
-            },
-            // Это индекс игр для быстрой идентификации внутри приложения
-            index: { SLOT: 1 },
-        },
-        // Обработчик закрытия попапа
-        closeHandler: window.closeGamePopup,
-        // Обработчик перехода к регистрации чека
-        registerHandler: window.registerBill,
-        // Обработчик перехода к регистрации пользователя
-        signUpHandler: window.signUp,
-        // Обработчик попытки игры без подтверждения
-        playWithoutConfirmation: window.playWithoutConfirmation,
-        // Значение ширины окна, при котором происходит переключение на мобильную версию
-        switchToMobileWidth: 720,
-        // Указать, авторизован пользователь или нет
-        userNotAuthorized: !window.userAuthorized,
-        // Указать, действует ли еще акция или нет
-        activityIsOver: window.activityIsOver,
-    };
+  // Передается номер текущей игры (внутри приложения игры идентифицируются по номерам)
+  data.gameIndex = data.games.index[window.gameId];
+  // Передаются данные текущей игры
+  data.gameData = data.games[data.gameIndex];
 
-    // Передается номер текущей игры (внутри приложения игры идентифицируются по номерам)
-    data.gameIndex = data.games.index[window.gameId];
-    // Передаются данные текущей игры
-    data.gameData = data.games[data.gameIndex];
-
-    app.setData(data);
+  app.setData(data);
 }

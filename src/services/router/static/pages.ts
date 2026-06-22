@@ -27,6 +27,9 @@ const pages = {
     anket: {
         links: ['anket'],
     },
+    prizeAnket: {
+        links: ['prize-anket'],
+    },
     fullAnket: {
         links: ['full-anket'],
     },

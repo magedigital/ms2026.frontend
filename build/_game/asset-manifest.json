@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/_game/static/css/main.ca3f4a3e.css",
-    "main.js": "/_game/static/js/main.5545f6d0.js",
+    "main.css": "/_game/static/css/main.c26c22c5.css",
+    "main.js": "/_game/static/js/main.00ac99bf.js",
     "static/media/bloc_extra-condensed.ttf": "/_game/static/media/bloc_extra-condensed.e0e4d3ce947620b00ed5.ttf",
     "static/media/bingo-slot-machine.png": "/_game/static/media/bingo-slot-machine.47d40d4a58000e258f4f.png",
     "static/media/bingo-slot1.png": "/_game/static/media/bingo-slot1.7bb984ae521197fc0544.png",
@@ -19,6 +19,7 @@
     "static/media/bingo-slots2.png": "/_game/static/media/bingo-slots2.cf6d9b347e823c743566.png",
     "static/media/bingo-slots3.png": "/_game/static/media/bingo-slots3.bb14f50e5ab7cf489434.png",
     "static/media/bingo-plate-items.svg": "/_game/static/media/bingo-plate-items.662f9c08ae42a3d54ba0fa9dab8b6223.svg",
+    "static/media/attempts-over.png": "/_game/static/media/attempts-over.6f0c8ac4f0f393c11a34.png",
     "static/media/bingo-plate-items-game-mob.svg": "/_game/static/media/bingo-plate-items-game-mob.6471675929ecd840fe0851cbd9b3d1a2.svg",
     "static/media/bingo-plate-items-mob.svg": "/_game/static/media/bingo-plate-items-mob.638aea0e76c62eacf7d7db1199736e4b.svg",
     "static/media/bingo-bg.svg": "/_game/static/media/bingo-bg.b28b4247da2686a92c22c6394fd7b968.svg",
@@ -52,11 +53,11 @@
     "static/media/particle6.svg": "/_game/static/media/particle6.a48b0dddc369e3192bc616dec595d975.svg",
     "static/media/particle5.svg": "/_game/static/media/particle5.a2498ee8982d9c726511e33681ad7fb6.svg",
     "static/media/particle12.svg": "/_game/static/media/particle12.cc6efa031489f1907ec473ffa5d0fc21.svg",
-    "main.ca3f4a3e.css.map": "/_game/static/css/main.ca3f4a3e.css.map",
-    "main.5545f6d0.js.map": "/_game/static/js/main.5545f6d0.js.map"
+    "main.c26c22c5.css.map": "/_game/static/css/main.c26c22c5.css.map",
+    "main.00ac99bf.js.map": "/_game/static/js/main.00ac99bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca3f4a3e.css",
-    "static/js/main.5545f6d0.js"
+    "static/css/main.c26c22c5.css",
+    "static/js/main.00ac99bf.js"
   ]
 }

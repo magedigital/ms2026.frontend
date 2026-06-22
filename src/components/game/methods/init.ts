@@ -1,7 +1,7 @@
 import I from '../types.ts';
 
-const scriptSrc = 'js/main.0bb5e5c7.js';
-const styleSrc = 'css/main.1f1abc8e.css';
+const scriptSrc = 'js/main.00ac99bf.js';
+const styleSrc = 'css/main.c26c22c5.css';
 const root = '/_game/static';
 
 const init: I['init'] = async function (this: I) {
