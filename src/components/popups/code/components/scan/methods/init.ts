@@ -2,10 +2,11 @@ import { enums } from '@global/enums.ts';
 import checkAuth from '@utils/checkAuth.ts';
 import { getCookie } from '@utils/cookies.ts';
 import sendGoal from '@utils/sendGoal.ts';
+import setAsyncTimer from '@utils/setAsyncTimer.ts';
 
 import I from '../types.ts';
 
-const scriptSrc = 'index-BHAlkg5t.js';
+const scriptSrc = 'index-B-qzDbGG.js';
 const styleSrc = 'index-Dhd3dDzA.css';
 const root = '/reader/assets';
 
@@ -14,7 +15,9 @@ const init: I['init'] = async function (this: I) {
 
     window.JWT = getCookie(enums.ACCESS_TOKEN);
 
-    const rootNode = this.parent.current!.querySelector<HTMLElement>('.popup__scanReaderContent')!;
+    const rootNode = this.parent.current!.querySelector<HTMLElement>(
+        '.popup__scanReaderContentInner',
+    )!;
 
     if (!document.head.querySelector('link[data-reader]')) {
         const link = document.createElement('link');
@@ -72,6 +75,7 @@ const init: I['init'] = async function (this: I) {
             },
             camCapabilities: async (c) => {
                 await this.asyncSetState({ canZoom: !!c.zoom, canFocus: !!c.focusDistance });
+                await setAsyncTimer(500);
                 await updateListRender();
             },
         };

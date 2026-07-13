@@ -25,7 +25,9 @@ class Scan extends Default<ScanI['props'], ScanI['state']> implements ScanI {
         return (
             <>
                 <div ref={this.parent} className="popup__scanReader">
-                    <div className="popup__scanReaderContent" />
+                    <div className="popup__scanReaderContent">
+                        <div className="popup__scanReaderContentInner"></div>
+                    </div>
                     {(canZoom || canFocus) && (
                         <div className="popup__scanReaderActions">
                             {canFocus && (
