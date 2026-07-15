@@ -20,6 +20,7 @@ type PopupsT = {
     codePopup: PopupT;
     calcPopup: PopupT;
     gamePopup: PopupT;
+    cashPopup: PopupT;
 };
 
 type PopupsReducersT = {
@@ -58,6 +59,7 @@ const popups = {
             (!s.authUser && !s.isAuthProcess) || !s.profileData ? 'profile' : undefined,
     },
     calcPopup: {},
+    cashPopup: {},
 } as const;
 
 type PopupDataT = Partial<{

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.655e4b3c.css",
-    "main.js": "/static/js/main.a2a9d616.js",
+    "main.css": "/static/css/main.8dc3b4cb.css",
+    "main.js": "/static/js/main.dece131f.js",
     "static/js/7590.7c6ce63b.chunk.js": "/static/js/7590.7c6ce63b.chunk.js",
     "static/js/8996.78e7b3e6.chunk.js": "/static/js/8996.78e7b3e6.chunk.js",
     "static/js/7830.afcaff7c.chunk.js": "/static/js/7830.afcaff7c.chunk.js",
@@ -26,6 +26,8 @@
     "static/js/5929.2966b840.chunk.js": "/static/js/5929.2966b840.chunk.js",
     "static/js/1038.83989b60.chunk.js": "/static/js/1038.83989b60.chunk.js",
     "static/js/5562.ab743b6d.chunk.js": "/static/js/5562.ab743b6d.chunk.js",
+    "static/js/803.157745dc.chunk.js": "/static/js/803.157745dc.chunk.js",
+    "static/js/8341.d614db28.chunk.js": "/static/js/8341.d614db28.chunk.js",
     "static/js/2893.373a1d5d.chunk.js": "/static/js/2893.373a1d5d.chunk.js",
     "static/js/6990.f27cc960.chunk.js": "/static/js/6990.f27cc960.chunk.js",
     "static/js/6577.18b140ed.chunk.js": "/static/js/6577.18b140ed.chunk.js",
@@ -71,6 +73,8 @@
     "static/media/sok-image-1.png": "/static/media/sok-image-1.d3dae6ada86a3ecf6af0.png",
     "static/media/inner-back.jpg": "/static/media/inner-back.d3e12cc48f072caa0671.jpg",
     "static/media/main-prize-image-mob.png": "/static/media/main-prize-image-mob.c889fad8d956532032b4.png",
+    "static/media/cash-popup-back.svg": "/static/media/cash-popup-back.a21a9f5ca5901d7a6c68.svg",
+    "static/media/cash-popup-back-mob.svg": "/static/media/cash-popup-back-mob.a2323277efc274f224a2.svg",
     "static/media/sok-image-mob.png": "/static/media/sok-image-mob.e1a7590b419b4f71aea7.png",
     "static/media/game-back.jpg": "/static/media/game-back.9ce1f934e5944937696c.jpg",
     "static/media/main-back-2.svg": "/static/media/main-back-2.9632729df37ce8389aa7.svg",
@@ -188,6 +192,8 @@
     "static/media/result-line-1.svg": "/static/media/result-line-1.e08676cb80901b3b5831.svg",
     "static/media/ya-logo.svg": "/static/media/ya-logo.6135c2c7f1ad6bdbef4a.svg",
     "static/media/title-result-back-mob.svg": "/static/media/title-result-back-mob.3bd9c35280cd54094243.svg",
+    "static/media/cash-popup-title-back-mob.svg": "/static/media/cash-popup-title-back-mob.e80708856868ffd1ee16.svg",
+    "static/media/cash-popup-title-back.svg": "/static/media/cash-popup-title-back.da6e4287f850bc57f22a.svg",
     "static/media/title-back.svg": "/static/media/title-back.2361a2fb1e3d2de02b3d.svg",
     "static/media/title-back-mob.svg": "/static/media/title-back-mob.0c06396585ee1cbebd77.svg",
     "static/media/title-result-back.svg": "/static/media/title-result-back.9643c146c9c75777c877.svg",
@@ -216,7 +222,7 @@
     "static/media/shops-line-2-mob.svg": "/static/media/shops-line-2-mob.6fd8161e2230b80d3786.svg"
   },
   "entrypoints": [
-    "static/css/main.655e4b3c.css",
-    "static/js/main.a2a9d616.js"
+    "static/css/main.8dc3b4cb.css",
+    "static/js/main.dece131f.js"
   ]
 }
