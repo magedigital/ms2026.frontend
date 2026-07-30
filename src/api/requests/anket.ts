@@ -55,8 +55,6 @@ async function resetAkt(): Promise<void> {
 }
 
 async function sendAkt(f: FormData): Promise<void> {
-    
-
     await request({
         method: 'POST',
         url: API.ANKET.SEND_AKT,

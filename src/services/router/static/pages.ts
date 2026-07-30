@@ -33,6 +33,9 @@ const pages = {
     fullAnket: {
         links: ['full-anket'],
     },
+    phoneAnket: {
+        links: ['phone-anket'],
+    },
     akt: {
         links: ['akt'],
     },

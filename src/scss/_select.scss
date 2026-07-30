@@ -38,6 +38,29 @@
         }
     }
 
+    &._formField &__field {
+        background: #fff;
+        border-radius: 16rem;
+
+        @include mob {
+            border-radius: 18rem;
+        }
+
+        &Value {
+            padding: 0 16rem;
+            color: var(--sub-color);
+            font-weight: 600;
+            font-size: 18rem;
+            font-family: Onest;
+
+            @include mob {
+                padding: 0 20rem;
+                font-weight: 600;
+                font-size: 18rem;
+            }
+        }
+    }
+
     &._active &__field i {
         transform: translate(0, -50%) rotate(-180deg);
     }
@@ -108,5 +131,37 @@
 
     &._subMode &__listItem + &__listItem {
         margin-top: 12rem;
+    }
+
+    &._formField &__list {
+        margin-top: 10rem;
+        border-radius: 16rem;
+
+        @include mob {
+            border-radius: 18rem;
+        }
+    }
+
+    &._formField &__listItem + &__listItem {
+        margin-top: 12rem;
+    }
+
+    &._formField &__listItem {
+        color: var(--dark-color);
+        font-weight: 600;
+        font-size: 18rem;
+        font-family: Onest;
+
+        @include mob {
+            font-size: 18rem;
+        }
+
+        &:hover {
+            color: var(--back-color);
+        }
+
+        &._current {
+            font-weight: 600;
+        }
     }
 }

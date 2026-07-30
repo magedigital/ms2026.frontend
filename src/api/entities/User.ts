@@ -5,7 +5,8 @@ type UserT = {
         | 'ANKET_REQUIRED'
         | 'PARTICIPANT'
         | 'EMAIL_CONFIRM_REQUIRED'
-        | 'ACT_REQUIRED';
+        | 'ACT_REQUIRED'
+        | 'PHONE_CONFIRM_REQUIRED';
     personal: {
         firstName: string;
         lastName: string;
@@ -23,6 +24,7 @@ type UserT = {
             regexp?: string;
             errorText?: string;
             pointId?: string;
+            values?: any;
         }
     >;
     isFirstAnket: boolean;

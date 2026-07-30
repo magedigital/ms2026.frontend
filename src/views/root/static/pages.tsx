@@ -7,6 +7,7 @@ import Anket from '../pages/anket/Anket.tsx';
 import Faq from '../pages/faq/Faq.tsx';
 import FullAnket from '../pages/fullAnket/FullAnket.tsx';
 import Index from '../pages/index/Index.tsx';
+import PhoneAnket from '../pages/phoneAnket/PhoneAnket.tsx';
 import PrizeAnket from '../pages/prizeAnket/PrizeAnket.tsx';
 import Profile from '../pages/profile/Profile.tsx';
 
@@ -44,6 +45,11 @@ const pages = {
     fullAnket: {
         render(this: I) {
             return <FullAnket />;
+        },
+    },
+    phoneAnket: {
+        render(this: I) {
+            return <PhoneAnket />;
         },
     },
 } as const;

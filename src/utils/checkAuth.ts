@@ -70,10 +70,10 @@ export default async function checkAuth({ redirect }: ParamsT): Promise<void> {
 
     if (user?.status === 'ANKET_REQUIRED') {
         pageName = 'anket';
-    }
-
-    if (user?.status === 'EXTRA_ANKET_REQUIRED') {
+    } else if (user?.status === 'EXTRA_ANKET_REQUIRED') {
         pageName = 'fullAnket';
+    } else if (user?.status === 'PHONE_CONFIRM_REQUIRED') {
+        pageName = 'phoneAnket';
     }
 
     if (user?.status === 'ACT_REQUIRED' && user.nextActPrizeId) {
