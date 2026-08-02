@@ -1,6 +1,8 @@
 import { anketRequests } from '@api/requests/anket.ts';
 import checkAuth from '@utils/checkAuth.ts';
 
+import { setError } from '../../../../../components/errors/utils/errorHandler.ts';
+
 import I from '../types.ts';
 
 const sendForm: I['sendForm'] = async function (d) {
@@ -21,6 +23,8 @@ const sendForm: I['sendForm'] = async function (d) {
 
     await anketRequests.send({ data });
     await checkAuth({ redirect: true });
+
+    setError({ text: 'Данные успешно сохранены', type: 'success' });
 };
 
 export default sendForm;

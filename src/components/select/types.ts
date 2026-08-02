@@ -8,6 +8,7 @@ type PropsT = {
 
 type StateT = {
     isActive?: boolean;
+    search?: string;
 };
 
 interface SelectI extends DefaultI<PropsT, StateT> {

@@ -3,7 +3,15 @@ import React from 'react';
 import I from '../types.ts';
 
 const renderList: I['renderList'] = function () {
-    const { list, value, onChange } = this.props;
+    const { search } = this.state;
+    const { value, onChange } = this.props;
+    const list = this.props.list.filter(
+        (i) => !search || i.title.toLowerCase().includes(search.toLowerCase()),
+    );
+
+    if (!list.length) {
+        return;
+    }
 
     return (
         <div className="select__list">
@@ -14,11 +22,12 @@ const renderList: I['renderList'] = function () {
                         i.id === value ? '_current' : '',
                     )}
                     key={i.id}
-                    onClick={() => {
+                    onClick={async () => {
                         if (onChange) {
                             onChange({ value: i.id });
                         }
 
+                        await this.asyncSetState({ search: '' });
                         this.setActive(false);
                     }}
                 >

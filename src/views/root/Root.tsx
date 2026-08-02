@@ -3,6 +3,8 @@ import React from 'react';
 import Pages from '@components/pages/Pages.tsx';
 import { PopupT, popups } from '@store/popups.ts';
 
+import Errors from './components/errors/Errors.tsx';
+
 import changePageListener from './methods/changePageListener.ts';
 import init from './methods/init.ts';
 import popupsHandler from './methods/popupsHandler.ts';
@@ -56,6 +58,7 @@ class Root extends React.Component<RootI['props'], RootI['state']> implements Ro
                 <div className="body__content">
                     {this.renderCookies()}
                     {this.renderPopups()}
+                    <Errors />
                     {isRootInit && (
                         <>
                             {this.mode === 'zagl' ? (
