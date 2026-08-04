@@ -16,6 +16,12 @@ const renderPage: I['renderPage'] = function ({ render, className }) {
             ref={this.parent}
             className={this.getClass('page', className, isInit === false && '_loading')}
         >
+            <div className="page__info">
+                <span>
+                    Срок сканирования кодов завершен. Период выдачи призов до 31.08.2026 г.
+                    включительно, см. <a href="/upload/docs/rules.pdf">Правила акции</a>.
+                </span>
+            </div>
             <div className={this.getClass('page__topBar _fix', isFixBarShow ? '_show' : '')}>
                 <TopBar mobMenuHandler={this.setMobMenu.bind(this)} className="_fix" />
             </div>

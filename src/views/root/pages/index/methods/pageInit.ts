@@ -18,7 +18,7 @@ const pageInit: I['pageInit'] = async function (this: I) {
         }
     }
 
-    if (1) {
+    if (0) {
         this.timers.cash = setTimeout(() => {
             appStore.getState().setPopup({ name: 'cashPopup' });
         }, 1_000);
